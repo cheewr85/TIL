@@ -149,3 +149,160 @@
 - 환경에 의한 영향이 매우 큼
 - 이제는 주로 기가급 이상의 전송률
 - wifi, wide area, satellite(신호가 왔다갔다 하는 것만으로도 딜레이가 생김)
+
+## network core
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f5fe0f3b-4c84-4970-9ffd-ee1552711509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T022125Z&X-Amz-Expires=86400&X-Amz-Signature=03f73361a7517823986b118a155a3884d16a066e1d689f37e50f9c5bfe2d5ad3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 수 많은 네트워크 연결(서버 - 사용자연결(network edge 연결))
+- 진하게 그림 표시된 것 기준으로 출발지 - 목적지, 계속 패킷 전달(라우터 사이에서 packet switching), 진하게 표시된 부분이 network core임
+- 링크를 통한 packet을 전송을 함, capacity 측정(transmission rate)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/edd12cfd-4247-4105-8684-4c14564e9df8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T022401Z&X-Amz-Expires=86400&X-Amz-Signature=12eae3d6aa2d6e2e9ad79a5725a8c7d2af76d741e27a3ba60426a72f4b5196f9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- source에서 packet을 보내는데 L/R sec 걸림, router에서 모두 저장한 후 destination에 링크를 보냄(one-hop, 링크를 보냄)
+- end-end delay, source-destination에서 router가 있으면 생기는 delay, source-destination까지 걸리는 시간
+- propagation delay(거리로 인한 물리적인 딜레이, 위의 예시는 없음)
+- one-hop numerical example에서 주어진 바와 같이 L,R이 주어지면 링크를 보내는데 걸리는 delay를 알 수 있음
+- 추가적으로 example에서 end-end delay는 10sec가 됨
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bea1d4fa-f6d1-4af7-8cc6-50f606d8b3e5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T022913Z&X-Amz-Expires=86400&X-Amz-Signature=06c56659346b2c30b4c8528dff9147ae0472b8662704ac35e3fc25d5fb6e9436&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 전송률에 따라 loss가 발생하기도 함
+- 위의 예시에서 router로 보내는 속도가 100Mb/s 그리고 router에서 전송을 하는데 속도가 1.5Mb/s면 router에서 보내는 속도가 더 느리므로, 병목현상이 발생함
+- queue에 packet이 쌓이게 되는데 여기서 내 packet을 보내기 위해서 그 앞의 packet이 전송되어야 하는데 속도가 맞지 않아 지연시간이 생김(queueing delay)
+- 도착률이 router에서 전달할 수 있는 전송용량(률)보다 커지면 router에 쌓임 -> 쌓이게 되면 앞의 패킷을 보낼때까지 기다리는 delay가 생김 -> 많이 쌓여 총 용량보다 초과되면 packet이 버려짐(packet loss)
+- 용량을 생각하여 혼잡도를 관리해야함
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/745f531f-2fec-4713-8207-1d9a8d1e61ff/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T023634Z&X-Amz-Expires=86400&X-Amz-Signature=12fd6dfb2fafa3b8b6f94199a2f749b174d0d83852278bd845db4f4691bde9d4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- routing algorithms : 출발 - 목적지가 있을 때 그 사이 어떤 경로를 따라서 packet을 전송할 지 결정하는 것
+- 각각의 router에 local forwarding table이 정해져 있음(다은 router에 저장하고 그 이후 forwarding함)
+- forwarding : 어떤 router에서 그 packet을 특정 packet의 다음 어느 router 어디에 보낼것인지 정하는 것
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/221368ac-fd8e-4548-b806-8bf42a3d4459/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T024036Z&X-Amz-Expires=86400&X-Amz-Signature=427d9cb6c2d80a3e17a7905898aa209b3709e292d8c243c0a742051b5e72d183&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 위 통신은 전화에 많이 사용이 됨
+- reserved for call(통신을 위한 자원이 아예 예약됨), no sharing, 아예 예약이 되어 있으므로, 항상 쓸 수 있는 통신 자원이 예약됨
+- 즉 위의 예시에서 A->B로 갈때 예시의 루트대로만 갈 수 있고 다른 곳은 갈 수가 없음
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4ce8dc96-6f54-45f1-9056-4a03d3c45fef/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T024309Z&X-Amz-Expires=86400&X-Amz-Signature=62ca7331e6032bed8939e188c1b661e1aee3278f667c046b05ee391dae82a679&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 언제든 사용가능하게 나뉘어져 있음
+- FDM : Frequency 기준으로 여러 유저를 서비스 해줌, frequency 축을 나눠서 쪼개서 동시에 서비스함
+- TDM : Time을 잘게 쪼개서 서비스함
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bbf5a6cd-c1c0-44d4-b96c-80d5a07f030a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T024448Z&X-Amz-Expires=86400&X-Amz-Signature=9e2b0059358e34b39644e5ed14aedce909dfd626bbbee5ebd5bcc3bba6406ad3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 1Mb/s link를 쓰고 user는 100kb/s를 쓰면서 10% 시간만을 사용함
+- circuit switching의 경우 각각 나눠서 서비스를 하므로 100x10=1Mb/s이므로 10명의 유저만 사용함
+- packet switching의 경우 보낼때 확 보내면서 안 보낼떄는 쉬게 되는데 여기서 동시에 10명이 보내질 확률이 극히 적으므로 더 많은 유저를 보낼 수 있음
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8e75d572-a334-4d55-bfe2-85ecb3c349b4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T025223Z&X-Amz-Expires=86400&X-Amz-Signature=53dd50de163fba58bad5ea70f14246570132569094d046200f61da7e121c4631&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- bursty data의 경우 packet을 대부분 안보내다 보낼때 확 보내는 상황에서 packet이 유리함(sharing을 할 수 있으니깐)
+- 그래도 delay와 loss의 여지가 있으므로 무조건 좋은 것은 아님(data가 확 늘어난다면) -> 이를 해결하기 위해 protocol & congestion control을 함
+- circuit-like 같은 경우는 대역폭이 보장된 경우 필요로 하고 특수한 상황(자율주행차 통신 등)이런 상황에서는 circuit switching을 고려하나 아직도 미해결 과제임
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8586a19d-d632-4e5d-bbe1-a76fb4c91861/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T030621Z&X-Amz-Expires=86400&X-Amz-Signature=01be101ec32f72fddd327880bd152032aaa0f266301872948bc71d4046751026&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- ISP도 서로 간 연결되어야 인터넷을 할 수 있음
+- 독립된 네트워크를 인트라넷이라고함(내부에서만 사용)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/25e6b050-371a-466b-b3d0-afdc1364d3c5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T030727Z&X-Amz-Expires=86400&X-Amz-Signature=1b09a5f32d5d21c771341d5a7854785901634b86560792616d1979bd971fa833&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 모두 다 일일이 하나하나 연결할 수도 없고 상당히 복잡해짐
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/40c55c6e-a4fb-420c-b8c2-db971055ea59/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T030815Z&X-Amz-Expires=86400&X-Amz-Signature=55c1750be938eacd484aceb5baef0df0199fe69e5c8142c7815dbc0647d2a4d5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- local한 access network를 가운데서 연결한다면 서로간 연결 할 필요없이 global ISP를 통해 link를 만들 수 있음
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/467224bf-d1a7-4bd2-98b9-e2f4de18315c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T030909Z&X-Amz-Expires=86400&X-Amz-Signature=83fcc1b2a87415f6383a1f87ab4ec0d5944fb1dff4110e953906397f579c890f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/144ffb9b-546f-4062-8e63-cfb2d9bc62e0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T030947Z&X-Amz-Expires=86400&X-Amz-Signature=37ce4b6f48c925002366711b9b10d8ea38b8988686365fd8373218138189eb32&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 하지만 단일한 ISP만 존재하지 않고 다양한 ISP가 존재함
+- 이들 역시 서로 연결시켜줘야 하므로 IXP가 생김
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/93a92228-9b4e-478c-afa9-b378c9c20708/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031049Z&X-Amz-Expires=86400&X-Amz-Signature=e6b96d72eaa09370ce784614049c9b65e668d8dc4fd9b96577f00644027e1b76&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d292101d-956a-49a4-ac9b-7cdf8e6ae288/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031059Z&X-Amz-Expires=86400&X-Amz-Signature=14565fe64d9bc8f4b5b278486aa343fcc8374a102a84dcade2f5baedcfb552e9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 지역별로 연결해주는 ISP도 존재함(굉장히 복잡히 연결)
+- content provider networks -> 본인들만의 네트워크 존재함(Google, Microsoft, Akamai...)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7f3b009c-cdaa-4a6c-9770-53ba77593835/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031227Z&X-Amz-Expires=86400&X-Amz-Signature=f839cb48268dbb7c63071f64290a7069d488599ec1dec92c95b3b36c4b7925dc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/86152cea-9f29-4ae8-b057-3b525062f219/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031235Z&X-Amz-Expires=86400&X-Amz-Signature=1414b61ea253c765765c4872c9ea9f25f9699b0fb32cf3543dcec5957a38910b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이외에도 다양하고 규모가 큰 연결망이 존재함
+
+## delay, loss, throughput in networks
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/72e30444-4c9d-42b9-bb0f-55cfbb583b93/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031415Z&X-Amz-Expires=86400&X-Amz-Signature=0de32b69077e6c7b590b2d81f8d00807429a8a40cdab38ca8103d8c1324c1d45&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- queue에서 packet loss가 발생함, 전송시 delay가 위와 같이 생기면서 꽉차게 되는경우 loss 발생
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0a62a8d3-27d5-401b-aa89-257835ab884c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031529Z&X-Amz-Expires=86400&X-Amz-Signature=01ec86d2893428df3fe12c9b7b69ad6256dd27125b0ea32f23b8b21975c7626c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a0e99796-3a3c-4bbb-8395-cb2832ea996e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031538Z&X-Amz-Expires=86400&X-Amz-Signature=b490bd28064a61f415c8236338ffb0c908acd88f73e0d9b3f870f5d9e2278f09&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- d(proc)->nodal processing : router에서 packet 체크 및 보내기 위한 결정시간등으로 인한 delay
+- d(queue)->queueing delay : router 도착시 packet이 많으면 delay(혼잡도 높으면 delay 높아짐)
+- d(trans)->transmission delay : L/R, 패킷 전송시 소용되는 delay
+- d(prop)->propagation delay : d/s, 물리적으로 신호가 도달하는데 걸리는 시간(정보가 전파되는 속도 router간 물리적거리)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d300bd31-23d9-45b6-9f72-2c597a8f3a06/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031903Z&X-Amz-Expires=86400&X-Amz-Signature=3feb6d5bf4b0d534bead41ac8d2b29a329492a5574ec02df70e434cb4f66e6b8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4f409f76-0092-47f5-8345-625e032e3aeb/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T031913Z&X-Amz-Expires=86400&X-Amz-Signature=4f0b8d3693a99e0aac9435f005fe356694e5a0e78041441c8e97fb55ebeed854&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 첫번째 예시에서 toll booth를 지나가는데 즉 router를 통과해 queue를 가는데 12초가 걸림 총 10대의 차가 있으므로 120초가 걸림
+- 그리고 다음 toll booth까지 100km/h를 가니깐 1hr이 걸림
+- 그래서 2번째 toll booth에 line up을 하는데는 60min + 2min인 62min이 걸림 
+- 두번째 예시에서는 propagate가 1000km/h임 즉 지나는시간이 6min이 걸리는것임, 그리고 toll booth에서의 시간이 1min이 걸린다고 함, 그래서 하나의 차가 7min이 지나고 도착하면 이 도착한 차는 2번째 toll booth에서 계산을 한 후 지나갈 수 있으므로 첫번째 toll booth에서 서비스 받기 전에 이미 두번째 toll booth에서 처리를 한 뒤 나갈 수 있음
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/78ede89e-c887-4f61-8d27-ca7bf5f86bee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T033731Z&X-Amz-Expires=86400&X-Amz-Signature=52267d13ac3abc50a58ccc437cc50a216160e668c38b4d0e9b7439fe561e7fcf&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- Packet이 어떤식으로 도착햐냐에 따라 양상이 다름
+- La(1초에 도착하는 bit수)/R(1초에 해당 router에서 밖으로 보내주는 bit수)
+- 0에 가까우면 queueing delay가 작고, 1에 가까워지면 queueing delay가 커짐(1보다 크면 들어오는 bit수가 나가는 bit수보다 커짐,발산함)
+- 1보다 크면 무한대가 됨(lim에서 a를 1로 보내지면 발산을 하는 것)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/52bf425a-8b16-42fe-ba65-956ad760b717/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034045Z&X-Amz-Expires=86400&X-Amz-Signature=aaee7d5f6dea645f5597e1d8fec3db57b96ba80986a8a1c5bb211eafaee4da83&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7ece6f54-a582-476f-92fe-f4cc3e9ecf1c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034054Z&X-Amz-Expires=86400&X-Amz-Signature=668866ceeb0e0a59a2da04e74edfd03b0d893c013d57101d0af903760efe9f3f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 인터넷에서는 이렇나 차이를 느끼기 힘들고, 실제 인터넷에서는 traceroute를 통해서 delay를 체크함(번호가 router를 의미함)
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8291a3ce-7a26-45ca-9f52-5ab57e7206c8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034203Z&X-Amz-Expires=86400&X-Amz-Signature=5c62de2728140baee57ae0fc12ead97a024c58773973c85b5383ddfaeb9efa65&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- queue에 buffer가 가득차면 packet을 버림, 그때 packet loss가 발생함
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9b67c2fa-f008-49ca-8668-c4a20e5bbe63/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034304Z&X-Amz-Expires=86400&X-Amz-Signature=1edd9463dd447d6da50ddc496aca4cf410f301c80226c6b6a35c4bfdfcbff75b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2d862c2b-0b12-452a-a330-0e2f821d1d33/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034315Z&X-Amz-Expires=86400&X-Amz-Signature=87589da65e1bb517dfec8a04a30576dbf2c13e1de557dc085628126c781e1c2b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f9a5e005-5d6e-44b5-8258-20439a970301/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034325Z&X-Amz-Expires=86400&X-Amz-Signature=92e8a2c00b0c6dab0b352d009618535b44cfa6cb564e495f65c04e9d47ff87ed&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- Throughput은 전송률을 의미함
+- rate:단위시간당 몇 bit를 보냈는가(sender/receiver, 보내는쪽/받는쪽 사이의 전송률을 의미함)
+- instantaneous:한순간의 throughput(단위시간당 전송 bit)
+- average:특정시간동안 얼만큼의 bit을 보냈는지
+- 출발/목적지 사이의 링크 고려 throughput구함
+- 여기서 Rs,Rc가 서로 다를 수 있음, 그때 전송속도가 느린곳에서 병목현상 발생함
+- bottleneck link : 전송속도 느린곳에 병목현상 발생(국내 vs 해외 사이트 비교)
+- Internet scenario처럼 네트워크 코어를 활용할 수 있음, 그러나 링크마다 속도가 달라 병목현상이 생길수도 있고 크기가 큰 데이터 처리하다가 생길수도 있음
+
+## protocol layers, service models
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/32552b7f-7cbe-473b-a49c-bf2c5d0e60b1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034802Z&X-Amz-Expires=86400&X-Amz-Signature=7253a7c26a9322c1883f0d449cfe19d77c95c1cca1c29ff36c3389b0d4081c27&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c44778d1-619b-41a2-bdac-dfcc09851dd6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T034811Z&X-Amz-Expires=86400&X-Amz-Signature=e73706018b773d45d6ddbafd41581251177e998ca43d07922f4b315c86281538&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 효율적 이해-구성을 위해 계층화를 시키면 좋음 pieces로 나뉘어져 있으니깐
+- 2번째 예시처럼 화살표 순서대로 각각의 단계를 밟아서 무언가 복잡한 것을 수행하면 편안한게 처리가능함
+- 즉 각각의 layer에서 수행하는 일이 있고 그 일을 수행하기 위해서 점점 더 아래 layer로 가서 결국 packet을 서로 간의 전달할 수 있도록 밑 단계에선 링크로 데이터가 가고 도착 데이터는 다시 계층을 거꾸로 올라가서 수신함
+- 이러한 일련의 과정을 생각하며 layer를 형성하고 활용함
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7d2d0b26-5302-4c54-b28b-e2276a68e0de/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T035031Z&X-Amz-Expires=86400&X-Amz-Signature=a56d241fc71d6f7ec8a9a5d7f01f816c8c95f47b7d3768fd77bf3fd148413041&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 위는 일반적인 layer층임
+- transport는 데이터 정의 protocol이고 network를 통해 어떤 경로로 갈 지 결정을 하고 link를 통해 근처에 있는 다른기기와 어떻게 통신할 지 정하며 physical을 통해 유무선링크로 0/1로 구성된 bit가 전송됨
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cdffbfd6-8eb0-4370-8040-bac7c9430437/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T035159Z&X-Amz-Expires=86400&X-Amz-Signature=f9a7816ce95997829a00aeb476e6cc863ef5d95ca5ac8eb8f5bdd2eb6be28576&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 7개의 layer 모델임, 일반적으로 5개의 layer를 사용함
+- 위와같은 모델은 2개가 추가됐지만 해당 단계는 application level에서 충분히 고려해서 사용할 수 있음 
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6a4c6151-ebf6-448e-9f62-34b09d189880/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210314%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210314T035303Z&X-Amz-Expires=86400&X-Amz-Signature=ab0c6dcd7790a91c522f4e2f855b025da8d2ae5f352640646422d2f5aa5569e6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 위와 같은 과정을 통해서 bit가 전송되는데 각각 layer별로 Encapsulation을 하여서 데이터를 보내고 forwarding을 함, 그러면서 각각의 layer에 맞게 해당 데이터르 분석하고 보내면서 Encapsulation을 함
+- 최종적으로 도착한 곳에서는 Encapsulation을 다 벗겨내면서 데이터를 받음
