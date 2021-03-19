@@ -114,3 +114,336 @@
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/29efd30a-6cbf-4306-bf4e-61cc952ffe28/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034035Z&X-Amz-Expires=86400&X-Amz-Signature=641eea5e9081634385cb2e1ca3311a4710f876d27753066478249cc0c72625c8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a5279d56-c385-4d86-ae57-47f707391852/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034110Z&X-Amz-Expires=86400&X-Amz-Signature=33dc3cea4cf69adbe197ecb2973d4ccce6d4976b8419dc3001d9ddcdbaa3eeb2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5ca89ad4-35be-4908-a80c-a0663c39d5de/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034136Z&X-Amz-Expires=86400&X-Amz-Signature=ee6de1d92a578dc90e5165ffba27894c94d16306200097b5d8f7155d129644af&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+## 소프트웨어의 역할
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2f84a2d8-47e5-4fa3-b4e2-caba7cf168c7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T230346Z&X-Amz-Expires=86400&X-Amz-Signature=95adb6dd3227fd8a1e3708b813b20639dcabac94c3470f42a69a904a23a922da&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- O/S에서 드라이버가 H/W를 건드림(드라이버 시스템 소프트웨어 역할을 함)
+- 여기서 응용프로그램은 시스템 소프트웨어를 거침
+- 드라이버는 디바이스 드라이버를 의미함
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/53a83b0e-2c71-4bc1-9dfc-0a7aecf28789/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T234925Z&X-Amz-Expires=86400&X-Amz-Signature=76a797d211fd07e1df93e1fccd15978436b1d1716a70e8ecced8ff50934107f4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/187b1e88-a827-42ff-bc26-2b6810e73a16/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T235040Z&X-Amz-Expires=86400&X-Amz-Signature=28fb705f74504f0a23c0f2f8ddd2f5b08aa0bc6e9bed21dd0098e581ca265a8b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 운영체제(operating system, OS)
+	- 컴퓨터를 운영하는 프로그램을 가상으로 표현
+	- 시스템 구성 요소들의 중재자
+		- 사용자, 하드웨어, 소프트웨어 간 인터페이스를 제공
+		- 시스템 자원의 효율이 최대가 되도록 총괄
+	- 하드웨어를 장악(프로그램 scan 모두 파악)
+		- 모르는 하드웨어가 존재하면 통제 못함
+		- 응용프로그램이 하드웨어를 이용하게 도와줌
+	- 다른 프로그램들을 관리
+		- 운영체제가 먼저 설치되어, 다른 시스템 소프트웨어와 응용프로글매들의 동작을 지원하고 관리
+		- 순서 & 메모리 & 우선순위 관리, 데이터 & 통신등
+- 드라이버(drvier) 혹은 장치(device) 드라이버
+	- 하드웨어나 주변장치를 구동시킬 때 운영체제가 구하는 정보가 들어 있는 소프트웨어 파일(사용할 수 있게 자동변환)
+		- 하드웨어를 구동시키는데 필요한 파일(직접 하드웨어 제어)
+	- 드라이버(drive)
+		- 하드디스크와 같은 저장장치
+	- 웬만한 장치는 운영체제만으로 자동 인식
+		- 자동으로 인식하지 못하면 수동으로 설치해야 
+	- 운영체제의 종류와 버전에 맞아야
+		- 한글과 영문 드라이버가 다를 수 있음 
+- 커널(access 관리)
+	- 운영체제의 핵심부로 항상 주기억장치에 상주(DRAM) - loading(HDD에 있는 커널 메모리에 copy하는 과정)
+	- 하드웨어와 소프트웨어 요소들 사이의 통신과 시스템 자원을 관리
+		- 주소 공간, 메모리 관리자(직접 나누고 관리 분배), 인터럽트 처리기(키보드 누르는 순간, 다른 프로그램 동작시 잠시 멈추고 키보드 처리가능), CPU 스케줄러(데이터 & 처리를 순서대로), 컴퓨터의 사용권 부여 등 담당
+	- OS의 다른 부분에서 공통적으로 필요한 서비스 제공
+		- 디스크 자료 입출력 등 OS가 기본으로 해야 할 작업들
+	- 커널 서비스 요청 -> OS의 다른 부분이나 응용프록그램에서 시스템 호출(system call - 커널이 요청 서비스 처리함)을 통해
+- 시스템 호출(system call
+	- 커널에 운영체제의 서비스를 요청하는 절차
+	- 응용프로그램은 프로그래밍 언어에서 지원하지 않는 기능을 운영체제의 루틴에서 호출해 사용
+	- 운영체제는 여러 가지 저수준의 연산을 수행하기 위한 루틴들의 모음을 갖고 있음
+		- 디스크에 디렉터리를 만드는 루틴
+		- 특정 디렉터리 안의 목록을 읽어내는 루틴 등
+- 루틴(routine)
+	- 특정한 작업을 수행하기 위해 자주 사용되는 프로그램이나 프로그램 소스의 일부
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/932d2744-4b61-47e4-ab18-36d66e32e4a4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T000355Z&X-Amz-Expires=86400&X-Amz-Signature=5730b79fc8fff18de1153a03b1e9b4a75d815169c138293551106d17d4acf95a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 운영체제의 쉘(커널 사용함에 있어서 사용자-커널 이어주는 인터페이스임)
+	- 프로그램이나 운영체제의 사용 불편을 개선하기 위해 메뉴 구동형의 사용자 인터페이스를 제공하는 유틸리티 프로그램
+	- 커널을 감싸고 있는 외부 층의 개념 
+		- 사용자와 운영체제의 내부 커널을 인터페이스
+	- 명령어 해석기라고도 함(cmd에 있는 명령어 해석)
+		- 커널 서비스를 이용할 수 있도록 명령어 라인이나 그래픽 인터페이스를 통해 사용자의 명령을 처리
+- 유틸리티(utility)
+	- 하드웨어, 운영체제, 응용프로그램을 관리하고 조화시킬 목적으로 설계된 소프트웨어
+	- 도구(tool) 또는 서비스 프로그램이라고 함(제어판, H/W 모니터링, process 현재 상황 등 파악)
+	- OS에도 다수의 유틸리티 프로그램들이 포함됨
+- GUI(Graphical User Interface)
+	- 그래픽 사용자 인터페이스
+	- 운영체제가 사용자와 대화하기 위해 아이콘이라는 그래픽 이미지를 사용하는 프로그램 설계
+		- 사용자가 보고 느끼는 대로 마우스로 아이콘을 선택하고 운영체제와 대화하듯 컴퓨터를 이용
+- API(Application Programming Interface)
+	- 응용프로그래밍 인터페이스
+	- 프로그래머가 사용자 인터페이스를 일관성 있게 만들 수 있도록 완벽한 세트의 함수와 자원을 제공해주는 시스템 소프트웨어
+	- 응용프로그램 제작자가 일관된 사용자 인터페이스를 유지하도록 운영체제 차원에서 지원
+		- 풀다운 메뉴, 명령어, 대화상자 및 운영체제에서 관리하는 다양한 글꼴과 데스크탑 보조 프로그램등 사용
+	- 활용사례
+		- 운영체제를 이용한 인터넷 접속(TCP/IP 소켓 이용)
+		- 비슷한 응용프로그램 간 일관된 사용자 인터페이스
+		- 다이렉트X를 이용한 게임
+- OLE(Object linking and Embedding)
+	- 개체 연결 및 포함
+	- 외부 문서 참조기능을 위한 윈도우 OS의 표준
+	- 다른 응용프로그램에서 작성한 그림 등을 작성 중인 문서로 삽입해 가져올 수 있음
+- 오브젝트
+	- 우리말의 개체나 객체
+	- 다른 문서에 삽입할 수 있는 문서나 문서의 일부
+	- 개체의 속성 -> 개체 자신이 무엇으로 만들어졌는지에 대한 독립적인 성격이나 정보(다른 문서에 포함되어도 자신의 속성을 그대로 가짐)
+- OLE 개체 삽입
+	- 문서에 삽입된 개체를 선택하면 해당 응용 프로그램이 자동 실행되어 편집 가능 
+	- 개체연결 -> 작성 중인 문서의 내용을 외부 개체의 속성과 그 개체의 위치에 대한 정보에 연결만
+		- 개체를 포함하지 않아 작성된 파일 크기 작음(연결만)
+		- 한쪽 문서를 수정하면 연결된 다른 문서까지 변형
+	- 개체포함 -> 외부 개체의 정보가 현재 문서의 개체로 포함되도록 속성을 가진 채로 복사
+		- 원본과 복사본이 별개로 존재
+		- 파일 크기는 크지만 파일 관리에 편리
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b3929290-51f6-4761-8cbb-a409b8017119/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T010521Z&X-Amz-Expires=86400&X-Amz-Signature=869fb09af829d58ae021dbe3c0dbc810f73f5740f05a394409c7b0789d4687d9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 클립보드
+	- 운영체제에서 관리하는 임시 저장소
+	- 복사,붙이기에 자주 사용되는 일시적인 메모리 버퍼
+		- ex) 윈도우의 편집 메뉴, [Ctrl]+[C], [Ctrl]+[V]
+	- 여러 응용프로그램을 오가며 텍스트나 그림을 복사
+		- 다른 프로그램에서 작성한 속성을 잃어버릴 수 있음
+- 프로그래밍 언어
+	- 고급언어
+		- 사람이 이해하기 쉬운 형태인 고수준 프로그래밍 언어
+		- BASIC,FORTRAN,COBOL,PASCAL,C,C++,Java 등
+	- 어셈블리언어
+		- 기계어와 1:1인 저수준 프로그래밍 언어
+		- CPU마다 기계어가 다르면 어셈블리언어도 달라짐
+	- 기계어
+		- CPU에서 실행 가능한 1과 0으로 구성된 2진 코드상태
+		- 제조사나 CPU마다 기계어가 달라짐
+- 프로그램 코드
+	- 프로그래밍 언어로 작성된 문서
+	- 프로그램을 표현하는 명령이나 수치 등의 기호체계
+		- 소스코드와 기계코드가 있음
+	- 소스코드, 원시코드, 소스 프로그램
+		- 인간이 읽을 수 있는 언어 -> 고급언어, 어셈블리 언어
+	- 기계코드
+		- 기계가 이해하는 언어 -> 기계어
+- 어셈블리언어
+	- 사람이 이해할 수 있는 고급언어와 기계어 사이에 존재하는 기계마다 다른 CPU 고유의 중간언어
+	- 기계어와 정확히 1:1로 대응
+- 어셈블리 명령어
+	- CPU의 동작을 의미하는 아주 짧은 상징 기호로 표시
+	- 니모닉 코드라고 함
+		- 기호를 보면 동작이 연상되는 코드
+- 기계어 명령
+	- 연산코드(op code)필드 -> 명령, 동작을 지정
+		- ex) 레지스터 A와 X의 내용을 더해 A에 저장
+	- 오퍼랜드(operand) 필드 -> 연산의 대상을 찾는 법
+		- ex) 연산의 대상이 저장된 위치 X를 가리킴
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c6a436e5-1665-44c0-acad-7012e0541c50/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011545Z&X-Amz-Expires=86400&X-Amz-Signature=4ebaa84b53f0b766461db5a71cf13f132aeed00d526608a058fa45e1b1d587b6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d62d70a9-7cb3-432e-b792-4130b45a2019/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011614Z&X-Amz-Expires=86400&X-Amz-Signature=ef80017e98028ab774127eb0bd926505137fe727608d2022178f78233514abf5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 인터프리터(interpreter)
+	- 소스 코드를 한 줄씩 읽어 번역하고 실행하는 방식
+	- BASIC,Python등의 언어와 MS엑셀 등의 동작방식
+- 컴파일러(compiler)
+	- 소스 코드를 한 번에 모두 읽어 번역해 놓고 실행
+	- C언어 등 기존 대부분의 프로그래밍 언어
+- 어셈블러(assembler) -> 주로 컴파일러 방식
+	- 어셈블리언어로 작성된 소스 코드를 기계어로 번역
+	- CPU 제조사나 종류에 따라 달라짐
+- 인터프리터는 1줄씩 실행하므로 최적화해서 실행할 수 없음 1줄에 특정명령어 다 갖춰야함
+- high level은 속도가 빠를 수 없음, 어셈블리언어는 속도가 높음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/831a5938-c98c-4f71-b1b6-48f1870793cd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011923Z&X-Amz-Expires=86400&X-Amz-Signature=71df26223073dd94feff3bd063f346f639bc5e9e85c13b9a56a35526f3ff707d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 스크립트 언어 
+	- 다른 프로그램을 기반으로 실행되는 짧은 프로그램이나 명령어
+	- 전통적인 범용 언어에 비해 대부분 제한된 능력
+	- 단독으로 사용 못하고 다른 프로그램과 연결해 사용
+		- 자바스크립트와
+		- 비주얼베이직 스크립트가 대표적
+	- 인터프리터 형태로 번역되어 실행속도 느리지만 프로그램을 쉽고 빠르게 작성, 에러 찾기와 수정 용이
+- 프로그램 결합하기
+	- 소스 프로그램을 기능별 모듈로 나누어 작성
+		- 서브루틴과 라이브러리 함수들 사용
+	- 실행파일을 얻으려면 링크 과정 필요
+		- 번역이나 실행에 추가로 필요한 다른 프로그램들을 참조하고 결합하는 과정
+- 서브루틴
+	- 메인 프로그램의 독립적인 일부분으로 필요할 때 호출되어 재사용할 수 있는 프로그램
+		- C언어의 함수가 대표적
+	- 서브루틴 호출(call)과 복귀(return)
+		- 메인 프로그램에서 분기하면서 돌아올 복귀 주소를 메모리의 스택(stack) 영역에 저장
+		- 서브루틴 수행 후 다시 본래 위치로 복귀
+	- 서브루틴 파라미터
+		- 메인 프로그램에서 서브루틴으로 작업을 의뢰하기 위해 보내주는 입력 데이터로 사용되는 매개변수
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ffe73f5c-f307-4796-bc9a-55d1725c884f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T012343Z&X-Amz-Expires=86400&X-Amz-Signature=1c3663cd9ca5c66f5e7039058750210d578cdf35dfec27c02fc7e0b588b519e3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 라이브러리(library)
+	- 자주 쓰는 단순 반복적인 프로그램에 대해 미리 작성해 놓은 표준 서브루틴
+		- ex) 수학함수나 통계함수등
+	- 대개 컴파일러 제조사가 제공하는 것만으로 충분
+		- 사용자가 직접 라이브러리를 만들 수도 있음
+	- 표준 라이브러리는 대개 헤더 파일 안에서 선언됨
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/029ccc66-936e-4a37-9b3e-91f7ba71693e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T012546Z&X-Amz-Expires=86400&X-Amz-Signature=7dbbc72098194a90d8c355d9fdeddd976c53acb27f2208ad03ad5ae89ffd6b48&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 링크(link)
+	- 컴파일 결과로 생긴 사용자의 오브젝트 코드와 라이브러리에서 제공된 오브젝트 코드 등을 결합해 실제로 실행 가능한 파일을 만드는 것
+	- 컴파일과 링크 절차
+		- ex) 1~100 더해 모니터에 출력하는 C프로그램
+		- 컴파일 결과로 원래 목적의 소스프로그램에 대한 오브젝트 코드 구하기 -> 1~100 더하기
+		- 라이브러리에서 실행과 입출력에 추가로 필요한 오브젝트 코드 구하기 -> printf()
+		- 링크 -> 위의 두 과정의 오브젝트 코드를 합치는 과정
+	- 컴파일 에러와 링크 에러는 다름
+
+## 다중작업
+- 태스크(task)
+	- 컴퓨터시스템에서 수행되는 하나의 작업
+		- 각 프로그램에서 해야 할 작업
+- 다중작업
+	- 멀티태스크(multitask) 혹은 멀티태스킹(multitasking)
+	- 동시에 처리해야 할 여러 개의 작업
+		- 동시에 여러 개의 프로그램이 실행되는 환경
+- CPU 스케줄링
+	- 다중작업에서 어떤 작업에 CPU의 처리 시간을 어느정도 할당할지 결정해주는 것
+		- CPU는 하나고 작업이 여러 개면 시간을 쪼개 지원(하나의 작업만 할 수 있음, 동시에 할 수 없음, 빠르게만 가능, 동시에 하는 것처럼 보임)
+		- 스케줄러 -> OS의 일부로 여러 작업이 시스템 자원을 공유할때 순서나 일정을 조정해주는 프로그램
+	- 라운드로빈(round robin, 순환순서) 방식
+		- 순서를 순환하며 기회를 균등하게 분할하는 방식
+		- 각 작업에 차례대로 일정한 시간을 균등하게 할당
+	- 우선순위(priority) 할당 방식
+		- 각 응용프로그램들에 대해 작업 우선순위에 따라 시간할당비율 조정
+- 응용프로그램이 차지하는 시간 비율에 따라 
+	- 전면작업, 포그라운드(foreground)작업
+		- 다중작업 가능한 컴퓨터의 활성 창에서 수행되는 작업
+		- 후면작업에 대해 실행 우선순위가 높음
+	- 후면작업, 백그라운드(background)작업
+		- 우선순위가 낮은 프로그램은 우선순위가 높은 프로그램이 쉴 때만 조작되는 상태 
+		- 사용자가 전면에서 다른 작업을 하는 동안, 이면에서 인쇄나 다운로드 등 다른 작업을 실행하는 환경
+- 스레드
+	- 컴퓨터에서 정상적으로 작업이 완료될 때까지 세부적으로 해야하는 작은 일들에 대한 일정표
+	<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c990b5e8-b55b-44de-8b92-2fce1195e50b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T013409Z&X-Amz-Expires=86400&X-Amz-Signature=ca1d38e4969215c051a32aa5bfcaf255d664d16276fd228815f2b56dd9520c28&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 멀티스레드(multi-thread) 혹은 멀티스레딩(multi-threading)
+	- 운영체제에서 여러 스레드를 동시에 관리하는 것
+		- 각 작업에 대한 줄거리와 진행 정보를 동시에 관리
+	- A와 B 두 개의 작업이 동시에 처리되려면
+		- 작업 A는 a1,a2,a3라는 스레드가 일정표
+		- 작업 B는 b1,b2,b3,b4라는 스레드가 일정표
+			- 각각의 스레드가 동시에 관리되어야
+	- 4장의 하이퍼스레딩 기술
+		- 멀티스레드의 일종
+
+## 시동과정
+- ROM BIOS(basic input output system)
+	- 메인보드에 장착된 ROM에 내장된 프로그램(전원을 끄고 켜도 저장되어 있음)
+	- 부팅과 기본 입출력 시스템을 낮은 수준으로 제어
+		- 일종의 시스템 소프트웨어로 대표적인 펌웨어 
+		- BIOS제조자 -> 불과 몇개사
+	- 롬 바이오스의 역할
+		- 컴퓨터시스템의 부팅에 관계
+		- 운영체제를 도와 하드웨어를 저수준 제어(기본적인 테스트&상태파악)
+	- 운영체제는 BIOS 정보로 하드웨어 상태를 파악(메모리 test 먼저 함)
+		- OS와 응용프로그램들이 컴퓨터에 부착된 각종 하드웨어 장치에 대해 정확히 알아야 될 부담에서 해방
+- 시스템 설정(setup) 또는 CMOS 설정
+	- 혹은 시모스 셋업(CMOS setup), 바이오스 설정 
+	- 컴퓨터 메인보드의 바이오스 값을 설정하는 것 
+	- 기본적인 시스템 구성 환경과 선택 사항 저장 
+		- 롬 바이오스에 제공하는 실시간 시계값 
+		- HDD,FDD,모니터,키보드 타입 
+		- 메모리 크기,부팅 드라이브 우선순위
+		- 바이러스 방지, 전원관리 및 부팅 패스워드 옵션 등
+	- 칩셋, 캐시, 램 타입이나 속도설정 등은 주의해야
+		- CPU 동작모드와 클록 속도 조정 가능
+	- 바이오스, 메인보드 제조사마다 고유의 설정 방법
+		- 메인보드 제조사가 최적의 상태틀 정해 공장 출하
+		- ROM에도 기본 값 저장 -> 디폴트로 되돌리는 옵션
+	- 플래시 메모리 등을 바이오스 칩에 사용하면 시스템 설정 값을 굳이 배터리로 백업해둘 필요가 없음
+		- 전원을 꺼도 실시간 시계칩이 계속 작동되어야 한다는 점이 배터리의 유일한 사용 근거
+	- 디폴트 값
+		- 프로그램이나 하드웨어 장치의 기본 설정 값으로 사용자가 특별히 지정하지 않은 값
+			- 응용프로그램의 기본 설정 값
+			- 공장 출하할 때 맞춰놓은 기본 설정 값
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7aed3464-2deb-4c5c-82b8-63977da97459/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T014247Z&X-Amz-Expires=86400&X-Amz-Signature=693c037bd584b593d76c36a64af9900c6d93d358740cd93ab99e474140944920&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ebcbd4ef-455c-4921-aef3-4d460f4287a8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T014256Z&X-Amz-Expires=86400&X-Amz-Signature=6a144d76eb9ce76fd99053d16b982199e3a82a0fc3215d78122b6893e85026c2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 메인보드에 장착된 CMOS
+	- 배터리 백업 받는 CMOS SRAM을 가리킴
+	- 바이오스 설정 값 저장
+		- 비휘발성 바이오스 메모리라고도 함
+	- CMOS 설정은 잘못된 표현이지만 관습으로 굳어짐 
+- CMOS는 본래 반도체 소자 방식 중 하나 
+	- CMOS(complementary metal-oxide semiconductor)
+		- 잡음 면역성이 강하고 저소비전력이 특징 
+		- 마이크로프로세서, SRAM 등의 디지털 논리회로와 이미지 센서 등 아날로그 회로에 폭넓게 사용
+- 로드(load)
+	- 컴퓨터의 메모리에 프로그램을 적재하는 것 
+	- 디스크에서 프로그램이나 데이터를 메모리로 옮김
+		- 로딩(loading) -> 로드하는 과정
+		- 로더(loader) -> 로드를 담당하는 프로그램
+- 부트스트랩(bottstrap) 혹은 부트스트래핑(bootstrapping)
+	- 다른 복잡한 프로그램을 실행시키는 작은 프로그램의 작업과정(복잡한 것을 하기 위해 작은 프로그램 작업함)
+		- 이 작은 프로그램을 부트스트랩 로더라고 함
+- 부팅(booting), 부트(boot)
+	- 부트스트래핑의 줄임말, 혹은 부팅업
+	- 디스크에 저장된 운영체제를 메인메모리로 새로 읽어 들여 컴퓨터의 사용을 준비하는 과정
+	- 롬 바이오스 프로그램이 실시하는 시동과정의 일부
+- 부트스트랩 로더(bootstrap loader) 혹은 부트로더(bootloader)
+	- 부팅을 담당하는 프로그램
+	- 디스크로부터 OS를 읽어 들여 주기억장치(DRAM)에 로드
+	- 볼륨 부트 섹터에 들어 있음
+		- 디스크 볼륨의 첫 번째 섹터
+- 콜드 부트
+	- 전원이 꺼져 메인메모리의 내용이 모두 삭제된 상태에서 시작하는 부팅
+	- 하드웨어적으로 컴퓨터를 완전하게 초기화(reset)
+- 웜 부트
+	- 컴퓨터의 전원이 켜져 있어 주기억장치에 내용이 아직 남아있는 상태에서 시작하는 부팅
+	- CPU가 각 소자들을 소프트웨어 명령으로 리셋
+		- 완벽한 리셋은 힘드나, 전기적인 충격 작음 
+		- 운영체제의 시스템 재시작 등
+- BIOS의 시동과정 
+	- 혹은 시동절차
+	- 각종 상태와 정보를 수집하고 운영체제가 하드웨어를 장악해 사용자의 작업을 준비하는 과정
+	- 롬 바이오스에 들어있는 시동 프로그램이 담당
+		- POST(Power-On-Self-Test): 메인보드에 연결된 각종 하드웨어 장치를 점검(주로 memory, device 조사)
+		- 바이오스 복사 : 각 장치의 바이오스 정보를 램에 복사
+		- 부팅 : 부트스트랩 로더 프로그램을 찾아 드라이브에 저장된 운영체제를 읽어 주기억장치인 램에 적재
+	- 운영체제는 시동과정에서 얻은 하드웨어 정보와 바이오스 정보를 인수해 컴퓨터시스템을 장악
+- POST(power-on-self-test)
+	- 롬 바이오스의 일부로 컴퓨터를 켜거나 리셋 될 때 수행되는 내부 테스트 프로그램 
+	- 메인보드에 대해 자체적인 하드웨어 테스트 실시
+	- 전원이 켜지면 POST 과정은
+		- CMOS에 저장된 시스템 설정 값을 읽고
+		- 메모리 테스트 실시, 키보드 등 검사
+		- 메인보드에 달린 확장카드나 드라이브 조사
+- 컴퓨터를 켤 때 CPU가 바라보는 메모리 번지
+	- 메모리가 없다면 아무 일도 일어나지 않음
+	- IBM-PC 호환 기종은 0xFFFF0 번지부터 시작되도록 메인보드와 바이오스 제조자들이 미리 정해 놓음
+		- ROM에 있는 바이오스 프로그램의 첫 시작 위치
+- 하드디스크의 시작 위치도 항상 일정해야
+	- 첫번째 섹터ㅇ니 마스터 부트 섹터
+		- 디스크 파티션 정보와 부팅에 사용될 파티션 혹은 디스크 볼륨에 대한 기본 정보가 저장
+		- 디스크 볼륨의 첫 섹터인 볼륨 부트 섹터에 있는 부트스트랩 로더 프로그램이 운영체제를 메모리로 로드
+
+## 신호선의 동작
+- 신호선의 1과 0
+- 디지털 데이터의 논리 1과 0 -> 전기적으로 표현 
+	- H : 하이레벨 
+		- = 논리 1(logic 1) = 주로 + 전압 
+	- L : 로우레벨
+		- = 논리 0(logic 0) = 주로 - 전압
+- 액티브 레벨 
+	- 디지털 회로의 신호가 하이나 로우의 어느 한 레벨 중에서 의미 있는 동작을 하도록 신호의 활성상태(active state, 액티브 상태)를 설계하는 것
+		- 액티브 레벨로 변하면 어떤 동작을 지시
+	- 액티브 하이(active high)
+		- 디지털 회로의 신호가 하이 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
+	- 액티브 로우(active low)
+		- 디지털 회로의 신호가 로우 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b8f5080e-d5c4-47c7-9250-8cb88d58a512/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T015929Z&X-Amz-Expires=86400&X-Amz-Signature=1847d7ef03d05fa0d7f9aa73e16d17579d868dfee8fed4d188ae508137dd9609&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 트리거(trigger)
+	- 어떤 하드웨어 장치를 동기(sync)에 맞추어 동작시킬 수 있도록 제공되는 신호
+	- 레벨 트리거(level trigger)
+		- 신호선에 연결된 장치들이 입력 신호의 하이나 로우레벨에 동기되어 동작하도록 설계하는 방식
+	- 에지 트리거(edge trigger)
+		- 신호선에 연결된 장치들이 입력 신호의 라이징(rising, 상승) 에지나 폴링(falling, 하강) 에지에 동기되어 동작하도록 설계하는 방식
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0edb42a6-cd28-4f8a-a0aa-d22b5c2677d5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T020122Z&X-Amz-Expires=86400&X-Amz-Signature=77493589f045185a7f362fc2cecf66fcdc7f24aacf0795bad2f81a722e067b6d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
