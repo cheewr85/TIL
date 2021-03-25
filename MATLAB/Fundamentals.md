@@ -6,6 +6,10 @@
 - [Indexing](#Indexing)
 - [Statistical operation](#Statistical-operation)
 - [Plot](#Plot)
+- [Logical operator & Functions](#Logical-operator-&-Functions)
+- [Cell Array](#Cell-Array)
+
+
 
 ## Variables & Expressions
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/101b023c-6a4c-4163-b3ca-b8736176de04/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210312%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210312T004312Z&X-Amz-Expires=86400&X-Amz-Signature=c641e9d45694442eafc1a93a62195cd02cffc0747f24bbae7d5120428ec16738&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
@@ -344,6 +348,7 @@ a=a'
 - limit도 바꿀 수 있음, 즉 1~8 범위를 바꿀 수 있음
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8c1bec4c-234c-40d4-ad77-6d9858c4a82f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T225141Z&X-Amz-Expires=86400&X-Amz-Signature=84d16e157766a3b2447901d01e554d5571a2516aa53ec0e6a2873b753eceb872&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 
+
 - 이러한 설정은 plot을 다 그린 다음에 데코레이션 같은 느낌임
 - 그리고 legend 즉, 범례를 아래와 같이 추가할 수 있음
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/834647d4-7f55-4f87-ad82-2f77916d4513/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T225221Z&X-Amz-Expires=86400&X-Amz-Signature=4c34e9d4dfe149c132016c07799b052d33fcd80d9b14bace3b7fbefc80d3a625&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
@@ -353,3 +358,112 @@ a=a'
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/42187cff-8220-4127-96a3-f55438f82d52/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T225318Z&X-Amz-Expires=86400&X-Amz-Signature=760e859e290260bbf59ac8a3ec9e496d0a311076ea0845ddc60a7959648df9dc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/478f9c24-5b29-44f8-a755-34f01198d24a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T225329Z&X-Amz-Expires=86400&X-Amz-Signature=62df4fd693ccb2bac59653af8c2a318ebb67cc0f231867fa9287b549f2d9fbca&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/45034b29-dfee-4641-b588-9d60e8767cc7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T225337Z&X-Amz-Expires=86400&X-Amz-Signature=5c9e6de53497d726249da0897b13c31f88890d6c1c752507c3cc488a64c15509&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 하나의 plot의 여러개를 그리되 겹치지 않게 아래와 같이 테이블 형태로 그릴 수도 있음(Subplot)
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/253e995b-6a33-4f21-8c59-e3141a146440/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T045719Z&X-Amz-Expires=86400&X-Amz-Signature=062924dc9a140ed393be802eb799c189a7983ece2fe3ce9354d01506ac173626&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 각각 title, legend, label등을 붙이고 설정할 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/46ef14d7-be81-4b0c-bd01-9095845583be/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T045747Z&X-Amz-Expires=86400&X-Amz-Signature=2a064f0446d6c86a3936406f0d776e90179082cf1f3dd20cf84ae335c11160b4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 그 수치를 비교하기 위해서 lim을 동일하게 해주는 것이 일반적임, 같은 scale에서 비교를 해주기 때문에 subplot이라도 각각 lim을 동일하게 줘서 활용을 하여 비교를 함
+
+## Logical operator & Functions
+- Logical operator는 위에서 실습함 find함수와 isnan함수가 해당됨
+- web(fullfile(docroot, "matlab/logical-operations.html"))을 통해서 해당 내용을 자세하게 알 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/79eea74b-81e3-41bc-82da-1dcf88f7ce8e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050055Z&X-Amz-Expires=86400&X-Amz-Signature=89ae1f9b5b722839cb3cb43a86b6dc9f61cc7983df382550224cc6b7fd4ff1db&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- Short-Circuit은 많이 접한 개념이지만 Array에서는 쓰이지 않음, 머신러닝에서는 Array 데이터를 사용하므로 Short-Circuit은 많이 사용 안하고 일반 Logical Operator를 많이 사용함
+- any함수 -> 어떤 array가 nonzero인지, 0값이 하나라도 있는지 묻는 값, 0이 하나라도 있으면 0 반환함, 그게 아니면 1 반환
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f40e99c6-1821-4e5e-8db7-b6bc853101f0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050217Z&X-Amz-Expires=86400&X-Amz-Signature=d6fad4fce159844534df5074df7059662a1f9ed4b3b8a55cbfa19809701019a8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 만일 그냥 any(gasprices)를 할 경우 에러가 뜸, 데이터를 보고 다룰 때는 테이블 형식으로 다루지만 데이터 프로세싱을 할 때(실제 numeric 데이터를 다룰 때)에는 테이블 데이터에서 array만을 가지고 사용하기 때문임(직접 사용해야함)
+- Numeric Data가 아닌 경우는 Cell Array에서 다룸
+- all함수 -> 모든 element가 0이 아닌지 묻는 것 0이 아니면 1값 반환 모두 element가 0이면 0반환
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3f856d2a-2cdb-4e28-8eee-f8ef83a9673f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050346Z&X-Amz-Expires=86400&X-Amz-Signature=510c45910b96c49f34a672a04e22c4e05e666c8655751cca20f3a6eec31d599a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이를 응용해서 아래와 같이 쓸 수 있음 아래와 같이 쓰면 Germany의 값이 France보다 큰 값이 하나라도 있다면 0을 출력함 해당 조건이 맞지 않으므로
+- 이 기준은 같은 observation에 대해서만 비교함, 즉 1번째는 1번째끼리 2번째는 2번째끼리 비교하는 것임
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6d187dd0-d08b-4e64-8cdb-1b43761c6499/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050445Z&X-Amz-Expires=86400&X-Amz-Signature=38dc318a5797529c01fa92ec9cc7d602f6ff1c95a9d1aa3a38dcb0b27671965a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 실제 표상에서 1행부터 12행까지 France가 더 크므로 아래와 같이 코드를 변경하여서 값이 달라질 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/15488d26-4a50-4f44-a3ee-94143a8d54b9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050516Z&X-Amz-Expires=86400&X-Amz-Signature=38c7677b8b6b3024ad1123660b282b7d4cfa2944c151ce5c2ad8e5f7dab37e43&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/24a2f57b-a8b6-409a-bd99-dd5ce960de41/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050529Z&X-Amz-Expires=86400&X-Amz-Signature=d4809cb5b16b569d81b823d1f5a3c76b71733172de14d02d5c78353c94e178fc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 추가적으로 any 역시 응용할 수 있음, 아래와 같이 쓴다면 큰 값이 하나라도 있기 때문에 1을 반환함
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dfd6bcd2-c2c0-4763-a211-6eb980a2ddaf/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050552Z&X-Amz-Expires=86400&X-Amz-Signature=56c719863cefce08c5099d689dc04008a5c4e8e4caca04f148c4786afc1c7c5b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/22bb462e-d0d9-4ebb-a075-233cd267d392/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050602Z&X-Amz-Expires=86400&X-Amz-Signature=22e11db5dc545c779f71caae52d0e4c9abf7755f7788b6683b8314dd25f60859&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 단순하게 아래와 같이 코드를 짠다면 그 값을 비교했을 때 해당 조건이 맞는 경우 1 아닌 경우 0으로 나타나서 array로 쭉 나타남(하나하나를 비교)
+- 위에서 봤듯이 1~12는 더 크므로 1로 나머지는 0이 나옴
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b6a4f62b-9a1c-4213-8e76-5d79f46ffc8c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050659Z&X-Amz-Expires=86400&X-Amz-Signature=07fb79429ba9cc653fd26d8ef8e5720d2aa8f57d4817ccd0a23c2bfc6d0204bb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+
+- nnz -> 0이 아닌 개수를 카운터함
+- 12개가 나옴 크기 비교상 1~12까지 더 커서 1이므로 12개임
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e8b73a04-acc4-4123-aa3a-8681322bdf6b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T050753Z&X-Amz-Expires=86400&X-Amz-Signature=096aa101c7dcf8c621bbe4cc23c46ff6b0b41ff65c4d1e6bc584477988e47be0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+
+## Cell Array
+- CarSpec에 관한 데이터 테이블임, 여러가지 데이터가 혼재되어 있음
+- 테이블 클래스는 기본적으로 문자형 데이터를 쓸 수 없으나 하나의 방법으로 문자형 데이터를 숫자형과 같이 아래와 같이 Make Model 아래 값을 넣을 수 있음, Cell Array로 이해해도 괜찮음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1bf368c9-bf02-4cfc-a807-e2b203452fa5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051012Z&X-Amz-Expires=86400&X-Amz-Signature=8507d8be33f646bbf1f3fa761e29cf78cc994ead37f8c0372e946ccf532d928a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 테이블로 불러올 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3a29e159-a2b3-407c-b93f-e10504e2749e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051030Z&X-Amz-Expires=86400&X-Amz-Signature=9404f6a2c6ffbbad2d0624d57f6368f5410617f0b620869512dab0126391b431&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래처럼 그 값을 불러올 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/23ecbedf-b490-4b7b-bacd-8d10de0236d4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051049Z&X-Amz-Expires=86400&X-Amz-Signature=03fcfd1e8d599421cb71e5d6b47748cf042fbd99cda30a9bad86fa5937456ee5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 문자형의 경우 EngineSize처럼 element 값이 뜨는 것이 아닌 중괄호 표시가 포함되어 있음, 이것이 Cell Array임
+- 테이블은 숫자형만을 다룸, 여기서 그러면 아래와 같은 형식으로 문자가 들어감 즉, Cell이라는 공간에 문자가 들어가고 거기서 101이라고 해당하는 값이 그대로 Make의 1번째 부분에 들어가게 되는것임, C언어에서 포인터의 개념과 유사함
+- 문자형 데이터는 직접적으로 들어가지 않고 해당 주소넘버가 들어가서 그 데이터를 볼 수 있음, 여기서 주소넘버는 알 수 없음, 그래서 문자형이 마치 숫자형처럼 위처럼 중괄호에 묶여서 나타남
+- 숫자도 Cell 형태로 넣을 수 있음, 그리고 아예 다른 Array를 통째로 넣을 수 있음
+- 결과적으로 형태는 {}(중괄호)안에 나타난 형태로 나옴
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6e55b9de-d174-4e32-aa88-c44aa7c63322/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051317Z&X-Amz-Expires=86400&X-Amz-Signature=8799504c026d14f1723fce767ba9e19af89c1182daafb18a458ef5c750d1e625&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9ffb9b51-4b2e-4ccb-b1d2-8d96b4296ef7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051325Z&X-Amz-Expires=86400&X-Amz-Signature=57e9cb90f69a1948ccdcd412f84c8eba70159a96fd9899566e55e5814ee20f40&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 plot을 응용할 수 있음, 그냥 plot을 쓴다면 선형이더라도 아래와 같은 형태로 나타남
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c59d5f9e-f02b-4b95-83ec-0b6d68d0a289/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051349Z&X-Amz-Expires=86400&X-Amz-Signature=ddf6bc6dea6ba82b2186dc2de70b09c46f3507747210d04f1d8658de29abb471&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 위와 같은 형태는 알아볼 수 없기 때문에 분포로써 나타내기 위해서 scatter를 쓸 수 있음, 머신러닝에서 grouping할 때 많이 씀
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d391103f-9e19-4448-966a-79e5823ec481/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051420Z&X-Amz-Expires=86400&X-Amz-Signature=4852b01ad348b4dcc6aaa2b19cbf9034f83b2538c02fc82fcb531c5d693afee0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5ee4e44e-9b29-42c4-91e1-65a0d76ab21a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051428Z&X-Amz-Expires=86400&X-Amz-Signature=81e65d661504c1f417143b9c94726b5d6213fdbb11e5420063d9e8dd9d38697b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- element 계산을 통해서 정규화를 할 수 있음, 여기서 그 값을 위해 matrix 나누기인 요소 나누기는 아래와 같이 시행하면 됨
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7c079980-4e9d-43e9-864e-16304a50020b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051501Z&X-Amz-Expires=86400&X-Amz-Signature=e9a289649eb949f25b32c69d3fdbf76689b579e635aca12a1ec7f83ada3bcc9b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 코드를 치게 된다면 새로운 부분을 추가하여서 해당 계산값을 집어넣을 수 있음(Variable 생성)
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7b2b4db6-1432-4d0e-ba6b-8ea6991ae377/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051532Z&X-Amz-Expires=86400&X-Amz-Signature=8cb9e44017e0b41cf7a88f9d91f98051c2faab101193b7d9d9f1e87a9cfc565a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 최대값을 찾을 수 있음, 여기서 index number observation도 알 수 있음(13번째의 최대값 존재)
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/511ecf99-ba5e-4847-8d33-60580c789346/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051611Z&X-Amz-Expires=86400&X-Amz-Signature=1f97ee0598b0e849da9d52756a9e595a5b037278504efeefefadf6c10acc6fab&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 코드를 친다면 cell형태로 나오게 됨(table처럼 나옴)
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/541256da-e24a-47a1-85e2-836d12d37ec0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051637Z&X-Amz-Expires=86400&X-Amz-Signature=d2371b23b16a9fa7a5e6515ab4c9019925ce6f04de19d033e956745d3e3ec13c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 idx를 활용하여서 코드를 사용하면 table형태가 아닌 cell array형태로 나옴, cell에 갇힌 상태에서 cell을 통째로 가져옴
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aa892261-153f-4be6-9062-2b30321989ac/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051709Z&X-Amz-Expires=86400&X-Amz-Signature=1faf3d26e3d4eaec862358e34745df4d7120b7fe7e5fe0fb3d7287c95af76e2b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 그냥 문자열 자체만을 뽑고 싶다면 아래와 같이 {}를 활용하여 값을 뽑으면 문자열만 나오게 됨
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8162b0b0-40b5-4ba7-923a-8a0791bc5183/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051744Z&X-Amz-Expires=86400&X-Amz-Signature=1ff9682f7dc2b8744a9b767bb28a552fe68f592190afe18bed62f75c144c0510&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- CarSpecs에서 하나의 row를 조건을 걸어서 아래와 같이 정렬을 할 수 있음
+- 그러면 PtW을 기준으로 기존의 CarSpecs라는 Table이 내림차순 정렬이 된 byPtW가 생성됨
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3063c7d1-1b38-4c72-bf42-d4637e7e9929/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051834Z&X-Amz-Expires=86400&X-Amz-Signature=a6e03994d75786beff9e5e5438d2e539899638ff15fa9662c732f758d53a6e10&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/329e5d1b-5183-4290-b794-f7a532bc6891/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051842Z&X-Amz-Expires=86400&X-Amz-Signature=d2a5697d9317f799f004fb2a85b8b544e88925e09ecb4c38b3d3d749372ee472&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 그리고 정렬한 값을 볼 수 있음, 아래와 같이 코드를 활용하여 정렬 기준 1~5의 순위에서 1,2,end 즉 Make행, Model행, PtW행을 뽑아서 나타낼 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/53519bc7-2c10-4cb0-83b6-8135a17e27d4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T051933Z&X-Amz-Expires=86400&X-Amz-Signature=68a92dea7e21e604c73d1a7378124435c06d27dc449b55bc71d96d13b346df4c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+
+- 다양한 방식으로 나타낼 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0c3ad41-112b-4161-8024-36f5cb582fac/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T052012Z&X-Amz-Expires=86400&X-Amz-Signature=d5cffae1d1d015e8570a3c153f9774a9fef3eb453d9b11d03a891c1f77b57b13&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/eaf597be-6470-4a65-9c97-41836f1b1529/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T052021Z&X-Amz-Expires=86400&X-Amz-Signature=d5753638f4d343902059466cdf3f7cb14c9d357e91c933801023809d942af7e6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 다양한 방식을 활용해서 직접 해보는 것이 좋음, 여기서 자동으로 sorting을 하고 복잡하게 꼬여있을 경우 Variable Name만을 가지고 뽑아서 하는 경우가 필연적으로 생기게 됨
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cbe87f3c-d78f-4ddf-90f1-da1bbee8f8ea/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T052104Z&X-Amz-Expires=86400&X-Amz-Signature=14b39b019999ee8bf3bf20313da6461b6604f92461e473826e97744df5549f62&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 머신러닝 모델만을 가지고 모델을 뽑아내서 그 모델을 가지고 다른 모델을 비교할 때는 첫번째 방법으로 충분하지만 완전 자동화 형태에서 데이터는 테이블 형태로 받아오게 되는데 column의 name위치가 어디에 있을지 모르고 그에 따라 길이도 달라지기 때문에 그 상황에선 뒤죽박죽하게 되는데 여기서 변수명은 바뀌지 않기 때문에 변수명으로 뽑아서 활용하는 측면이 더 나을 수 있음(비지도학습과 클러스터링을 하여서)
+- table도 cell과 똑같이 생각해도 됨
+- 그러면 아래와 같이 그 값을 볼 때 원래는 테이블로 나오지만 아래와 같이 처리를 하여 그 값 자체를 {}를 활용하여 뽑을 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/80f89979-c351-43b1-aa72-4cea9d8c25fb/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T052323Z&X-Amz-Expires=86400&X-Amz-Signature=cef4e01dfc1cbc90d6c7aca2b38b8154744f769a8d23296716ea68f20cfb5016&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
