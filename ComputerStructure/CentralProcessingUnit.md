@@ -192,3 +192,28 @@
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/290c782d-49f3-4387-a4e3-25d37a3d4964/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T100051Z&X-Amz-Expires=86400&X-Amz-Signature=0a0344d174ee4877793d31256423c921772635558400277f73c809a7a373e0cb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/96c58cad-8ea0-45c4-82f0-9f09a1363b25/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210325T100100Z&X-Amz-Expires=86400&X-Amz-Signature=0431c2dcfe2cd767cc1a7f62741fac8cd1fedb77964eb868bcc366589e193036&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 
+- 논리 및 시프트 연산
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9822d24e-d34a-48c8-9579-c63145b71f9f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T140936Z&X-Amz-Expires=86400&X-Amz-Signature=210e174ef606f31509bf4082490350f4b153eb800c79dd1069a2a77525c9bd8b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5eb373f7-18e0-419d-9e02-9491f6525bd5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T141021Z&X-Amz-Expires=86400&X-Amz-Signature=5a309c57698c735ed0772351c1f5e3d64dd846c3afcd892367fc704244aa4f39&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/419e1f1d-511b-4bd5-a9e8-b228fe62df71/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T141043Z&X-Amz-Expires=86400&X-Amz-Signature=a4b21083c0d465373b3832f5494bae8c9aabbf0bf7587e949cefce73ac92352a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0f85a568-5242-4408-b564-512ce3bad995/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T141108Z&X-Amz-Expires=86400&X-Amz-Signature=7efd94155b9f364f7d97b84f447ad3408c35c67b5e565b2ca51a26a5993f2e4a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1c385a92-75b6-4edf-95c8-89d827170eed/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T141130Z&X-Amz-Expires=86400&X-Amz-Signature=810762cbbdea46448f8a9d73db3ee5026778a6f6061ef4cb9ca815fc146bef42&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+## 제어장치
+- 제어장치의 역할
+	- 메모리에서 명령어를 인출해 해독하고 명령을 실행하는데 필요한 제어신호를 발생
+	- CPU 내외부에 필요한 제어신호를(때맞추어) 발생
+		- CPU 내부 버스 제어신호
+		- ALU와 레지스터 연산에 필요한 동작신호
+		- CPU 외부 메모리나 I/O 장치에 읽기와 쓰기 신호 등 
+	- 2가지 설계방식
+		- 하드와이어 제어방식
+		- 마이크로프로그램 제어방식
+- 하드와이어(hardwired) 제어방식
+	- 하드웨어만으로 마이크로연산을 수행하도록 구성
+	- 실행속도는 유리하나 설계 유연성 떨어짐
+		- 명령어 종류나 설계를 바꾸려면 하드웨어 부품이나 배선을 재구성해야 하므로 큰 불편
+- 마이크로프로그램(microprogram) 제어방식
+	- 제어메모리에 저장된 마이크로명령어를 찾아 순차적으로 실행, 대부분 이 방식을 사용
+	- 유연하고 체계적인 제어장치를 구성
+		- 명령어 설계가 바뀌어도 제어메모리에 저장된 프로그램만 변경
