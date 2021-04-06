@@ -142,3 +142,142 @@
 - 슈퍼스칼라와 슈퍼 파이프라인
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8f9b7f41-ee62-4fd2-a576-33fa8489e8cd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T145016Z&X-Amz-Expires=86400&X-Amz-Signature=358cf11606a5639b6e36e0f269c31cddb36247efe887f2c7d5e6165dcd9aea03&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/037e41d0-5a4a-4490-ac2b-217e1758ae14/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210403%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210403T145025Z&X-Amz-Expires=86400&X-Amz-Signature=e11de963a309092fd2b5194d073990d3fc23da8c57ccbe436daba9ad22efe748&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+## VLIW 구조
+- CISC(complex instruction set computer, 시스크)
+	- 간단한 명령부터 복잡한 명령까지 종류가 다양
+		- 복잡한 기계어 명령까지 고려하므로 실행단계가 많고 회로 설계 복잡, 필요 클럭 개수도 제각기 다름
+- RISC(reduced instruction set computer, 리스크)
+	- 명령 축약형 컴퓨터
+	- 복잡한 명령을 모두 없애고 멍령어 처리구조를 단순화해 기계어 명령의 수를 최소로 줄인 CPU
+		- 이론적으로 1클럭에 1명령어가 고속 처리되도록 설계
+		- 가능한 하드웨어만으로 처리해 속도를 증가
+		- 범용 레지스터 개수를 대폭 늘려 외부 메모리의 액세스 횟수를 최소로 줄여 실행 속도 높음
+	- RISC의 장점
+		- 병렬처리 프로세서 설계에 효율적
+			- 하드웨어가 덜 복잡해 CPU 설계 노력과 시간 절약
+		- 과거의 통념은 RISC가 고성능 CPU의 정석
+			- CISC 구조에 비해 내부 캐시나 여러 개의 명령어 파이프라인과 슈퍼스칼라 구조를 구성하기에 유리
+		- 프로그램 개발에도 유리
+			- 운영체제, 컴파일러 제작사, 응용프로그램 제작자 모두 -> 적은 수의 명령어만 조합해 사용하므로 편리
+	- RISC의 한계
+		- 명령어 종류만 줄여 CPU 성능을 높이는데 한계
+		- RISC가 제대로 성능을 발휘하려면 병렬처리르 고려해 명령어를 적절히 분산시켜야함
+		- RISC는 상당한 하드웨어 자원을 낭비
+			- 컴파일러가 번역해준 명령어를 판독해 병렬처리가 가능한 명령이 무엇인지 다시 조사하고 판단
+			- 성능을 더 높이려면 하드웨어의 복잡성이 다시 증가
+		- 해결책의 하나 -> VLIW처럼 명령어 구조를 개선하고 컴파일러의 정밀성과 비중을 확대
+			- 컴파일러가 명령어의 병렬처리에 직접 관여
+- VLIW(very long instruction word)구조
+	- 여러 명령을 묶어 매우 긴 명령어 형식을 만든 구조
+	- 매우 긴 명령어 워드
+		- 128, 256, 512비트 혹은 그 이상까지 사용
+	- 분명하게 명시한 명령어들은 동시에 병렬로 실행
+		- 병렬 처리할 명령을 컴파일러에서 미리 판단
+		- 동시에 실행될 수 있는 명령들을 하나로 묶어 긴 명령어 형식 내에 재배열, CPU는 별도 판정 없이 병렬처리
+	- 하드웨어 설계의 복잡성을 갖지 않는 대신 정교한 컴파일러 기술 필요
+		- 프로그램 자체에 의존해 어떤 명령이 동시에 실행이 가능하고 충돌을 어떻게 피할지 판단
+- IA-64 명령어 구조
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/00950cb8-5145-492d-ba8f-00370c7b7b6c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T012645Z&X-Amz-Expires=86400&X-Amz-Signature=86af5a115b95a97aa49e4b6a0ddf029bfeabec4bb8e2877957365dade3fde1d4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- IA-64구조 -> 정교한 컴파일러 기술 이용
+	- 128비트 길이 명령어 번들형식 사용
+		- 번들당 41비트 길이 명령어 슬롯 3개
+		- 실제 프로세서들은 여러 개 명령어 번들 형식을 사용
+	- 템플릿 -> 번들 내에 포함된 명령 슬롯이 실행되는 방법을 적어 놓은 표
+		- 하드웨어 자원이 부족할 때는 병렬처리 않고 일부 명령만 임시로 정지할 수 있도록 지정해주는 역할
+		- 5비트 0X01~1F에서 최대 32가지 실행방법
+- VLIW와 파이프라인
+	- VLIW 실행차수 v를 정의
+		- VLIW 구조에서 하나의 명령어 번들 형식에 포함되어 동시에 병렬처리로 실행될 수 있는 명령어의 개수
+		- VLIW 실행 차수 v=3, 파이프라인 단계 수 N=4
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dae17c25-2d02-4996-b144-127552a42c66/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T012935Z&X-Amz-Expires=86400&X-Amz-Signature=9164f3c75f8a21242e96a034009e70858398445d7523ca7940cb7a618151d4bf&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+## 병렬컴퓨터
+- 다중프로세서(multi-processor), 병렬컴퓨터 구조
+	- 복수의 프로세서를 연결해 동시 처리
+		- 복수의 프로세서가 복수의 프로그램을 처리하거나, 하나의 프로그램을 복수의 프로세서에 분할해 처리
+	- 대규모(massively) 병렬컴퓨터, 초병렬컴퓨터
+		- 수만 개 이상 프로세서를 서로 연결해 사용하는 구조
+		- 최근 경향 -> 멀티코어 프로세서를 집중 연결해 설계
+	- 대규모 프로세서를 갖는 컴퓨터 시스템
+		- 그리드 컴퓨팅	
+			- 분산된 지역에서 필요할 때 상호 연결되어 성능 발휘
+		- 클러스터 컴퓨팅 
+			- 한 군데 모여 공동의 작업
+- 폴린의 분류법
+	- 컴퓨터의 구조를 명령어와 자료의 흐름으로 분류해서 설명
+		- 벙렬컴퓨터라고 할 수 있는 것 -> SIMD, MIMD
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8fea33d1-91b5-4863-bc73-761cb9198d9e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T013417Z&X-Amz-Expires=86400&X-Amz-Signature=8ba3f03ff1e7f2af27757a72f94e026110cff04a0ae845f2547cf84f7e09f3cb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- SISD(single instruction, single data stream)
+	- 단일 명령, 단일 데이터 흐름 구조
+	- 하나의 처리장치나 프로세서를 갖고 단일 명령으로 단일 데이터를 순차적으로 처리
+		- 이 구조는 파이프라인 기법으로 병렬처리 효과 가능
+- SIMD(single instruction, multiple data stream)
+	- 단일 명령, 복수 데이터 흐름 구조
+	- 복수의 처리장치나 프로세서를 갖고 단일 명령으로 복수의 데이터를 처리
+		- 벡터 프로세서나 그래픽처리장치가 해당
+		- 각 배열은 동일 연산을 수행하나 처리 데이터는 다른, 비슷한 패턴을 갖는 멀티미디어 데이터 처리에 적합
+- MISD(multiple instruction, single data stream)
+	- 복수 명령, 단일 데이터 흐름 구조
+	- 복수의 처리장치나 프로세서를 갖고 복수의 명령으로 단일 데이터를 처리
+		- 복수의 처리장치가 명령은 다르나 자료는 같은 비실용
+		- 존재하기 힘든 구조, 우주왕복선을 제어하는 컴퓨터들
+- MIMD(multiple instruction, multiple data stream)
+	- 복수 명령, 복수 데이터 흐름 구조
+	- 복수의 처리장치나 프로세서를 갖고 복수의 명령으로 복수의 데이터를 동시에 처리
+		- 명령과 데이터가 독립적으로 실행되는 다중프로세서
+		- 일을 균등하게 배분해야 고효율, 분산처리시스템 등
+- 벡터 프로세서(vector processor)
+	- 복수의 연산장치를 병렬로 연결해 큰 규모의 행렬이나 배열 연산을 고속으로 한꺼번에 처리하는 장치
+	- 배열 프로세서(array processor)라고도 함
+	- 스칼라 프로세서(scalar processor)
+		- 한 번의 명령으로 하나의 데이터를 처리, SISD 구조
+	- SIMD 구조의 하나 -> SIMD는 명령어 하나로 대량의 데이터를 처리할 수 있는 구조나 명령어 기술
+		- 데이터 속성상 비슷한 패턴을 갖게 되는 멀티미디어 데이터를 빠르게 처리하기에 적합
+			- 계속 반복되는 루프를 단 하나의 명령어로 실행
+			- 펜티엄 MMX 등 1990's 말 프로세서들도 이미 채택
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7b13aad8-c098-4724-9ed2-23fe981a0d3e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T014020Z&X-Amz-Expires=86400&X-Amz-Signature=5968c268a6f0ae7fd0e1549264aac16c987a7f306cc878d9f220a153ca39118c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d9ca28d9-2af9-487d-b4b5-35a14c078983/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T014044Z&X-Amz-Expires=86400&X-Amz-Signature=bd73cb0c70e56505424b6dc21ad6a1b5207e0bdcad4c6d891554d3570c04d071&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 멀티프로세서(multi-processor, 다중프로세서) 구조
+	- = 병렬컴퓨터
+	- 동시에 동작하는 여러 개의 프로세서를 병렬로 연결
+		- 외부 기억장치나 입출력장치는 공유할 수 있지만, 내부 레지스터와 실행 장치는 독립적으로 사용해야 함
+	- 다중프로세서를 구성하는 방법
+		- 하나의 칩에 여러 코어를 내장한 멀티코어 프로세서 
+		- 하나의 시스템보드에 여러 개의 프로세서 칩을 장착
+		- 한 컴퓨터 내에 여러 개의 시스템보드를 장착
+		- 여러 대의 컴퓨터를 공동의 작업을 위해 병렬로 연결
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9162d62a-0a51-4fbc-9181-bd66f2cb98d5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T014242Z&X-Amz-Expires=86400&X-Amz-Signature=1f581ea0ae0cdcd1e696b47d81160296c93d57ffe134ee57a3b8155b15206408&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 멀티코어(multi-core, 다중코어) 프로세서
+	- 칩-레벨 다중프로세서, 병렬컴퓨터의 가장 기본형태
+		- 인텔은 2000's 중반부터 대부분의 프로세서에 채택
+	- 코어로 불리는 2개 이상의 독립적인 실제 CPU 내장
+		- 듀얼코어(dual-core):2개, 쿼드코어(quad-core):4개, 옥타코어(octa-core):8개 등
+		- 멀티프로세서, 멀티 CPU -> 물리적으로 분리됨
+	- 칩 내부 코어가 동일 다이에 존재하지 않을 수 있음
+		- 다이(die) -> 실리콘 소자의 반도체 표면 위에 집적회로를 만들고 회로 판을 잘라낸 것
+		- 칩(chip) -> 보통 반도체 부품을 가리키나, 반도체 공정상의 다이, 인쇄회로기판의 표면실장 부품 등 지칭
+	- 각 코어들은 강하게 또는 약하게 결합
+		- 공유 캐시를 사용할 수도 사용하지 않을 수도
+		- 코어 간 통신을 위한 공유 메모리, 명령어 인출 및 해독장치 부분은 공유 가능
+		- 그래픽처리장치(GPU)등 내장 코어가 꼭 동일치 않음
+	- 다중작업 설계에 유리 -> 하드웨어의 효율적 구성
+		- 프로세서 간 연동에 유리
+		- 칩당 소비전력은 증가하지만 분리된 칩보다 절감
+	- 소프트웨어 알고리즘도 이에 맞게 설계해야
+		- 각 코어가 일반적으로 같은 일을 나눔
+		- OS가 각 코어에 작업량을 적절히 분산시키고
+		- 응용프로그램도 멀티코어에 적합하게 새로 설계해야
+- 멀티스레드 개념과 활용도
+	- 파이프라인 단계 수가 많아지면
+		- 각 단계 길이는 줄고, 작업은 더욱 세분화
+	- 모든 스레드가 각 단계를 다 거치는 것이 아님
+		- 일하지 않고 쉬는 유휴 단계가 발생
+	- 하나의 실행 장치에서 두 개의 스레드를 겹치지 않게 동시에 작업할 수 있도록 설계
+		- 작업이 할당되지 않은 실행 단계는 다른 스레드의 작업을 함께 끼워 넣어 동시에 작업
+	- 하이퍼스레딩 -> CPU가 놀지 않게 쥐어짜려는 기술
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dc8ab294-cb3d-4789-bf9f-ed03036cb51f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T014945Z&X-Amz-Expires=86400&X-Amz-Signature=cb08e8f63842bd3f64787013acdd7190c642afcc103037fff00360cca3c8c8fd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
