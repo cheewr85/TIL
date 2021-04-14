@@ -3,6 +3,8 @@
 ## Roadmap
 - [k-Means Clustering](#k-Means-Clustering)
 - [Gaussian Mixture Model](#Gaussian-Mixture-Model)
+- [Interpreting the Groups](#Interpreting-the-Groups)
+- [Hierarchical Clustering](#Hierarchical-Clustering)
 
 ## k-Means Clustering
 - k-Means와 Gaussian은 Cluster하고자 하는 그룹의 개수가 정해졌을 때 사용하는 방법
@@ -102,3 +104,100 @@
 - 아래는 cluster1에 포함될 확률이고 즉 노란색이 그렇고 색깔이 점점 초록색과 파란색으로 될 수록 cluster2에 포함됨, 왜냐하면 어차피 cluster1에 포함될 확률이 p이면 cluster2에 포함될 확률은 1-p임
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f88af8a0-a969-40c8-9dbc-5e4b0cb5b5c8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210407%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210407T030951Z&X-Amz-Expires=86400&X-Amz-Signature=26989033309822d017691476d232f2214937249ee1c3a4055c6f6a07706045fb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
 
+## Interpreting the Groups
+- Clustering 결과를 observation 별로 보고 clustering 별로 보고 어떻게 최적의 조건을 찾을지 파악할 수 있음
+- group과 centroid를 설정한 kmeans와 Gaussian을 통한 group과 probability를 알 수 있음
+- Gaussian은 Gaussian distribution을 씌운 다음에 Clustering을 진행함
+- 우선 Kmeans의 observation당 variable로 나눠서 어떤 그룹에 속하는지 아래와 같이 시각화를 할 수 있음
+- 각 observation이 어느 group에 포함되었는지 알 수 있음(17개의 variable, 선은 1112개의 좌표값을 나타냄)
+- 각 variable당 좌표값이 어떤지 알 수 있음, 데이터가 어느정도 정형화되어 있다면 두 group이 나뉘어짐
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dc5d26cf-e7bd-4a0e-824c-3042631e4635/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080344Z&X-Amz-Expires=86400&X-Amz-Signature=01b05f98510c1d85e4476f285d028ca901af5a27fa4f95dc4650b7b59d5e346e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- labels의 각각의 xtick의 label을 확인할 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/39bef6d5-a795-4177-ae8d-0980e8aedb16/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080407Z&X-Amz-Expires=86400&X-Amz-Signature=6fd553258e4bd297bbe34a0f6330e3a19218a3184a09bbfd629cb28a93ef4b91&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1ad1058a-a16e-4e9f-aba1-0c880387b51d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080415Z&X-Amz-Expires=86400&X-Amz-Signature=4a055a37e2c4b46a80b6a24cd266668df9b70b79cf90e2f0a5bc5885b0680c21&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 하지만 위와 같이 보면 보기 매우 힘듬, 그래서 옵션을 활용하여 좀 더 보기 편하게 설정함
+- Quantile 0.25는 Medium값 기준으로 위로 0.25, 아래로 0.25를 의미함, 중간값을 기준으로 2번째 사진과 같이 잡음
+- 진한 선을 기준으로 25%안에 들어오는 것의 경계면을 나타내는 것임, 위아래 경계를 두고 나타냄
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/87247624-ba22-4e01-ab25-96eb93ead968/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080516Z&X-Amz-Expires=86400&X-Amz-Signature=304397c8ca8628a254d5589cfd5a92bef001b6981c35367d897969a4cd379218&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8a8e141f-859b-4e70-aff4-e39381882215/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080524Z&X-Amz-Expires=86400&X-Amz-Signature=a704c135ee676611cd8f0873a4f7d8b505cd983a28c2e303d89654c816ae134e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- centroid 역시 알 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff292004-3f8c-4428-a5b5-5ef4b5e33a4b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080540Z&X-Amz-Expires=86400&X-Amz-Signature=51eda86a42cf52b3e8fc1d51e9fd22f749f081ea67d1a0063583c8007fad68a3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 때로는 비지도학습이어도 실제 그룹이 어디에 포함되는지 알 수 있음
+- 그룹 결과를 이미 알고 있을 때, clustering의 퀄리티를 알 수 있음
+- 이때 crosstab을 활용함, 각각의 group에 속할 확률을 알 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/51ddc1df-f8df-4964-b57e-3dac467b2e30/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080649Z&X-Amz-Expires=86400&X-Amz-Signature=5e8275a9280488dbc5643056a5d663c73aeb743c8e80cac2f9b7c557ef5f8a8f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 활용해서 쓸 수 있음
+- 각각 앞의 숫자는 1번 그룹에 속한 개수, 뒤의 숫자는 2번 그룹에 속한 개수를 나타내는 것임
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b42b2db8-8bbb-4aab-b0c8-d168a9c90985/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080723Z&X-Amz-Expires=86400&X-Amz-Signature=42fcbf56b7248402f038767b9f66fcc24c489bc13db6cea70c19976274b4dec5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이를 바 그래프로 사용하는것을 많이 씀, 아래와 같이 스택형식으로 쓸 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8d945e33-0eee-4560-b5cb-fdecff0cdee4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080742Z&X-Amz-Expires=86400&X-Amz-Signature=25eb9f6347c048efa187e521d05435f70d784ea38003b047fc6d912ca4ecd8eb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/64b8c6ef-9908-4a72-a8ac-77282b4e7c9e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080751Z&X-Amz-Expires=86400&X-Amz-Signature=7509c5205f05af46389673dd17c61e15595f8551176e5930e7a3b7ca97ede4a2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이를 반대로 쓸 수도 있음, 여기서는 cell형으로 넣어서 씀
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0b8e4610-a306-4102-9065-83e5f8882a83/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T080815Z&X-Amz-Expires=86400&X-Amz-Signature=4df573d01298fbadb58e63270b67e093a22a328ae0b11d0fb0b8008305f2a935&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- clustering quality 역시 확인할 수 있음, evalclusters를 활용해서 quality를 판단할 수 있음
+- 헷갈리면 다 작은따옴표로 통일해서 처리해도 상관없음
+- silhouette 함수를 통해서 quality를 확인할 수 있음
+- silhouette 함수는 아래와 같이 가운데 선을 기준으로 2번과 1번 그룹으로 나뉘어짐
+- 파란색 면적이 오른쪽으로 많을수록 clustering의 quality가 좋은 것임 
+- 아래의 사진을 비교했을 때 2개 그룹, 3개 그룹 비교시 두 번째 그룹의 퀄리티가 더 좋은 것임
+- 그리고 올라가는 저 값들은 observation까지 얼마나 가까운지를 의미함, 오른쪽으로 값이 가까울수록 그만큼 퀄리티가 높다는 것을 의미함, 하지만 마이너스로 가까우면 그만큼 퀄리티가 안 좋다는 것을 의미함, 마이너스로 쭉 뻗으면 매우 안좋다는 것임
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/90ac8860-98cd-4757-94a1-f8aa56109c71/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081109Z&X-Amz-Expires=86400&X-Amz-Signature=00240396090cde0fc2050db129b1ad04fbf263bd2238765160426d866d1da6b1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 3개의 그룹으로 나올수도 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9e2ad779-07a3-4e6f-8b6d-ca8b97d45e70/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081126Z&X-Amz-Expires=86400&X-Amz-Signature=27e10f277ab0e7d98cec17e9f334824d638a87927124d6bcc5fbc65cc45d2549&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 아래와 같이 그룹을 계속 나눌 수 있음 
+- 여기서 각각을 비교하면서 그 퀄리티를 체크하고 어떻게 나눌지 판단할 수 있음
+- 근데 눈으로 파악했을 때 애매한 경향이 있음, 뭐가 더 나은지 판단하는 상황에서
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e202b271-ea7d-4f06-aee9-ef12d0bc2b81/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081205Z&X-Amz-Expires=86400&X-Amz-Signature=3d335cb63bd98b61bb6ab5740225dd1a5a62b872402d921cf3241a3d50c1a7b3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/45ba5745-8e09-4607-8c14-422faf9f3221/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081214Z&X-Amz-Expires=86400&X-Amz-Signature=c20dbfd90be5724333ba7df7152e3623c4d66b93adf94b477ac8c6c32edd448f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 자동으로 어떤게 나은지 체크 할 수 있음
+- KList는 cluster의 개수를 의미함
+- 검열한 cluster의 개수가 2,3,4,5 그리고 optimal한 것은 2개임을 의미함, 즉 아래와 같은 방식을 사용했을 때 최적의 방식이 2개의 group으로 나눴을 때임을 나타내줌
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f347aa0e-a9ef-4ffe-b9e4-14d2295e546f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081318Z&X-Amz-Expires=86400&X-Amz-Signature=98f4bfb980a650f6907d20c23f060a7fb48239b104e9612f6671520702dd5483&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 평가하는 방법은 다양함
+- Davis 방식은 최적값이 변하는 경우도 있음
+- 아래의 방식을 토대로 2,5의 group이 나음을 알 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3b44795f-f8bb-4413-bd1b-77a7e44f835d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081353Z&X-Amz-Expires=86400&X-Amz-Signature=3fc6350ba2ccbc2f0e74bc20a8b99421b720700b2a9cb001064280d59043662e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+## Hierarchical Clustering
+- 데이터의 variable의 특성을 어느정도 완벽하게 알고 있을 경우 유용함
+- 평이한 옵션을 활용하면 그에 맞게 평이하게 나옴, 하지만 옵션에 따라 세밀하게 구분을 할 수 있음
+- linkage, dendrogram을 하고 cluster를 함, Gaussian에서의 cluster와 유사함, linkage로 유사성을 파악하고 dendrogram으로 유저가 보고 이를 통해 cluster를 함
+- linkage에서는 데이터가 아무리 많아도 5개로 나타냄, 유사성이 아주 가까운 경우는 유사성으로 묶어서 나타냄, 아주 많은 경우는 그러지 않을 것임
+- 여기서 1은 observation 1이 아님, 여기에 포함된 군집된, 너무 가까워서 하나로 군집되어 있는것을 의미함
+- 아래의 dendrgram에서 1,2,3,4,5는 군집된 observation을 의미함, 4와 5는 적당한 유사성이 있지만 어느정도 떨어져 있음, (4,5), (1,2)의 차이는 세로축의 길이가 유사성을 나타냄, (1,2)가 묶이면 떨어져서 나중에 3으로 묶임
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/de9232d3-38b9-4e71-a080-b048e27c9103/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081735Z&X-Amz-Expires=86400&X-Amz-Signature=aa26e179a5def4e3d3470d8e600abddc934f659b71f1f2fa66c30a13b0d35e29&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이를 쓰기 위해서 데이터를 구분해서 쓸 것임 
+- 그전에 statsnorm에서 정규화를 한 것은 zscore를 통해서 정규화 한 것임, 여기서 zscore는 표준정규분포를 만드는 것이었음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a92a6cc0-5fc7-40ef-a06c-f36df054c9c5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081813Z&X-Amz-Expires=86400&X-Amz-Signature=9179a329b60a0ba92084abe42c061be21d20c9f6fbd8a4ce56f367d3c6e8ef74&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e018b9de-723a-4c75-b2b4-e2e57c7abce6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081821Z&X-Amz-Expires=86400&X-Amz-Signature=549f7148d0a6724940186cbbbb04187e1cbd18bf0b013a8788a45d3b088f498a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 linkage를 하고 간단하게 보면 아래와 같이 나오게 됨, 상당히 이상하게 나옴
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9bfe6e9b-1f7c-4984-89dc-c7500a8629e8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081848Z&X-Amz-Expires=86400&X-Amz-Signature=ef1bd130cd0e97d7310cc30653fdf752f0f335d659aa475776d77a0c439c1a6a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 이를 ward를 통해 서로간의 유사성을 다시 파악함, 어떻게 쪼갤 것인지 파악 가능함
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1df4192c-51d1-4a0b-afd6-e779d7720a50/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081910Z&X-Amz-Expires=86400&X-Amz-Signature=b0b411f18485af9fe1589a8fe749a5e5bd337ab214fbe4c5162cbc8c95607a7f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 거리측정법을 cosine으로 바꾸고 아래와 같이 유사성 체크시 2개 혹은 3개로 쪼개는게 나음을 알 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5ec31923-ef06-4879-a5c9-86bc6d6ec12a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T081937Z&X-Amz-Expires=86400&X-Amz-Signature=c12a94c854daaff1aa2ebbb2c036fba26e340187ff82d0ed2f72174426bd6171&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 여기서 거리측정법을 최적으로 할 것이 무엇일지 고려를 할 때 그 변수간의 무엇이 나은지 doc을 통해 활용해서 정하면 됨
+- 군집간 거리를 계산하는 알고리즘은 다양함
+- 그 이후 아래와 같이 clustering을 확인을 할 수 있음
+- medium을 기준으로 아래와 같이 그 정도를 확인할 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f1fe7885-dfe5-41d6-9683-3adc163c2b95/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T082053Z&X-Amz-Expires=86400&X-Amz-Signature=406c92afa26c9fab809581c6014110984004e077543150205e287248c9e3dd11&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+
+- 하지만 여기서 위와 같이 처리해서 직접 보는 것 말고 evalclusters를 통해서 linkage였을 때 최적값을 찾을 수 있음
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ebf8835f-0e85-4d65-8d92-8e486bf6be81/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210414%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210414T082123Z&X-Amz-Expires=86400&X-Amz-Signature=b69d384ee256b0c1b412ebab57b1113d893cc65fb2e3e37f759504ae8cf29ea7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
