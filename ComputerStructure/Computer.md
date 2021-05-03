@@ -9,10 +9,10 @@
 
 ## 컴퓨터 시스템
 - 컴퓨터와 OS의 구조
-![one](./img/ComputerStructure/Computer/one.png)
+![one](/img/ComputerStructure/Computer/one.png)
 
 - S/W 계층구조
-![two](./img/ComputerStructure/Computer/two.png)
+![two](/img/ComputerStructure/Computer/two.png)
 
 - 컴퓨터라는 어원 자체는 <계산하는 사람>에서 출발(compute)
 - 일반적 정의 : 외부 프로그램이나 데이터 입력을 받아들여 내부 전자회로에서 자료를 계산하거나 처리해 정보를 저장하고 결과를 출력하는 기계
@@ -49,13 +49,13 @@
 		- 하드웨어를 정확하게 제어해주는 프로그램들의 집합
 
 ## 컴퓨터의 발달
-![three](./img/ComputerStructure/Computer/three.png)
-![four](./img/ComputerStructure/Computer/four.png)
+![three](/img/ComputerStructure/Computer/three.png)
+![four](/img/ComputerStructure/Computer/four.png)
 
 - 진공관, 외부배선 사용은 트랜지스터를 활용함
 - 1953년 이후 PC크기는 작아지고 기술의 발달로 micro processor까지 활용을 함
 
-![five](./img/ComputerStructure/Computer/five.png)
+![five](/img/ComputerStructure/Computer/five.png)
 
 - 전기기계식 컴퓨터의 원리, 트랜지스터와 비슷
 - 전류가 흐르면 접점이 기계적으로 전자석이 달라붙음
@@ -82,7 +82,7 @@
 - 폰 노이만 구조
 	- 현대적인 컴퓨터의 개념, 프로그램 내장방식과 순차 실행
 	- 전자계산기에 기억장치를 갖추고 연산 순서를 부호화해 기억시킨 후 기억된 내용을 순차적으로 꺼내 명령을 해독하고 연산을 실행함
-![six](./img/ComputerStructure/Computer/six.png)
+![six](/img/ComputerStructure/Computer/six.png)
 
 - Control Unit
 	- 프로그래밍의 실행관련 부분을 해석하고 컨트롤(for문을 보고 반복을 하던가, 연산을 하는 것)
@@ -100,9 +100,9 @@
 	- 명령어 인출과 실행 사이클을 반복적으로 수행
 
 ## 개인용 컴퓨터
-![seven](./img/ComputerStructure/Computer/seven.png)
+![seven](/img/ComputerStructure/Computer/seven.png)
 
-![eight](./img/ComputerStructure/Computer/eight.png)
+![eight](/img/ComputerStructure/Computer/eight.png)
 
 - CPU -> 메모리(데이터 저장)
 	- Address Bus + Data Bus(메모리에 저장) 동시에 씀
@@ -117,10 +117,10 @@
 - 우선순위는 register - CPU의 데이터 bit 관계임
 - GUI 시스템 -> 마우스를 움직이고 아이콘을 선택하는 등, 타이핑을 하지 않고 상호작용함
 
-![nine](./img/ComputerStructure/Computer/nine.png)
+![nine](/img/ComputerStructure/Computer/nine.png)
 
 ## 컴퓨터의 분류
-![ten](./img/ComputerStructure/Computer/ten.png)
+![ten](/img/ComputerStructure/Computer/ten.png)
 
 - 컴퓨터의 세대
 - 1세대 컴퓨터
@@ -167,7 +167,7 @@
 - 클라우딩 컴퓨팅
 	- 수많은 컴퓨터가 동시에 연결(특정 서버 연결, 유연성 있음, 가상 서버 만들어 이용)
 	- 네트워크 기반의 서비스, 물리적으로 실존하지 않음
-![eleven](./img/ComputerStructure/Computer/eleven.png)
+![eleven](/img/ComputerStructure/Computer/eleven.png)
 
 - 엣지 컴퓨팅은 클라우딩을 활용하지만 중간에 매개체로 엣지 플랫폼을 활용하여 쓰는 것임
 - 클라우드 기술과 엣지 기술을 적절히 섞어서 사용함
@@ -185,7 +185,7 @@
 - 비트
 	- 2진수 체계에서 정보의 기본 단위 1과 0 표현
 - 숫자코드
-![twelve](./img/ComputerStructure/Computer/twelve.png)
+![twelve](/img/ComputerStructure/Computer/twelve.png)
 
 - 숫자코드는 프로그래밍 언어마다 표현이 다름
 
@@ -195,24 +195,24 @@
 	- 소프트웨어적인 관점 
 		- 운영체제에서 사용하는 커널의 비트 수
 		- 컴파일러에서 사용하는 데이터 단위
-![thirteen](./img/ComputerStructure/Computer/thirteen.png)
+![thirteen](/img/ComputerStructure/Computer/thirteen.png)
 
 - 데이터 단위
 	- 8비트 바이트까지는 공통
 	- 16비트 이상은 표현이 다양
-![fourteen](./img/ComputerStructure/Computer/fourteen.png)
+![fourteen](/img/ComputerStructure/Computer/fourteen.png)
 
 - 문자 세트와 문자 인코딩
 	- 문자 인코딩 또는 코드 페이지 
 		- 문자 세트를 부호화한 것, 다양한 인코딩 방법 가능
-![fifteen](./img/ComputerStructure/Computer/fifteen.png)
+![fifteen](/img/ComputerStructure/Computer/fifteen.png)
 
 - 아스키 문자 세트
 	- 7비트 인코딩 사용, 아스키 문자 코드의 집합
 	- 7비트 표준 아스키 문자 세트 
 		- 0~31, 127(33개) -> 인쇄 불가능한 문자(enter, delete등)
 		- 32~126 (95개) -> 영문 알파벳 대소문자(52), 숫자(10), 구두법 기호등의 특수문자(32), 공백(1)
-![sixteen](./img/ComputerStructure/Computer/sixteen.png)
+![sixteen](/img/ComputerStructure/Computer/sixteen.png)
 
 - ANSI 코드
 	- 8비트 확장 아스키 문자 세트

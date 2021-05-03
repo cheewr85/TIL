@@ -8,7 +8,7 @@
 - [신호선의 동작](#신호선의-동작)
 
 ## 하드웨어의 구성
-![one](./img/ComputerStructure/Fundamental/one.png)
+![one](/img/ComputerStructure/Fundamental/one.png)
 
 - 중앙처리장치(CPU)
 	- logical, 산술계산, 프로그램제어(시작 -> 끝)
@@ -26,9 +26,9 @@
 - 버스(Bus)
 	- Data Address control
 
-![two](./img/ComputerStructure/Fundamental/two.png)
+![two](/img/ComputerStructure/Fundamental/two.png)
 
-![three](./img/ComputerStructure/Fundamental/three.png)
+![three](/img/ComputerStructure/Fundamental/three.png)
 
 - CPU부
 	- CPU와 시스템 제어를 위한 칩셋(노스브리지, 사우스브리지)부분
@@ -43,7 +43,7 @@
 	- CPU와 입출력장치의 인터페이스 부분
 
 
-![four](./img/ComputerStructure/Fundamental/four.png)
+![four](/img/ComputerStructure/Fundamental/four.png)
 
 - 버스의 필요성((b) 그림)
 	- 자주 사용하는 신호선의 배선 수를 줄임
@@ -61,7 +61,7 @@
 		- CPU 내외부의 장치를 동작시키는 제어신호(읽기와 쓰기 신호)
 		- 단방향 또는 양방향 전송
 
-![five](./img/ComputerStructure/Fundamental/five.png)
+![five](/img/ComputerStructure/Fundamental/five.png)
 
 - 워크스테이션과 서버도 대개 이런 구조
 - 상위 기종은 CPU 성능을 높이고(쿨럭속도를 고려하여 코어를 늘림, 쿼드코어) 고속의 소자를 사용
@@ -103,27 +103,27 @@
 				- 램 모듈 접근속도 높여 멀티코어 프로세서 성능 향상
 			- 전통적인 노스브리지의 거의 모든 기능을 CPU 내장
 		- 프로세서 칩에 칩셋을 모두 내장
-![six](./img/ComputerStructure/Fundamental/six.png)
-![seven](./img/ComputerStructure/Fundamental/seven.png)
-![eight](./img/ComputerStructure/Fundamental/eight.png)
+![six](/img/ComputerStructure/Fundamental/six.png)
+![seven](/img/ComputerStructure/Fundamental/seven.png)
+![eight](/img/ComputerStructure/Fundamental/eight.png)
 
 - 메인보드(main board) = 시스템보드(system board) = 마더보드(motherboard)
 	- 컴퓨터 시스템의 주기판
 - 메인보드 제작규격 -> 폼팩터라고도 함
 	- ATX, BTX 규격등(규격화)
-![nine](./img/ComputerStructure/Fundamental/nine.png)
-![ten](./img/ComputerStructure/Fundamental/ten.png)
-![eleven](./img/ComputerStructure/Fundamental/eleven.png)
+![nine](/img/ComputerStructure/Fundamental/nine.png)
+![ten](/img/ComputerStructure/Fundamental/ten.png)
+![eleven](/img/ComputerStructure/Fundamental/eleven.png)
 
 ## 소프트웨어의 역할
-![twelve](./img/ComputerStructure/Fundamental/twelve.png)
+![twelve](/img/ComputerStructure/Fundamental/twelve.png)
 
 - O/S에서 드라이버가 H/W를 건드림(드라이버 시스템 소프트웨어 역할을 함)
 - 여기서 응용프로그램은 시스템 소프트웨어를 거침
 - 드라이버는 디바이스 드라이버를 의미함
 
-![thirteen](./img/ComputerStructure/Fundamental/thirteen.png)
-![fourteen](./img/ComputerStructure/Fundamental/fourteen.png)
+![thirteen](/img/ComputerStructure/Fundamental/thirteen.png)
+![fourteen](/img/ComputerStructure/Fundamental/fourteen.png)
 
 - 운영체제(operating system, OS)
 	- 컴퓨터를 운영하는 프로그램을 가상으로 표현
@@ -160,7 +160,7 @@
 		- 특정 디렉터리 안의 목록을 읽어내는 루틴 등
 - 루틴(routine)
 	- 특정한 작업을 수행하기 위해 자주 사용되는 프로그램이나 프로그램 소스의 일부
-![fifteen](./img/ComputerStructure/Fundamental/fifteen.png)
+![fifteen](/img/ComputerStructure/Fundamental/fifteen.png)
 
 - 운영체제의 쉘(커널 사용함에 있어서 사용자-커널 이어주는 인터페이스임)
 	- 프로그램이나 운영체제의 사용 불편을 개선하기 위해 메뉴 구동형의 사용자 인터페이스를 제공하는 유틸리티 프로그램
@@ -201,7 +201,7 @@
 	- 개체포함 -> 외부 개체의 정보가 현재 문서의 개체로 포함되도록 속성을 가진 채로 복사
 		- 원본과 복사본이 별개로 존재
 		- 파일 크기는 크지만 파일 관리에 편리
-![sixteen](./img/ComputerStructure/Fundamental/sixteen.png)
+![sixteen](/img/ComputerStructure/Fundamental/sixteen.png)
 
 - 클립보드
 	- 운영체제에서 관리하는 임시 저장소
@@ -239,8 +239,8 @@
 		- ex) 레지스터 A와 X의 내용을 더해 A에 저장
 	- 오퍼랜드(operand) 필드 -> 연산의 대상을 찾는 법
 		- ex) 연산의 대상이 저장된 위치 X를 가리킴
-![seventeen](./img/ComputerStructure/Fundamental/seventeen.png)
-![eighteen](./img/ComputerStructure/Fundamental/eighteen.png)
+![seventeen](/img/ComputerStructure/Fundamental/seventeen.png)
+![eighteen](/img/ComputerStructure/Fundamental/eighteen.png)
 
 - 인터프리터(interpreter)
 	- 소스 코드를 한 줄씩 읽어 번역하고 실행하는 방식
@@ -253,7 +253,7 @@
 	- CPU 제조사나 종류에 따라 달라짐
 - 인터프리터는 1줄씩 실행하므로 최적화해서 실행할 수 없음 1줄에 특정명령어 다 갖춰야함
 - high level은 속도가 빠를 수 없음, 어셈블리언어는 속도가 높음
-![nineteen](./img/ComputerStructure/Fundamental/nineteen.png)
+![nineteen](/img/ComputerStructure/Fundamental/nineteen.png)
 
 - 스크립트 언어 
 	- 다른 프로그램을 기반으로 실행되는 짧은 프로그램이나 명령어
@@ -275,7 +275,7 @@
 		- 서브루틴 수행 후 다시 본래 위치로 복귀
 	- 서브루틴 파라미터
 		- 메인 프로그램에서 서브루틴으로 작업을 의뢰하기 위해 보내주는 입력 데이터로 사용되는 매개변수
-![twenty](./img/ComputerStructure/Fundamental/twenty.png)
+![twenty](/img/ComputerStructure/Fundamental/twenty.png)
 
 - 라이브러리(library)
 	- 자주 쓰는 단순 반복적인 프로그램에 대해 미리 작성해 놓은 표준 서브루틴
@@ -283,7 +283,7 @@
 	- 대개 컴파일러 제조사가 제공하는 것만으로 충분
 		- 사용자가 직접 라이브러리를 만들 수도 있음
 	- 표준 라이브러리는 대개 헤더 파일 안에서 선언됨
-![twentyone](./img/ComputerStructure/Fundamental/twentyone.png)
+![twentyone](/img/ComputerStructure/Fundamental/twentyone.png)
 
 - 링크(link)
 	- 컴파일 결과로 생긴 사용자의 오브젝트 코드와 라이브러리에서 제공된 오브젝트 코드 등을 결합해 실제로 실행 가능한 파일을 만드는 것
@@ -320,7 +320,7 @@
 		- 사용자가 전면에서 다른 작업을 하는 동안, 이면에서 인쇄나 다운로드 등 다른 작업을 실행하는 환경
 - 스레드
 	- 컴퓨터에서 정상적으로 작업이 완료될 때까지 세부적으로 해야하는 작은 일들에 대한 일정표
-	![twentytwo](./img/ComputerStructure/Fundamental/twentytwo.png)
+	![twentytwo](/img/ComputerStructure/Fundamental/twentytwo.png)
 
 - 멀티스레드(multi-thread) 혹은 멀티스레딩(multi-threading)
 	- 운영체제에서 여러 스레드를 동시에 관리하는 것
@@ -362,8 +362,8 @@
 		- 프로그램이나 하드웨어 장치의 기본 설정 값으로 사용자가 특별히 지정하지 않은 값
 			- 응용프로그램의 기본 설정 값
 			- 공장 출하할 때 맞춰놓은 기본 설정 값
-![twentythree](./img/ComputerStructure/Fundamental/twentythree.png)
-![twentyfour](./img/ComputerStructure/Fundamental/twentyfour.png)
+![twentythree](/img/ComputerStructure/Fundamental/twentythree.png)
+![twentyfour](/img/ComputerStructure/Fundamental/twentyfour.png)
 
 - 메인보드에 장착된 CMOS
 	- 배터리 백업 받는 CMOS SRAM을 가리킴
@@ -437,7 +437,7 @@
 		- 디지털 회로의 신호가 하이 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
 	- 액티브 로우(active low)
 		- 디지털 회로의 신호가 로우 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
-![twentyfive](./img/ComputerStructure/Fundamental/twentyfive.png)
+![twentyfive](/img/ComputerStructure/Fundamental/twentyfive.png)
 
 - 트리거(trigger)
 	- 어떤 하드웨어 장치를 동기(sync)에 맞추어 동작시킬 수 있도록 제공되는 신호
@@ -445,4 +445,4 @@
 		- 신호선에 연결된 장치들이 입력 신호의 하이나 로우레벨에 동기되어 동작하도록 설계하는 방식
 	- 에지 트리거(edge trigger)
 		- 신호선에 연결된 장치들이 입력 신호의 라이징(rising, 상승) 에지나 폴링(falling, 하강) 에지에 동기되어 동작하도록 설계하는 방식
-![twentysix](./img/ComputerStructure/Fundamental/twentysix.png)
+![twentysix](/img/ComputerStructure/Fundamental/twentysix.png)

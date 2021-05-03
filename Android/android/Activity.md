@@ -1,7 +1,7 @@
 ## Activity
 - 앱의 한 화면임 
 - Life Cycle(생명주기)
-![one](./img/Android/android/Activity/one.png)
+![one](/img/Android/android/Activity/one.png)
 
 - 콜백 -> 특정 동작 발생시 그 동작을 알 수 있게함 
 - Activity 수명주기 참조(위와 같은 흐름으로 실행됨)
@@ -66,10 +66,10 @@ class MainActivity : AppCompatActivity() { // MainActivity가 AppCompatActivity�
 ```
 
 - 로그를 찍어서 확인가능(Activity running 상태)
-![two](./img/Android/android/Activity/two.png)
+![two](/img/Android/android/Activity/two.png)
 
 - 종료시키지 않고 홈으로 나오는 버튼을 누르면 아래와 같은 상태(onStop 찍히려면 onPause 거쳐야함), onPause와 onStop을 구분하기 힘듬,그래서 둘 중 한 곳에 작업을 함, 반드시 보장되는 것은 아님, 끄면 onDestroy처리됨
-![three](./img/Android/android/Activity/three.png)
+![three](/img/Android/android/Activity/three.png)
 
 - 다시 실행시키면 onStart, onResume이 나옴(onRestart 생략됨)
-![four](./img/Android/android/Activity/four.png)
+![four](/img/Android/android/Activity/four.png)

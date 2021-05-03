@@ -88,4 +88,4 @@ class ThreadActivity : AppCompatActivity() {
 }
 ```
 - 스레드 실행시 아래와 같이 바로 나타남
-![one](./img/Android/android/Thread/one.png)
+![one](/img/Android/android/Thread/one.png)

@@ -2,11 +2,11 @@
 - res 폴더 밑의 있는 내용
 - color.xml
 	- color값을 미리 설정해주어서 해당 color값을 저장해둠, 이렇게 되면 만일 디자인 변경 시 color를 바꿔야 하는 경우에 미리 저장해 둔 color를 통해서 그 값만 바꿔줄 수 있으므로 관리하기 편함
-![one](./img/Android/android/Resource/one.png)
+![one](/img/Android/android/Resource/one.png)
 
 - string.xml
 	- 이와 유사하게 만일 text 값을 설정했다가 수정하는 경우 간편학게 수정할 수 있게끔 values의 따로 두어서 저장함
-![two](./img/Android/android/Resource/two.png)
+![two](/img/Android/android/Resource/two.png)
 
 
 - themes

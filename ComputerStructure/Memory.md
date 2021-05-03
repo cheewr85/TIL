@@ -9,7 +9,7 @@
 - [시스템버스의 대역폭](#시스템버스의-대역폭)
 
 ## 기억장치
-![one](./img/ComputerStructure/Memory/one.png)
+![one](/img/ComputerStructure/Memory/one.png)
 
 
 - 메모리(memory, 기억장치)의 역할
@@ -42,8 +42,8 @@
 			- 전원이 종료된 후에도 프로그램과 데이터를 안전하게 저장하는 것이 주요 목적
 		- 저가격, 대용량이 요구되는 각종 드라이브가 대표적
 - 메모리 용량 표시
-![two](./img/ComputerStructure/Memory/two.png)
-![three](./img/ComputerStructure/Memory/three.png)
+![two](/img/ComputerStructure/Memory/two.png)
+![three](/img/ComputerStructure/Memory/three.png)
 
 
 - 엔디언(edian, endianness)
@@ -52,8 +52,8 @@
 		- 빅 엔디언(big-endian) -> 큰 단위를 먼저 저장
 		- 리틀 엔디언(little-endian) -> 작은 단위를 먼저 저장
 		- 미들 엔디언(middle 혹은 mixed endian) -> 둘을 혼합
-![four](./img/ComputerStructure/Memory/four.png)
-![five](./img/ComputerStructure/Memory/five.png)
+![four](/img/ComputerStructure/Memory/four.png)
+![five](/img/ComputerStructure/Memory/five.png)
 
 - 빅 엔디언과 리틀 엔디언 방법
 	- 어느 한 쪽이 압도적으로 좋거나 나쁘지 않음
@@ -68,7 +68,7 @@
 		- 프로그램 내부에서 바이트 순서를 바꾸어 사용
 
 ## 메모리 계층구조
-![six](./img/ComputerStructure/Memory/six.png)
+![six](/img/ComputerStructure/Memory/six.png)
 
 - 액세스(access) -> 어떤 장소로 접근하는 동작(사용하는 시간)
 	- 이미 저장된 내용을 읽기 위해 혹은 데이터를 새로 저장하기 위해 특정위치에 신호가 도달하는 동작
@@ -78,13 +78,13 @@
 	- 기억장치나 입출력장치의 동작속도를 나타내는 척도
 		- 액세스 타임이 빠르면 읽기와 쓰기 시간이 절약
 		- 같은 장치라도 읽기, 쓰기 액세스 타임이 다를 수 있음
-![seven](./img/ComputerStructure/Memory/seven.png)
-![eight](./img/ComputerStructure/Memory/eight.png)
+![seven](/img/ComputerStructure/Memory/seven.png)
+![eight](/img/ComputerStructure/Memory/eight.png)
 
 - CPU에 가까이 있을수록 빠름, 자주 쓰일스록 속도 빨라짐, 소비전력은 5~8번이 1~4번보다 더 큼
 
-![nine](./img/ComputerStructure/Memory/nine.png)
-![ten](./img/ComputerStructure/Memory/ten.png)
+![nine](/img/ComputerStructure/Memory/nine.png)
+![ten](/img/ComputerStructure/Memory/ten.png)
 
 - 가상메모리
 	- 프로그램이 실행되려면 동작에 필요한 최소한의 메모리가 작업공간으로 남아 있어야 
@@ -105,7 +105,7 @@
 	- 파일 단위로 연속된 공간을 구성할 수 있어 적은 횟수의 읽기, 쓰기로 가상메모리를 관리
 		- 메모리가 부족하면 오래 전 사용된 내용은 필요할 때까지 임시로 하드디스크에 스왑 파일로 보내짐(안 쓰는 것 카피해서 보냄, 당장 쓰지 않는 부분)
 		- 사용자가 스왑 파일의 크기를 조절 할 수도
-![eleven](./img/ComputerStructure/Memory/eleven.png)
+![eleven](/img/ComputerStructure/Memory/eleven.png)
 
 - 페이지(page), 가상 페이지 
 	- 가상메모리 공간을 일정한 크기로 나누어, 메인메모리와 하드디스크 사이에 한 번에 이동하는 단위
@@ -116,7 +116,7 @@
 	- 페이징(paging), 페이지 교체(replacement)
 		- 메인메모리와 하드디스크 사이의 페이지 교환 동작
 		- OS가 참고하려는 페이지가 메인메모리에 없으면 하드디스크에 저장해둔 페이지를 참조해 가져옴
-![twelve](./img/ComputerStructure/Memory/twelve.png)
+![twelve](/img/ComputerStructure/Memory/twelve.png)
 
 - 물리메모리(physical memory)
 	- 가상메모리에 대응하는 용어로 실제 메모리
@@ -128,10 +128,10 @@
 		- 실제 메모리 주소
 		- 오프셋(offset) 값을 이용해 가상주소의 비트 수 줄임
 			- 페이지 프레임으로 사용하는 시작주소에서 지정하려는 주소까지 차이인 변위(displacement) 값 알면 계산
-![thirteen](./img/ComputerStructure/Memory/thirteen.png)
-![fourteen](./img/ComputerStructure/Memory/fourteen.png)
-![fifteen](./img/ComputerStructure/Memory/fifteen.png)
-![sixteen](./img/ComputerStructure/Memory/sixteen.png)
+![thirteen](/img/ComputerStructure/Memory/thirteen.png)
+![fourteen](/img/ComputerStructure/Memory/fourteen.png)
+![fifteen](/img/ComputerStructure/Memory/fifteen.png)
+![sixteen](/img/ComputerStructure/Memory/sixteen.png)
 
 - 스래싱(thrashing, 과다상태)
 	- 전체 시스템 성능이 저하되어 작업의 진전이 아주 느리거나 아예 없는 상태
@@ -164,7 +164,7 @@
 	- CPU는 상위계층부터 자료를 찾아 없으면 차례대로 하위계층으로 내려가면서 찾음
 		- L1->L2->L3->메인메모리->하드디스크
 		- 하위계층에 대한 액세스 횟수가 늘어날수록 평균 속도가 느려져 전체 기억장치의 성능은 저하(미스가 안나도록 해야함)
-![seventeen](./img/ComputerStructure/Memory/seventeen.png)
+![seventeen](/img/ComputerStructure/Memory/seventeen.png)
 
 - 같은 CPU 코어에서 캐시가 클수록 성능에 유리
 	- 캐시의 위치에 따라 액세스 속도 성능 차이
@@ -184,7 +184,7 @@
 - 언코어(uncore) -> 내장된 장치 중 코어가 아닌 부분
 	- 각 코어가 공통으로 공유해 사용할 수 있는 부분 
 	- 명령어 인출과 해독장치, L3 공유 캐시와 칩 내부에 내장된 메모리 컨트롤러, 버스 컨트롤러, 그래픽처리장치(GPU)등은 코어개념에서 제외
-![eighteen](./img/ComputerStructure/Memory/eighteen.png)
+![eighteen](/img/ComputerStructure/Memory/eighteen.png)
 
 - 디스크 캐시
 	- HDD, ODD등 디스크의 액세스 타임을 줄이기 위해 CPU와 디스크 장치 사이에 사용하는 캐시메모리
@@ -214,11 +214,11 @@
 	- 캐시 실패(miss)
 		- 원하는 내용이 캐시에 없는 상태
 		- 메인메모리나 그 아래 계층에서 읽어옴
-![nineteen](./img/ComputerStructure/Memory/nineteen.png)
+![nineteen](/img/ComputerStructure/Memory/nineteen.png)
 
 - 평균 액세스 타임
-![twenty](./img/ComputerStructure/Memory/twenty.png)
-![twentyone](./img/ComputerStructure/Memory/twentyone.png)
+![twenty](/img/ComputerStructure/Memory/twenty.png)
+![twentyone](/img/ComputerStructure/Memory/twentyone.png)
 
 - Ta= H1xT1 + (1-H1)xP1
 	- P1 = H2xT2 + (1-H2)xTm
@@ -231,7 +231,7 @@
 	- 캐시와 메인메모리의 데이터 일관성
 		- 캐시의 내용을 변경할 때 메인메모리의 내용을 함께 바꾸어 주어야 -> 이때 걸리는 시간을 최소화
 	- CPU 발열문제 : 적중률 높아지면 소비전력, 발열량도 높아짐
-![twentytwo](./img/ComputerStructure/Memory/twentytwo.png)
+![twentytwo](/img/ComputerStructure/Memory/twentytwo.png)
 
 - idea -> 짧은 시간을 기준으로 보면 CPU가 자주 액세스하는 메모리 위치는 주로 한정된 지역에 집중
 	- 시간적 지역성(temporal locality)
@@ -264,8 +264,8 @@
 		- 하드웨어가 복잡하고 데이터가 갱신되기 전까지 메인메모리의 일부 내용이 일시적으로 무효
 	- 요즘 프로세서들은 대개 Write-back 캐시 방법 사용
 		- 느린 메인메모리의 쓰기 동작을 최대한 줄여 시간절약
-![twentythree](./img/ComputerStructure/Memory/twentythree.png)
-![twentyfour](./img/ComputerStructure/Memory/twentyfour.png)
+![twentythree](/img/ComputerStructure/Memory/twentythree.png)
+![twentyfour](/img/ComputerStructure/Memory/twentyfour.png)
 
 - 캐시 알고리즘(cache algorithm) 혹은 교체 정책(replacement policy)
 	- 캐시의 내용 중 교체되어 나갈 자료를 결정하는 것
@@ -273,9 +273,9 @@
 	- 가장 이상적인 목표는 미래에 가장 오랫동안 필요로 하지 않는 자료를 교체하는 것
 		- 이것을 예측하는 것은 일반적으로 불가능 
 	- 캐시의 매핑 방식도 넓은 의미로 교체 정책에 포함
-![twentyfive](./img/ComputerStructure/Memory/twentyfive.png)
-![twentysix](./img/ComputerStructure/Memory/twentysix.png)
-![twentyseven](./img/ComputerStructure/Memory/twentyseven.png)
+![twentyfive](/img/ComputerStructure/Memory/twentyfive.png)
+![twentysix](/img/ComputerStructure/Memory/twentysix.png)
+![twentyseven](/img/ComputerStructure/Memory/twentyseven.png)
 
 ## 캐시 매핑 방식
 - 데이터 블록과 캐시 라인
@@ -289,8 +289,8 @@
 			- 캐시메모리를 구성하는 행
 			- 메인메모리의 데이터 블록 중 하나를 저장
 			- 캐시의 데이터 교체는 캐시라인 단위
-![twentyeight](./img/ComputerStructure/Memory/twentyeight.png)
-![twentynine](./img/ComputerStructure/Memory/twentynine.png)
+![twentyeight](/img/ComputerStructure/Memory/twentyeight.png)
+![twentynine](/img/ComputerStructure/Memory/twentynine.png)
 
 - 캐시의 매핑 방식
 	- 메인메모리에 있는 다수의 데이터 블록들이 소수의 캐시 라인을 공유하는 방법
@@ -299,5 +299,5 @@
 		- 완전연관(fully asscociative) 캐시 -> 메인메모리의 데이터 블록이 아무 캐시 라인에나 들어감
 		- 직접매핑(direct-mapped) 캐시 -> 데이터 블록이 지정된 캐시 라인에만 들어감
 		- 세트연관(set-associative) 캐시 -> 데이터 블록이 복수의 캐시 라인을 묶은 지정된 세트에만 들어감
-![thirty](./img/ComputerStructure/Memory/thirty.png)
-![thirtyone](./img/ComputerStructure/Memory/thirtyone.png)
+![thirty](/img/ComputerStructure/Memory/thirty.png)
+![thirtyone](/img/ComputerStructure/Memory/thirtyone.png)

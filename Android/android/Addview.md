@@ -56,4 +56,4 @@ class CarForList(val name : String, val engine : String) {
 }
 ```
 
-![one](./img/Android/android/Addview/one.png)
+![one](/img/Android/android/Addview/one.png)

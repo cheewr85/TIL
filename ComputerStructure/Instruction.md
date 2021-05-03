@@ -18,13 +18,13 @@
 		- CPU가 메모리에서 명령어를 읽어오는 단계
 	- 명령어 실행(instruction execution)사이클
 		- CPU가 명령을 수행하는 단계
-![one](./img/ComputerStructure/Instruction/one.png)
+![one](/img/ComputerStructure/Instruction/one.png)
 
 
 - CPU 제어장치의 중요한 역할
 	- 명령어를 인출하여 해독하고 실행하는 일
-![two](./img/ComputerStructure/Instruction/two.png)
-![three](./img/ComputerStructure/Instruction/three.png)
+![two](/img/ComputerStructure/Instruction/two.png)
+![three](/img/ComputerStructure/Instruction/three.png)
 
 - 간접 사이클(실행 사이클의 일부)
 	- 오퍼랜드 필드에 포함된 간접주소로부터 실제 피연산자가 저장된 위치인 유효주소를 읽어 오는 단계
@@ -38,7 +38,7 @@
 	- 스택 영역에 내용을 넣거나 꺼낼 때는 SP를 기준
 		- 주로 후입선출(last-in first-out, LIFO) 방식
 			- 서브루틴이 완료되면 복귀 주소는 스택 영역에 들어간 역순으로 출력됨
-![four](./img/ComputerStructure/Instruction/four.png)
+![four](/img/ComputerStructure/Instruction/four.png)
 
 
 - 인터럽트
@@ -61,8 +61,8 @@
 		- 순위가 높은 인터럽트가 들어오면 먼저 처리
 - 인터럽트 사이클
 	- 명령어 사이클의 일부로 인터럽트 서비스 루틴의 시작 주소를 호출햏 인터럽트 요구를 처리하는 단계
-![five](./img/ComputerStructure/Instruction/five.png)
-![six](./img/ComputerStructure/Instruction/six.png)
+![five](/img/ComputerStructure/Instruction/five.png)
+![six](/img/ComputerStructure/Instruction/six.png)
 
 
 ## 병렬계산
@@ -73,9 +73,9 @@
 		- 큰 문제는 작게 쪼개어 작은 문제들로 만들어 동시에 풀 수도 있다는 논리에서 출발
 		- 병렬계산은 처음에 고성능 컴퓨터에 시작되었으나, 멀티코어 프로세스가 발달하면서 광범위하게 사용됨
 		- 작업 병렬계산외는 싱글코어 프로세스도 가능\
-![seven](./img/ComputerStructure/Instruction/seven.png)
-![eight](./img/ComputerStructure/Instruction/eight.png)
-![nine](./img/ComputerStructure/Instruction/nine.png)
+![seven](/img/ComputerStructure/Instruction/seven.png)
+![eight](/img/ComputerStructure/Instruction/eight.png)
+![nine](/img/ComputerStructure/Instruction/nine.png)
 
 
 ## 파이프라인 구조
@@ -85,18 +85,18 @@
 	- 파이프라인의 깊이는 총 단계 수
 		- 각 단계는 독립적인 모듈로 구성되어 서로 다른 명령어를 다른 단계에서 동시에 처리하도록 설계
 - 2단계 파이프라인 구조
-![ten](./img/ComputerStructure/Instruction/ten.png)
-![eleven](./img/ComputerStructure/Instruction/eleven.png)
-![twelve](./img/ComputerStructure/Instruction/twelve.png)
+![ten](/img/ComputerStructure/Instruction/ten.png)
+![eleven](/img/ComputerStructure/Instruction/eleven.png)
+![twelve](/img/ComputerStructure/Instruction/twelve.png)
 
 
 - 4단계 파이프라인 구조
-![thirteen](./img/ComputerStructure/Instruction/thirteen.png)
-![fourteen](./img/ComputerStructure/Instruction/fourteen.png)
+![thirteen](/img/ComputerStructure/Instruction/thirteen.png)
+![fourteen](/img/ComputerStructure/Instruction/fourteen.png)
 
 
 - 파이프라인의 속도상승
-![fifteen](./img/ComputerStructure/Instruction/fifteen.png)
+![fifteen](/img/ComputerStructure/Instruction/fifteen.png)
 
 
 - 슈퍼 파이프라인 구조
@@ -104,8 +104,8 @@
 		- 단계 내부에서 더 작은 단계들로 세분화시키고 클럭속도를 높여 빠르게 처리
 	- 슈퍼 파이프라인 차수 sp를 정의
 		- 파이프라인 구조의 한 단계 내에서 처리 속도를 몇 배로 높이는지 나타내는 비율
-![sixteen](./img/ComputerStructure/Instruction/sixteen.png)
-![seventeen](./img/ComputerStructure/Instruction/seventeen.png)
+![sixteen](/img/ComputerStructure/Instruction/sixteen.png)
+![seventeen](/img/ComputerStructure/Instruction/seventeen.png)
 
 
 - 파이프라인의 제약 조건 
@@ -144,13 +144,13 @@
 		- 병렬처리를 방해하는 단골 메뉴
 			- 이전에 실행된 명령어의 결과에 종속된 명령어들은 동시에 실행되지 못하고 기다려야 하므로 속도 저하
 - 슈퍼스칼라 + 파이프라인
-![eighteen](./img/ComputerStructure/Instruction/eighteen.png)
-![nineteen](./img/ComputerStructure/Instruction/nineteen.png)
+![eighteen](/img/ComputerStructure/Instruction/eighteen.png)
+![nineteen](/img/ComputerStructure/Instruction/nineteen.png)
 
 
 - 슈퍼스칼라와 슈퍼 파이프라인
-![twenty](./img/ComputerStructure/Instruction/twenty.png)
-![twentyone](./img/ComputerStructure/Instruction/twentyone.png)
+![twenty](/img/ComputerStructure/Instruction/twenty.png)
+![twentyone](/img/ComputerStructure/Instruction/twentyone.png)
 
 
 ## VLIW 구조
@@ -188,7 +188,7 @@
 	- 하드웨어 설계의 복잡성을 갖지 않는 대신 정교한 컴파일러 기술 필요
 		- 프로그램 자체에 의존해 어떤 명령이 동시에 실행이 가능하고 충돌을 어떻게 피할지 판단
 - IA-64 명령어 구조
-![twentytwo](./img/ComputerStructure/Instruction/twentytwo.png)
+![twentytwo](/img/ComputerStructure/Instruction/twentytwo.png)
 
 
 - IA-64구조 -> 정교한 컴파일러 기술 이용
@@ -202,7 +202,7 @@
 	- VLIW 실행차수 v를 정의
 		- VLIW 구조에서 하나의 명령어 번들 형식에 포함되어 동시에 병렬처리로 실행될 수 있는 명령어의 개수
 		- VLIW 실행 차수 v=3, 파이프라인 단계 수 N=4
-![twentythree](./img/ComputerStructure/Instruction/twentythree.png)
+![twentythree](/img/ComputerStructure/Instruction/twentythree.png)
 
 
 ## 병렬컴퓨터
@@ -220,7 +220,7 @@
 - 폴린의 분류법
 	- 컴퓨터의 구조를 명령어와 자료의 흐름으로 분류해서 설명
 		- 벙렬컴퓨터라고 할 수 있는 것 -> SIMD, MIMD
-![twentyfour](./img/ComputerStructure/Instruction/twentyfour.png)
+![twentyfour](/img/ComputerStructure/Instruction/twentyfour.png)
 
 - SISD(single instruction, single data stream)
 	- 단일 명령, 단일 데이터 흐름 구조
@@ -250,8 +250,8 @@
 		- 데이터 속성상 비슷한 패턴을 갖게 되는 멀티미디어 데이터를 빠르게 처리하기에 적합
 			- 계속 반복되는 루프를 단 하나의 명령어로 실행
 			- 펜티엄 MMX 등 1990's 말 프로세서들도 이미 채택
-![twentyfive](./img/ComputerStructure/Instruction/twentyfive.png)
-![twentysix](./img/ComputerStructure/Instruction/twentysix.png)
+![twentyfive](/img/ComputerStructure/Instruction/twentyfive.png)
+![twentysix](/img/ComputerStructure/Instruction/twentysix.png)
 
 
 - 멀티프로세서(multi-processor, 다중프로세서) 구조
@@ -263,7 +263,7 @@
 		- 하나의 시스템보드에 여러 개의 프로세서 칩을 장착
 		- 한 컴퓨터 내에 여러 개의 시스템보드를 장착
 		- 여러 대의 컴퓨터를 공동의 작업을 위해 병렬로 연결
-![twentyseven](./img/ComputerStructure/Instruction/twentyseven.png)
+![twentyseven](/img/ComputerStructure/Instruction/twentyseven.png)
 
 
 - 멀티코어(multi-core, 다중코어) 프로세서
@@ -294,5 +294,5 @@
 	- 하나의 실행 장치에서 두 개의 스레드를 겹치지 않게 동시에 작업할 수 있도록 설계
 		- 작업이 할당되지 않은 실행 단계는 다른 스레드의 작업을 함께 끼워 넣어 동시에 작업
 	- 하이퍼스레딩 -> CPU가 놀지 않게 쥐어짜려는 기술
-![twentyeight](./img/ComputerStructure/Instruction/twentyeight.png)
+![twentyeight](/img/ComputerStructure/Instruction/twentyeight.png)
 

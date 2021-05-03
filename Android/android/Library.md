@@ -12,8 +12,8 @@
 - 외부에서 라이브러리가 어떻게 구현이 되어 있는지 다 접근하고 볼 수 있는 것을 오픈소스 라이브러리라고 함
 - 어떻게 가져올지 Setup을 먼저 해야함 직접 파일을 추가할 수 있지만, Gradle이 라이브러리를 관리하므로 주로 이를 통해 활용함
 - gradle에 앱단위와 프로젝트단위에서의 설정이 필요함
-![one](./img/Android/android/Library/one.png)
+![one](/img/Android/android/Library/one.png)
 
 - compile은 예전방식이므로 아래와 같이 implementation으로 수정해서 사용함
-![two](./img/Android/android/Library/two.png)
-![three](./img/Android/android/Library/three.png)
+![two](/img/Android/android/Library/two.png)
+![three](/img/Android/android/Library/three.png)
