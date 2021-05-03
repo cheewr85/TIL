@@ -1,7 +1,7 @@
 ## Viewcomponent
 - setContentView -> 레이아웃 화면만을 띄우고 싶다면 해당 레이아웃을 나타내면 됨
 - Viewcomponent는 화면을 그리는 요소임, 각종 버튼과 UI 부분
-![one](./img/Android/UI/Viewcomponent/first.png)
+![one](/img/Android/UI/Viewcomponent/first.png)
 
 - 위를 활용하여서 드래그 앤 드랍으로 만들 수 있음, 하지만 매우 어려운 방식이므로 xml 코드를 직접 작성하는 것이 좋음
 - Viewcomponent의 종류를 확인할 때 Design 탭을 사용하면 좋음
