@@ -88,4 +88,4 @@ class ThreadActivity : AppCompatActivity() {
 }
 ```
 - 스레드 실행시 아래와 같이 바로 나타남
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4c5f2a1d-6768-432e-8257-253d8724f448/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210407%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210407T040157Z&X-Amz-Expires=86400&X-Amz-Signature=7af8c091e2942fec852fb50a51246dd0de0c2510a44a37331738c10ee4eee0c8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![one](./img/Android/android/Thread/one.png)

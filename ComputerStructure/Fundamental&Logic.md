@@ -8,7 +8,7 @@
 - [신호선의 동작](#신호선의-동작)
 
 ## 하드웨어의 구성
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/db63d551-9048-4b5d-aa6b-d32524de5145/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T025006Z&X-Amz-Expires=86400&X-Amz-Signature=80bf64251ac740de165bbe77d88b67273e0ef13e592dee093a85eda90520ee70&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![one](./img/ComputerStructure/Fundamental/one.png)
 
 - 중앙처리장치(CPU)
 	- logical, 산술계산, 프로그램제어(시작 -> 끝)
@@ -26,9 +26,9 @@
 - 버스(Bus)
 	- Data Address control
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/536142a1-5e2b-4e11-83a2-94ba83bfd7f9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T025401Z&X-Amz-Expires=86400&X-Amz-Signature=876988605afc6ddc9ea3a2f60d5548e1d2cab31e80e09bd35b0ceec7fa2ca5ba&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![two](./img/ComputerStructure/Fundamental/two.png)
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f7f90969-9b92-4ba9-8cca-9fcfd7599032/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T025819Z&X-Amz-Expires=86400&X-Amz-Signature=97d8370e654d751addf15febb9ac18213d8ea5a8ffb3c837009aff4190b039b6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![three](./img/ComputerStructure/Fundamental/three.png)
 
 - CPU부
 	- CPU와 시스템 제어를 위한 칩셋(노스브리지, 사우스브리지)부분
@@ -43,7 +43,7 @@
 	- CPU와 입출력장치의 인터페이스 부분
 
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/da75756d-de8e-48fb-bd96-209be5129d92/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T025930Z&X-Amz-Expires=86400&X-Amz-Signature=5d406e79b61a3ee49130280ad51e18c943ce489d60e46a14e04d8a0b10e619c6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![four](./img/ComputerStructure/Fundamental/four.png)
 
 - 버스의 필요성((b) 그림)
 	- 자주 사용하는 신호선의 배선 수를 줄임
@@ -61,7 +61,7 @@
 		- CPU 내외부의 장치를 동작시키는 제어신호(읽기와 쓰기 신호)
 		- 단방향 또는 양방향 전송
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9fe4b94b-3b6e-4fbe-9218-e2f46a344550/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T030343Z&X-Amz-Expires=86400&X-Amz-Signature=8a724528349a3b156c7fa27b8c1f873798bc4ba0de9128e7dd0bf75379e1f61f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![five](./img/ComputerStructure/Fundamental/five.png)
 
 - 워크스테이션과 서버도 대개 이런 구조
 - 상위 기종은 CPU 성능을 높이고(쿨럭속도를 고려하여 코어를 늘림, 쿼드코어) 고속의 소자를 사용
@@ -103,27 +103,27 @@
 				- 램 모듈 접근속도 높여 멀티코어 프로세서 성능 향상
 			- 전통적인 노스브리지의 거의 모든 기능을 CPU 내장
 		- 프로세서 칩에 칩셋을 모두 내장
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/db318d9a-edeb-4813-b3f2-d85bd7157fdd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T033340Z&X-Amz-Expires=86400&X-Amz-Signature=ae55b606f6b13685b0513ade289c899a4d038676797327c2e8a5e2f64c93367e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6e616bed-6eca-4cdc-937d-dd86c6dc587d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T033802Z&X-Amz-Expires=86400&X-Amz-Signature=8402048755023e6478d4ec5a3e47d705787577b4da86cba34d7e3a02c749fde1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3fde3a42-f7d5-455f-a136-9f4b5d4c04d1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T033739Z&X-Amz-Expires=86400&X-Amz-Signature=f5b9aaa05699fdc1ad8585e924fd1c7d448087c03ddda84c65a201ff02fb2a85&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![six](./img/ComputerStructure/Fundamental/six.png)
+![seven](./img/ComputerStructure/Fundamental/seven.png)
+![eight](./img/ComputerStructure/Fundamental/eight.png)
 
 - 메인보드(main board) = 시스템보드(system board) = 마더보드(motherboard)
 	- 컴퓨터 시스템의 주기판
 - 메인보드 제작규격 -> 폼팩터라고도 함
 	- ATX, BTX 규격등(규격화)
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/29efd30a-6cbf-4306-bf4e-61cc952ffe28/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034035Z&X-Amz-Expires=86400&X-Amz-Signature=641eea5e9081634385cb2e1ca3311a4710f876d27753066478249cc0c72625c8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a5279d56-c385-4d86-ae57-47f707391852/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034110Z&X-Amz-Expires=86400&X-Amz-Signature=33dc3cea4cf69adbe197ecb2973d4ccce6d4976b8419dc3001d9ddcdbaa3eeb2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5ca89ad4-35be-4908-a80c-a0663c39d5de/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210311T034136Z&X-Amz-Expires=86400&X-Amz-Signature=ee6de1d92a578dc90e5165ffba27894c94d16306200097b5d8f7155d129644af&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![nine](./img/ComputerStructure/Fundamental/nine.png)
+![ten](./img/ComputerStructure/Fundamental/ten.png)
+![eleven](./img/ComputerStructure/Fundamental/eleven.png)
 
 ## 소프트웨어의 역할
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2f84a2d8-47e5-4fa3-b4e2-caba7cf168c7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T230346Z&X-Amz-Expires=86400&X-Amz-Signature=95adb6dd3227fd8a1e3708b813b20639dcabac94c3470f42a69a904a23a922da&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twelve](./img/ComputerStructure/Fundamental/twelve.png)
 
 - O/S에서 드라이버가 H/W를 건드림(드라이버 시스템 소프트웨어 역할을 함)
 - 여기서 응용프로그램은 시스템 소프트웨어를 거침
 - 드라이버는 디바이스 드라이버를 의미함
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/53a83b0e-2c71-4bc1-9dfc-0a7aecf28789/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T234925Z&X-Amz-Expires=86400&X-Amz-Signature=76a797d211fd07e1df93e1fccd15978436b1d1716a70e8ecced8ff50934107f4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/187b1e88-a827-42ff-bc26-2b6810e73a16/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210318%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210318T235040Z&X-Amz-Expires=86400&X-Amz-Signature=28fb705f74504f0a23c0f2f8ddd2f5b08aa0bc6e9bed21dd0098e581ca265a8b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![thirteen](./img/ComputerStructure/Fundamental/thirteen.png)
+![fourteen](./img/ComputerStructure/Fundamental/fourteen.png)
 
 - 운영체제(operating system, OS)
 	- 컴퓨터를 운영하는 프로그램을 가상으로 표현
@@ -160,7 +160,7 @@
 		- 특정 디렉터리 안의 목록을 읽어내는 루틴 등
 - 루틴(routine)
 	- 특정한 작업을 수행하기 위해 자주 사용되는 프로그램이나 프로그램 소스의 일부
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/932d2744-4b61-47e4-ab18-36d66e32e4a4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T000355Z&X-Amz-Expires=86400&X-Amz-Signature=5730b79fc8fff18de1153a03b1e9b4a75d815169c138293551106d17d4acf95a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![fifteen](./img/ComputerStructure/Fundamental/fifteen.png)
 
 - 운영체제의 쉘(커널 사용함에 있어서 사용자-커널 이어주는 인터페이스임)
 	- 프로그램이나 운영체제의 사용 불편을 개선하기 위해 메뉴 구동형의 사용자 인터페이스를 제공하는 유틸리티 프로그램
@@ -201,7 +201,7 @@
 	- 개체포함 -> 외부 개체의 정보가 현재 문서의 개체로 포함되도록 속성을 가진 채로 복사
 		- 원본과 복사본이 별개로 존재
 		- 파일 크기는 크지만 파일 관리에 편리
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b3929290-51f6-4761-8cbb-a409b8017119/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T010521Z&X-Amz-Expires=86400&X-Amz-Signature=869fb09af829d58ae021dbe3c0dbc810f73f5740f05a394409c7b0789d4687d9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![sixteen](./img/ComputerStructure/Fundamental/sixteen.png)
 
 - 클립보드
 	- 운영체제에서 관리하는 임시 저장소
@@ -239,9 +239,8 @@
 		- ex) 레지스터 A와 X의 내용을 더해 A에 저장
 	- 오퍼랜드(operand) 필드 -> 연산의 대상을 찾는 법
 		- ex) 연산의 대상이 저장된 위치 X를 가리킴
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c6a436e5-1665-44c0-acad-7012e0541c50/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011545Z&X-Amz-Expires=86400&X-Amz-Signature=4ebaa84b53f0b766461db5a71cf13f132aeed00d526608a058fa45e1b1d587b6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d62d70a9-7cb3-432e-b792-4130b45a2019/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011614Z&X-Amz-Expires=86400&X-Amz-Signature=ef80017e98028ab774127eb0bd926505137fe727608d2022178f78233514abf5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![seventeen](./img/ComputerStructure/Fundamental/seventeen.png)
+![eighteen](./img/ComputerStructure/Fundamental/eighteen.png)
 
 - 인터프리터(interpreter)
 	- 소스 코드를 한 줄씩 읽어 번역하고 실행하는 방식
@@ -254,7 +253,7 @@
 	- CPU 제조사나 종류에 따라 달라짐
 - 인터프리터는 1줄씩 실행하므로 최적화해서 실행할 수 없음 1줄에 특정명령어 다 갖춰야함
 - high level은 속도가 빠를 수 없음, 어셈블리언어는 속도가 높음
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/831a5938-c98c-4f71-b1b6-48f1870793cd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T011923Z&X-Amz-Expires=86400&X-Amz-Signature=71df26223073dd94feff3bd063f346f639bc5e9e85c13b9a56a35526f3ff707d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![nineteen](./img/ComputerStructure/Fundamental/nineteen.png)
 
 - 스크립트 언어 
 	- 다른 프로그램을 기반으로 실행되는 짧은 프로그램이나 명령어
@@ -276,7 +275,7 @@
 		- 서브루틴 수행 후 다시 본래 위치로 복귀
 	- 서브루틴 파라미터
 		- 메인 프로그램에서 서브루틴으로 작업을 의뢰하기 위해 보내주는 입력 데이터로 사용되는 매개변수
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ffe73f5c-f307-4796-bc9a-55d1725c884f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T012343Z&X-Amz-Expires=86400&X-Amz-Signature=1c3663cd9ca5c66f5e7039058750210d578cdf35dfec27c02fc7e0b588b519e3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twenty](./img/ComputerStructure/Fundamental/twenty.png)
 
 - 라이브러리(library)
 	- 자주 쓰는 단순 반복적인 프로그램에 대해 미리 작성해 놓은 표준 서브루틴
@@ -284,7 +283,7 @@
 	- 대개 컴파일러 제조사가 제공하는 것만으로 충분
 		- 사용자가 직접 라이브러리를 만들 수도 있음
 	- 표준 라이브러리는 대개 헤더 파일 안에서 선언됨
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/029ccc66-936e-4a37-9b3e-91f7ba71693e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T012546Z&X-Amz-Expires=86400&X-Amz-Signature=7dbbc72098194a90d8c355d9fdeddd976c53acb27f2208ad03ad5ae89ffd6b48&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twentyone](./img/ComputerStructure/Fundamental/twentyone.png)
 
 - 링크(link)
 	- 컴파일 결과로 생긴 사용자의 오브젝트 코드와 라이브러리에서 제공된 오브젝트 코드 등을 결합해 실제로 실행 가능한 파일을 만드는 것
@@ -321,7 +320,7 @@
 		- 사용자가 전면에서 다른 작업을 하는 동안, 이면에서 인쇄나 다운로드 등 다른 작업을 실행하는 환경
 - 스레드
 	- 컴퓨터에서 정상적으로 작업이 완료될 때까지 세부적으로 해야하는 작은 일들에 대한 일정표
-	<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c990b5e8-b55b-44de-8b92-2fce1195e50b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T013409Z&X-Amz-Expires=86400&X-Amz-Signature=ca1d38e4969215c051a32aa5bfcaf255d664d16276fd228815f2b56dd9520c28&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+	![twentytwo](./img/ComputerStructure/Fundamental/twentytwo.png)
 
 - 멀티스레드(multi-thread) 혹은 멀티스레딩(multi-threading)
 	- 운영체제에서 여러 스레드를 동시에 관리하는 것
@@ -363,8 +362,8 @@
 		- 프로그램이나 하드웨어 장치의 기본 설정 값으로 사용자가 특별히 지정하지 않은 값
 			- 응용프로그램의 기본 설정 값
 			- 공장 출하할 때 맞춰놓은 기본 설정 값
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7aed3464-2deb-4c5c-82b8-63977da97459/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T014247Z&X-Amz-Expires=86400&X-Amz-Signature=693c037bd584b593d76c36a64af9900c6d93d358740cd93ab99e474140944920&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ebcbd4ef-455c-4921-aef3-4d460f4287a8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T014256Z&X-Amz-Expires=86400&X-Amz-Signature=6a144d76eb9ce76fd99053d16b982199e3a82a0fc3215d78122b6893e85026c2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twentythree](./img/ComputerStructure/Fundamental/twentythree.png)
+![twentyfour](./img/ComputerStructure/Fundamental/twentyfour.png)
 
 - 메인보드에 장착된 CMOS
 	- 배터리 백업 받는 CMOS SRAM을 가리킴
@@ -438,7 +437,7 @@
 		- 디지털 회로의 신호가 하이 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
 	- 액티브 로우(active low)
 		- 디지털 회로의 신호가 로우 레벨에서 본래 목적의 의미 있는 동작을 하도록 설계한 상태
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b8f5080e-d5c4-47c7-9250-8cb88d58a512/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T015929Z&X-Amz-Expires=86400&X-Amz-Signature=1847d7ef03d05fa0d7f9aa73e16d17579d868dfee8fed4d188ae508137dd9609&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twentyfive](./img/ComputerStructure/Fundamental/twentyfive.png)
 
 - 트리거(trigger)
 	- 어떤 하드웨어 장치를 동기(sync)에 맞추어 동작시킬 수 있도록 제공되는 신호
@@ -446,4 +445,4 @@
 		- 신호선에 연결된 장치들이 입력 신호의 하이나 로우레벨에 동기되어 동작하도록 설계하는 방식
 	- 에지 트리거(edge trigger)
 		- 신호선에 연결된 장치들이 입력 신호의 라이징(rising, 상승) 에지나 폴링(falling, 하강) 에지에 동기되어 동작하도록 설계하는 방식
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0edb42a6-cd28-4f8a-a0aa-d22b5c2677d5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210319%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210319T020122Z&X-Amz-Expires=86400&X-Amz-Signature=77493589f045185a7f362fc2cecf66fcdc7f24aacf0795bad2f81a722e067b6d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22">
+![twentysix](./img/ComputerStructure/Fundamental/twentysix.png)
