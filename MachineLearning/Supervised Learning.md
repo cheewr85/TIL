@@ -24,11 +24,16 @@
 - 심장질환에 대한 데이터 활용해서 사용할 것임
 - 각각 심장질환의 output variable을 포함한 전체 데이터, numeric한 데이터만 있는 것 그리고 array 형태의 데이터와 variable name에 대해서 저장을 해 둠
 
+
 ![two](/img/MachineLearning/supervised/two.png)
+
 
 - 지도학습을 할 것이 이게 의미가 있는지 사전에 확인을 할 수 있음, 지도학습의 결과를 내는게 맞는것인지 체크를 하는 것
 - 그 전에 numeric data만을 뽑고 정규화를 시킬 것임, 이를 위해서 array형태로 받고 정규화를 시켜야함
+
+
 ![three](/img/MachineLearning/supervised/three.png)
+
 
 - 그 다음 kmeans로 테스트 해볼 것임, 클러스터링이 잘 되었음을 알 수 있음
 - input data만을 가지고 1~11을 했음
