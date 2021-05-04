@@ -18,10 +18,12 @@
 - 아래와 같은 작업으로 진행됨
 - 여기서 Algorithm 즉, 앞에서 배운 kmeans와 같은 분류기들이 존재함
 - 그래서 학습을 하고 parameter를 튜닝을 하던가 아니면 Model을 업데이트하여서 주어진 데이터내에서 계속 업데이트를 하여 트레이닝 시키고 최적의 상태를 파악함
+
 ![one](/img/MachineLearning/Supervised/one.png)
 
 - 심장질환에 대한 데이터 활용해서 사용할 것임
 - 각각 심장질환의 output variable을 포함한 전체 데이터, numeric한 데이터만 있는 것 그리고 array 형태의 데이터와 variable name에 대해서 저장을 해 둠
+
 ![two](/img/MachineLearning/supervised/two.png)
 
 - 지도학습을 할 것이 이게 의미가 있는지 사전에 확인을 할 수 있음, 지도학습의 결과를 내는게 맞는것인지 체크를 하는 것
