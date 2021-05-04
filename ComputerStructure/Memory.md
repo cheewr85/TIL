@@ -301,3 +301,283 @@
 		- 세트연관(set-associative) 캐시 -> 데이터 블록이 복수의 캐시 라인을 묶은 지정된 세트에만 들어감
 ![thirty](/img/ComputerStructure/Memory/thirty.png)
 ![thirtyone](/img/ComputerStructure/Memory/thirtyone.png)
+
+- 완전 연관 캐시
+	- 메인메모리의 데이터 블록이 모든 캐시라인에 들어감
+		- CPU가 발생시킨 메인메모리 주소가 모든 캐시 라인에 포함된 블록 내의 워드로 매핑
+	- 가상의 메인메모리 주소 형식의 필드 정의
+		- 태그 필드 -> 캐시 라인에 들어갈 메인 메모리 블록 선택 
+		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
+![thirtytwo](/img/ComputerStructure/Memory/thirtytwo.png)
+
+- 캐시 적중여부 검사
+	- 모든 캐시 라인의 1.태그를 조사해 메인메모리 주소의 태그 필드와 일치하는 것이 있는지 검사
+		- 일치하는 것이 있으면 적중이고 없으면 실패
+	- 적중하면
+		- 2.블록 오프셋 필드 값을 이용해 해당 캐시 라인의 워드 중 하나를 골라 읽거나 씀
+	- 실패하면
+		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
+		- 새로 사용된 메인메모리의 해당 블록을 비어있거나 교체될 캐시 라인에 넣어주고 태그 비트를 고침
+![thirtythree](/img/ComputerStructure/Memory/thirtythree.png)
+
+- 직접매핑 캐시
+	- 직접매핑 캐시는 메인메모리의 데이터 블록이 지정된 캐시 라인에만 들어감
+		- CPU가 발생시킨 메인메모리 주소가 지정된 캐시 라인에 포함된 블록 내의 워드로 매핑
+		- 인덱스 필드 -> 캐시 라인을 선택 
+		- 태그 필드 -> 캐시 라인에 들어갈 메인 메모리 블록 선택
+		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
+![thirtyfour](/img/ComputerStructure/Memory/thirtyfour.png)
+
+- 캐시 적중여부 검사
+	- 1.인덱스 필드로 캐시 라인을 먼저 선택 
+	- 선택된 캐시 라인의 태그를 조사해 메인메모리 주소의 2.태그 필드와 일치하는지 검사
+		- 일치하면 적중이고 아니면 실패
+	- 적중하면
+		- 3.블록 오프셋 필드 값을 이용해 해당 캐시 라인의 워드 중 하나를 골라 읽거나 씀
+	- 실패하면
+		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
+		- 새로 사용된 메인메모리의 해당 블록을 지정된 캐시라인에 넣어주고 태그 비트를 고침
+![thirtyfive](/img/ComputerStructure/Memory/thirtyfive.png)
+
+- 세트연관 캐시
+	- 세트연관 캐시는 메인메모리의 데이터 블록이 복수의 캐시 라인을 묶은 지정된 세트에만 들어감
+		- CPU가 발생시킨 메인메모리 주소가 지정된 세트에 포함된 블록 내의 워드로 매핑
+		- 세트 필드 -> 세트를 선택
+		- 태그 필드 -> 캐시 라인에 들어갈 메인메모리 블록 선택
+		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
+![thirtysix](/img/ComputerStructure/Memory/thirtysix.png)
+
+- 캐시 적중여부 검사
+	- 1.세트 필드로 세트를 먼저 선택
+	- 세트 내 모든 캐시 라인의 태그를 조사, 메인메모리 주소의 2.태그 필드와 일치하는 것이 있는지 검사
+		- 일치하는 것이 있으면 적중이고 없으면 실패
+	- 적중하면
+		- 3.블록 오프셋 필드 값을 이용해 해당 캐시 라인의 워드 중 하나를 골라 읽거나 씀
+	- 실패하면
+		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
+		- 새로 사용된 메인메모리 블록을 지정된 세트에서 비어있거나 교체될 캐시 라인에 넣고 태그 비트 고침
+![thirtyseven](/img/ComputerStructure/Memory/thirtyseven.png)
+
+- 세트연관 캐시와 연관도
+	- 세트연관 캐시 방식의 종류
+		- 2-방향(2-way) 세트연관 캐시
+			- 각 세트가 2개의 캐시 라인을 갖는 경우
+		- n-방향(n-way) 세트연관 캐시
+			- 각 세트가 n개의 캐시 라인을 갖는 경우
+	- 연관도
+		- 세트를 구성하는 way 수 n
+			- 세트 수 = 캐시라인 수 / way 수의 관계
+		- 캐시 전체가 하나의 세트가 되면
+			- n이 최대가 되는 완전연관 캐시
+		- 연관도가 커지면 하드웨어가 복잡해짐
+![thirtyeight](/img/ComputerStructure/Memory/thirtyeight.png)
+![thirtynine](/img/ComputerStructure/Memory/thirtynine.png)
+![fourty](/img/ComputerStructure/Memory/fourty.png)
+
+- 가상메모리를 메인메모리에 매핑하는 방법
+	- 프로그램에 의해 발생하는 가상주소를 메인메모리에 있는 물리주소로 변환하는 과정이 필요
+		- 프로세서 칩에 내장된 MMU 장치가 TLB에 저장된 내용으로 이를 수행
+	- MMU(memory management unit)
+		- 메모리 관리 장치의 영문약자, 물리주소 변환과 메모리 보호가 주요 역할
+		- 메모리 접근권한을 제어해 메모리를 보호하고 캐시 관리, 버스 중재 등의 역할도 수행
+	- TLB(translation lookaside buffer)
+		- 최근에 일어난 가상 메모리 주소와 물리 주소의 변환 테이블을 저장하는 일종의 주소 변환 캐시
+		- 변환 색인 버퍼의 영문약자, 가상주소로 이에 해당하는 물리주소를 검색할 때 사용되는 버퍼 메모리
+		- 페이지 테이블에 대한 일종의 캐시 역할
+			- 운영체제가 저장해둔 페이지 테이블의 일부를 검색속도가 빠른 CPU 내부로 복사해온 것
+			- 페이지 테이블 이용을 생략해 여러 메모리 내용을 읽고 물리주소를 계산하던 주소변환 시간을 줄일 목적
+		- TLB 내용은 메인메모리의 일부 페이지 프레임에 저장된 가상메모리의 일부 페이지를 표시한 정보
+			- 각항의 내용은 페이지 테이블처럼 하나의 페이지 번호가 하나의 페이지 프레임 번호로 1:1 매핑
+![fourtyone](/img/ComputerStructure/Memory/fourtyone.png)
+![fourtytwo](/img/ComputerStructure/Memory/fourtytwo.png)
+
+- 가상주소를 물리주소로 변환
+	- CPU가 요청한 가상주소 발생 -> 먼저 TLB 검사
+		- TLB에 있으면 TLB 적중(hit), 없으면 TLB 실패(miss)
+	- TLB 실패면 -> 페이지 테이블 검사해 정보가 있으면
+		- 가져오고 TLB 갱신, 주소변환 정보가 없으면
+	- 페이지 폴트(page fault, 페이지 부재)
+		- 가상주소 페이지가 메인메모리에 없는 경우 -> OS가 HDD에서 메인메모리로 새로운 페이지를 전송
+		- 메인메모리에 빈 페이지 프레임이 있으면 새로운 페이지를 적재(load), 빈 공간 없으면 기존 페이지와 교체
+	- 페이지 테이블 갱신 후 최종 물리주소 변환 완료
+		- 페이지 부재는 메모리 보호 목적으로도 사용 -> 허락 받지 않은 프로그램이 접근하면 일부러 일으켜 차단
+![fourtythree](/img/ComputerStructure/Memory/fourtythree.png)
+![fourtyfour](/img/ComputerStructure/Memory/fourtyfour.png)
+
+- 가상주소 캐시
+	- 가상주소 캐시의 동작
+		- 가상메모리를 사용하는 CPU는 MMU에 가상주소를 발생하고, MMU는 가상주소 캐시를 먼저 확인
+			- 가상주소 캐시 안에 물리주소로 변환할 가상주소가 존재하면 MMU가 물리주소를 그대로 가져다 사용
+		- 물리캐시가 캐시 적중 여부를 확인하는 시간을 줄임
+			- 물리캐시는 적중을 확인하기 위해 반드시 TLB에서 가상주소를 물리주소로 변환하는 계산과정이 추가 필요
+		- 가상주소 캐시의 적중과 실패
+			- CPU각 요청한 가상주소가 가상주소 캐시 안에서 발견되면 적중 -> MMU가 물리메모리의 검색 속도를 높임
+			- 실패면 TLB를 확인 -> 이하 과정은 앞의 방법과 동일
+
+## 반도체 메모리
+![fourtyfive](/img/ComputerStructure/Memory/fourtyfive.png)
+
+- 메모리 셀(cell)
+	- 디지털 정보의 최소 단위인 1비트를 저장하는 소자
+- 메모리 워드(word)
+	- 1,2,4,8,16,32,64,128비트로 커지며 칩의 설계마다 다름
+- 저장 용량(capacity)
+	- 저장매체에 저장된 정보비트의 수량
+		- 개별 메모리 칩은 대개 비트 단위로 표시
+		- 메인메모리용 램 모듈은 주로 바이트 단위로 표시
+	- 반도체 업체들은 과거의 용량 단위를 고집
+- 칩이나 램 모듈의 저장 구조
+	- 저장 주소의 개수와 메모리 워드의 비트 수를 곱해 (주소 수)x(비트 수)로 저장 밀도 표시
+		- 메모리 칩 구조 256Mx4 -> 256M(2^28)개 저장 주소, 4(2^2)비트의 메모리 워드를 갖는 1Gib(2^30) 용량
+- 메모리 뱅크 
+	- 기억장치를 분할해 독립적으로 액세스 할 수 있도록 구성한 논리적인 단위, 한번에 하나의 뱅크만 액세스
+		- CPU가 메모리의 한 뱅크를 사용할 때 입출력장치가 다른 뱅크를 사용할 수 있어 효율적
+	- 뱅크의 크기는 논리적이라 구성하기 나름 
+		- 메모리 칩 내부에도 여러 개의 뱅크를 가질 수 있음
+- 전형적인 DRAM 칩에서 뱅크
+	- 여러 개의 행과 열로 구성된 격자구조의 저장 단위
+	- 램 모듈은 이런 구조가 여러 개의 칩에 걸쳐 연결
+- 메모리 칩 내부의 저장 위치 구조 
+	- 뱅크 수 x 행수 x 열수
+		- 칩 내부의 저장 주소의 총 개수
+	- 뱅크 내부는 행수 x 열수의 메모리 격자구조
+- 메인보드의 램 모듈도 뱅크로 구분할 수 있음
+	- 메모리 컨트롤러와 이를 장착할 메모리 슬롯의 물리적인 구조에 의해 결정
+- ROM(read only memory, 롬)
+	- 읽기 전용 메모리의 영문약자
+	- 보통의 방법으로는 읽을 수만 있는 메모리
+	- 전원이 없어도 내용이 지워지지 않는 비휘발성(non-volatile, NV) 메모리의 일종
+	- 내용이 쉽게 변경되지 않아야 할 프로그램들 저장
+		- 시스템 시동과 관련된 초기화 프로그램, 진단 프로그램, 시스템에서 자주 호출하는 서브루틴, CPU 내부 제어장치의 마이크로프로그램 등
+- RAM
+	- 읽기 쓰기 메모리의 영문 약자
+		- RWM(read write memory)은 실제 잘 사용되지 않음
+	- ROM과 반대되는 용어로 보통 RAM을 사용
+		- 일반적으로 RAM은 데이터 보존을 위해 전원이 필요한 휘발성 메모리를 통칭하는 말
+		- NVRAM(non-valatile RAM)
+			- 데이터를 보존하는데 전원이 필요 없고 읽고 쓰기도 가능한 메모리로 비휘발성 램의 영문약자
+- RAM(random access memory, 램)
+	- 찾는 주소에 따라 액세스 타임이 일정한 메모리
+	- 무순 접근 메모리의 영문약자
+	- 반도체 메모리와 자기디스크 등 대부분의 기억장치
+- SAM(sequential access memory, 샘)
+	- 찾는 주소에 따라 액세스 타임이 변하는 메모리
+	- 순차 접근 메모리의 영문약자
+	- 자기 테이프 등 일부에서 해당
+		- ex. 음악 CD는 RAM 방식이라 곡을 지정하면 어떤 곡이든 나오는데 걸리는 시간이 일정
+		- ex. 음악 테이프는 SAM 방식이라 테이프를 감아야 하므로 곡마다 나오는데 걸리는 시간이 다름
+- 반도체 ROM의 종류
+![fourtysix](/img/ComputerStructure/Memory/fourtysix.png)
+![fourtyseven](/img/ComputerStructure/Memory/fourtyseven.png)
+
+
+- 플래시 메모리(flash memory)
+	- 대중적인 비휘발성 램(NVRAM), EEPROM의 한 형태지만 과거 전통 방식 소자들과 구분되는 장점
+		- EEPROM과 달리 큰 블록 크기들을 사용할 수 있어 지우는 속도가 빠르고 일괄 소거 가능, 특히 가격 저렴
+	- 메모리 카드가 들어가는 디지털 카메라, 휴대전화 등 각종 휴대용 기기와 USB 드라이브 등에 널리 쓰임
+		- 아직 가격이 문제이나 이동용 컴퓨터부터 물리적으로 취약하고 부피가 큰 HDD를 빠르게 대체
+	- 기존 디지털 기기의 설정 값을 저장하는 용도로 쓰이던 EEPROM과 배터리 백업 받던 SRAM을 대체
+	- 플로팅게이트(floating gate)의 충전과 방전을 이용하여 1소자당 1비트인 간단한 구성 
+		- DRAM보다 -> 단위 셀 면적이 작아 대용량에 유리하고 소비전력도 작고 저렴하나, 특히 쓰기 속도는 느림
+		- 메모리 내부 셀이 NAND와 NOR 논리 게이트와 유사
+	- NAND 타입 
+		- 몇 개의 블록 단위로 읽고 쓸 수 있음
+		- 대용량이 요구되는 메모리 카드, USB 드라이브 등
+	- NOR 타입
+		- 대개 바이트인 메모리 워드 단위로 읽고 쓸 수 있음
+		- 과거 EPROM을 대체하여 빠른 속도가 요구되는 기계어 코드 수준의 응용설계에 주로 사용
+![fourtyeight](/img/ComputerStructure/Memory/fourtyeight.png)
+![fourtynine](/img/ComputerStructure/Memory/fourtynine.png)
+
+- 사이클 타임
+	- 메모리 용어에서 기억장치에서 연이은 액세스를 새로 시작하는데 걸리는 시간 간격
+	- SRAM -> 사이클 타임 = 액세스 타임
+	- DRAM -> 사이클 타임 = 액세스 타임 x2
+		- 리프레시 진행되는 동안 새로운 액세스를 시작할 수 없어 연속 액세스하려면 액세스 타임의 2배 정도 필요
+- DRAM 구조
+![fifty](/img/ComputerStructure/Memory/fifty.png)
+![fiftyone](/img/ComputerStructure/Memory/fiftyone.png)
+
+- DRAM 리프레시
+	- RAS가 가해진 모든 행에 걸린 셀의 내용이 한 번에 재충전되는 방식 등을 사용
+		- 리프레시가 차지하는 시간은 전체 사용의 1~2% 정도
+	- 재충전 시간 때문에 DRAM을 연속 액세스하려면
+		- 액세스 타임의 2배 정도 필요
+	- 특정 셀의 내용을 읽어오면 출력으로 전압이 떨어져 강제로 재충전 해주어야 하고
+	- 특정 셀에 쓰면 그 행에 걸린 모든 열의 셀이 재충전되므로 기다려야 함
+- 램 모듈(RAM module), 메모리 모듈
+	- 주로 컴퓨터의 메인메모리로 사용하기 위해 시스템보드에 장착하기 적합하도록 만들어진 부품
+		- 대개 DRAM 칩을 결합한 보드형태로 메인보드에 장착
+	- 메모리 랭크(rank)
+		- 공통의 버스에 연결되어 동시에 동작하는 칩들의 모임
+		- 주로 같은 칩 선택 신호에 연결되어 동시에 액세스가 가능한 DRAM 칩들의 집합
+		- 메모리 칩들은 모두 같은 메모리 주소버스와 데이터버스에 연결되지만 물리적으로 여러 랭크로 나눔
+![fiftytwo](/img/ComputerStructure/Memory/fiftytwo.png)
+![fiftythree](/img/ComputerStructure/Memory/fiftythree.png)
+
+- 램 모듈의 저장 구조(organization)
+	- 칩의 구조처럼 저장 주소의 개수와 데이터버스의 비트 수를 곱함 -> 주소 수 x 비트 수
+	- 1G x 64 표시 램 모듈 -> 1G개 저장 주소와 64비트 데이터버스로 구성된 8GiB 용량의 램 모듈
+- 램 모듈의 구성(composition)
+	- 칩의 저장 구조에 칩의 수를 곱해 -> 주소 수 x 비트 수 x 칩의 개수로 표시
+	- 512M x 8 x 16pcs로 표시된 64비트 램 모듈의 구성 -> 512M x 8 구조의 8비트 4Gib 칩 16개(pieces)
+		- 64비트를 위해 랭크 하나에 64/8 = 8개의 칩 필요
+		- 16개 칩은 16/8 = 2개의 랭크로 나누어짐
+![fiftyfour](/img/ComputerStructure/Memory/fiftyfour.png)
+![fiftyfive](/img/ComputerStructure/Memory/fiftyfive.png)
+![fiftysix](/img/ComputerStructure/Memory/fiftysix.png)
+
+- SDRAM(synchronous DRAM, 에스디램)
+	- 메모리 컨트롤러가 아닌 메모리 버스 클럭에 직접 동기(synchronous)되는 DRAM
+- DDR(double data rate) SDRAM
+	- 같은 메모리 클럭 속도에서 SDRAM에 비해 2배의 데이터 전송률을 갖는 DRAM
+		- 클럭 펄스의 상승, 하강 시점에서 2번의 데이터 전송
+		- 클럭 속도가 물리적으로 증가하는 것은 아니지만 버스사이클 하나당 전송횟수를 늘려 대역폭을 증가
+![fiftyseven](/img/ComputerStructure/Memory/fiftyseven.png)
+
+- 반도체 칩의 클럭 승수(clock multiplier)
+	- 반도체 칩 내부의 동작 클럭이 외부 공급 클럭의 몇 배수인가를 표시 xn
+		- DDR2, DDR3, DDR4의 클럭 승수는 각각 x2, x4, x8 -> 각 클럭의 상승과 하강에서 2번의 전송을 일으켜 데이터 전송률은 SDRAM에 비해 x4, x8, x16배
+- 선인출(prefetch, 프리패치)
+	- 작업이 빨리 실행되도록 필요한 자료를 미리 읽어 들이는 기능
+	- DDR 방식은 선인출 버퍼에 여러 비트를 미리 준비해 한 메모리버스 사이클 당 여러 번의 데이터 전송
+		- 선인출 버퍼의 입출력 비트 수는 사이클당 전송횟수
+
+![fiftynine](/img/ComputerStructure/Memory/fiftynine.png)
+![sixty](/img/ComputerStructure/Memory/sixty.png)
+![sixtyone](/img/ComputerStructure/Memory/sixtyone.png)
+![sixtytwo](/img/ComputerStructure/Memory/sixtytwo.png)
+![sixtythree](/img/ComputerStructure/Memory/sixtythree.png)
+
+## 시스템버스의 대역폭
+![sixtyfour](/img/ComputerStructure/Memory/sixtyfour.png)
+
+- 데이터 전송속도
+	- 전문적인 용어는 데이터 전송률(data transfer rate)
+		- 줄여 데이터율(data rate), 전송률(transfer rate)
+		- 본래 정의는 단위 시간당 전송되는 정보량
+		- 모든 단위 시간이나 단위 정보량을 통칭 -> 초당 비트수, 초당 바이트 수, 분당 비트 수, 분당 바이트 수등
+	- 비트율이 가장 많이 사용되어 대표적인 이름이 됨
+		- data transfer rate -> data rate -> bit rate
+		- 본래는 단위 시간당 전송되는 비트 수 이지만
+		- 비트율의 단위로 초당 비트 수(bit/s)와 초당 바이트 수(B/s)를 함께 사용
+![sixtyfive](/img/ComputerStructure/Memory/sixtyfive.png)
+
+- 대역폭의 2가지 정의
+	- 통신, 신호처리 분야에서 신호의 대역폭(bandwidth)
+		- 해당 신호의 전달에 사용되는 주파수(frequency)의 폭
+		- 도로의 폭처럼 신호를 전송할 때 필요한 주파수의 폭
+	- 컴퓨터 분야에서 채널의 대역폭(bandwidth)
+		- 채널의 이론적인 최대 전송속도, 채널의 전송능력
+		- 비트율로 표시
+			- 비트율이 어떤 특정 신호의 전송속도라면,
+			- 대역폭은 그 채널이 허용하는 이론적인 최대 전송속도
+		- 해당 채널이 허용하는 최대 전송속도 -> 통신 분야에서는 이를 별도로 채널 용량(channel capacity)이라 함
+		- 버스의 대역폭(bit/s) = 버스의 클럭률(Hz) x 비트 수
+		- 버스의 클럭률(Hz) = 실제 클럭 속도(Hz) x 사이클당 전송횟수
+	- 버스의 클럭률 -> 버스의 실제 물리적인 클럭 속도와 버스의 한 사이클당 전송횟수를 곱해 계산
+		- 실제 물리적으로 적용되는 클럭 속도가 아님
+			- 한 번의 버스 사이클 동안 여러 번의 데이터 전송을 실시해 마치 그런 효과를 갖는다고 할 수 있음
+		- 램 모듈 제조자들은 FSB의 클럭률을 제품에 표시 
+			- DDR3 1600MHz 램 모듈 -> 실제 물리적인 클럭속도 200MHz에서 한 번의 버스 사이클 동안 8번의 데이터 전송을 실시, 200MHz x 8 = 1600MHz 클럭률 효과
+![sixtysix](/img/ComputerStructure/Memory/sixtysix.png)
