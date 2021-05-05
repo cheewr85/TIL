@@ -308,6 +308,7 @@
 	- 가상의 메인메모리 주소 형식의 필드 정의
 		- 태그 필드 -> 캐시 라인에 들어갈 메인 메모리 블록 선택 
 		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
+		
 ![thirtytwo](/img/ComputerStructure/Memory/thirtytwo.png)
 
 - 캐시 적중여부 검사
