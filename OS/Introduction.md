@@ -103,6 +103,6 @@
 
 - OS를 통해서 I/O의 접근성을 높이는 즉, 사용자가 사용하기 쉽게끔 아래와 같이 함
 
-![seventeen](/img/OS/Introduction/seventeen.png)
+![seventeen](/img/OS/Introduction/seventeen.PNG)
 
 
