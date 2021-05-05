@@ -103,7 +103,63 @@
 ![twentyseven](/img/Network/Networklayer/twentyseven.png)
 ![twentyeight](/img/Network/Networklayer/twentyeight.png)
 
-- CIDR
+- CIDR(Classless Inter Domain Routing)
 	- 아래와 같이 위처럼 subnet으로 지정된 특정 비트에 상관없이 임의의 길이를 subnet으로 표현이 가능함
 	
 ![twentynine](/img/Network/Networklayer/twentynine.png)
+
+- DHCP(Dynamic Host Configuration Protocol)
+	- plug-and-play, IP 주소를 자동으로 할당해주는 방식임
+	- 동적으로 IP 주소를 얻어, IP주소를 host가 얻을수 있게 해줌
+	- 아래와 같은 구조를 가지면서 아래와 같은 일련의 처리 과정을 거침
+	- IP 할당 뿐 아니라 network에 대한 정보 또한 알 수 있음
+
+![thirty](/img/Network/Networklayer/thirty.png)
+![thirtyone](/img/Network/Networklayer/thirtyone.png)
+![thirtytwo](/img/Network/Networklayer/thirtytwo.png)
+![thirtythree](/img/Network/Networklayer/thirtythree.png)
+
+- DHCP의 실제 과정은 아래와 같이 됨
+
+![thirtyfour](/img/Network/Networklayer/thirtyfour.png)
+![thirtyfive](/img/Network/Networklayer/thirtyfive.png)
+![thirtysix](/img/Network/Networklayer/thirtysix.png)
+
+- 여기서 단순히 local에서, 집에서 쓰는 것이 아닌 기관에서 사용은 좀 다름
+- 아래와 같이 ISP blocks을 통해서 기관들의 IP를 할당함
+- subnet mask를 활용해 기관들에게 ISP blocks를 바탕으로 block화 시켜서 씀
+
+![thirtyseven](/img/Network/Networklayer/thirtyseven.png)
+
+- 이를 계층화시켜서 관리함
+
+![thirtyeight](/img/Network/Networklayer/thirtyeight.png)
+![thirtynine](/img/Network/Networklayer/thirtynine.png)
+
+- NAT(Network Address translation)
+	- Internet 상에서는 같은 IP Address이지만 router를 통해서 실제 local network에서 각자 사용시 서로 다른 IP Address임
+	- 이처럼 하나의 IP를 가지고 여러 local network가 쓸 수 있게 하는 것이 NAT임
+	- 이를 활용하면 local에서 다양한 기기들이 NAT 바탕으로 하나의 IP Address를 받은 것을 바탕으로 쓸 수 있음, 아래와 같은 구조임
+
+![fourty](/img/Network/Networklayer/fourty.png)
+
+- 이 과정은 아래와 같이 각각의 local IP Address를 NAT을 통해서 사용할 경우 translation table을 통해 해당 Address를 기억하고 그 전에 외부 IP로 바꾼뒤 기존 IP 역시 기억하고 그 다음 해당 IP를 받고 기억한 translation table을 바탕으로 다시 보내는 과정으로 진행됨
+
+![fourtyone](/img/Network/Networklayer/fourtyone.png)
+
+- IPv6
+	- IPv4의 주소 부족 문제로 생긴 기술
+	- header format이 processing과 forwarding을 함, 여기서 QoS를 통해서 바뀜 
+	- header length가 40 byte로 fixed 되어 있고 fragmentation을 허용하지 않음
+	- 이외에도 아래와 같이 checksum과 ICMPv6 등의 변화가 있음
+
+![fourtytwo](/img/Network/Networklayer/fourtytwo.png)
+![fourtythree](/img/Network/Networklayer/fourtythree.png)
+
+- 여기서 IPv6가 생겼지만 기존에 있던 모든 IPv4를 동시에 대체할 수 없음, 불가능함
+- 그래서 이를 극복하기 위해서 Tunneling을 활용하여서 기존 IPv4를 활용해서 사용함
+- 이는 IPv4 datagram에 IPv6를 집어넣는 형태로 아래와 같이 사용함
+
+
+![fourtyfour](/img/Network/Networklayer/fourtyfour.png)
+![fourtyfive](/img/Network/Networklayer/fourtyfive.png)
