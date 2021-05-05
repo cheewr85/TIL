@@ -319,7 +319,8 @@
 	- 실패하면
 		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
 		- 새로 사용된 메인메모리의 해당 블록을 비어있거나 교체될 캐시 라인에 넣어주고 태그 비트를 고침
-![thirtythree](/img/ComputerStructure/Memory/thirtythree.png)
+
+![thirtythree](/img/ComputerStructure/Memory/thirtythree.PNG)
 
 - 직접매핑 캐시
 	- 직접매핑 캐시는 메인메모리의 데이터 블록이 지정된 캐시 라인에만 들어감
@@ -327,7 +328,8 @@
 		- 인덱스 필드 -> 캐시 라인을 선택 
 		- 태그 필드 -> 캐시 라인에 들어갈 메인 메모리 블록 선택
 		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
-![thirtyfour](/img/ComputerStructure/Memory/thirtyfour.png)
+
+![thirtyfour](/img/ComputerStructure/Memory/thirtyfour.PNG)
 
 - 캐시 적중여부 검사
 	- 1.인덱스 필드로 캐시 라인을 먼저 선택 
@@ -338,7 +340,8 @@
 	- 실패하면
 		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
 		- 새로 사용된 메인메모리의 해당 블록을 지정된 캐시라인에 넣어주고 태그 비트를 고침
-![thirtyfive](/img/ComputerStructure/Memory/thirtyfive.png)
+
+![thirtyfive](/img/ComputerStructure/Memory/thirtyfive.PNG)
 
 - 세트연관 캐시
 	- 세트연관 캐시는 메인메모리의 데이터 블록이 복수의 캐시 라인을 묶은 지정된 세트에만 들어감
@@ -346,7 +349,8 @@
 		- 세트 필드 -> 세트를 선택
 		- 태그 필드 -> 캐시 라인에 들어갈 메인메모리 블록 선택
 		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
-![thirtysix](/img/ComputerStructure/Memory/thirtysix.png)
+
+![thirtysix](/img/ComputerStructure/Memory/thirtysix.PNG)
 
 - 캐시 적중여부 검사
 	- 1.세트 필드로 세트를 먼저 선택
@@ -357,7 +361,8 @@
 	- 실패하면
 		- 메인메모리에서 원하는 주소의 데이터를 읽거나 쓰고
 		- 새로 사용된 메인메모리 블록을 지정된 세트에서 비어있거나 교체될 캐시 라인에 넣고 태그 비트 고침
-![thirtyseven](/img/ComputerStructure/Memory/thirtyseven.png)
+
+![thirtyseven](/img/ComputerStructure/Memory/thirtyseven.PNG)
 
 - 세트연관 캐시와 연관도
 	- 세트연관 캐시 방식의 종류
@@ -371,9 +376,10 @@
 		- 캐시 전체가 하나의 세트가 되면
 			- n이 최대가 되는 완전연관 캐시
 		- 연관도가 커지면 하드웨어가 복잡해짐
-![thirtyeight](/img/ComputerStructure/Memory/thirtyeight.png)
-![thirtynine](/img/ComputerStructure/Memory/thirtynine.png)
-![fourty](/img/ComputerStructure/Memory/fourty.png)
+
+![thirtyeight](/img/ComputerStructure/Memory/thirtyeight.PNG)
+![thirtynine](/img/ComputerStructure/Memory/thirtynine.PNG)
+![fourty](/img/ComputerStructure/Memory/fourty.PNG)
 
 - 가상메모리를 메인메모리에 매핑하는 방법
 	- 프로그램에 의해 발생하는 가상주소를 메인메모리에 있는 물리주소로 변환하는 과정이 필요
@@ -389,8 +395,9 @@
 			- 페이지 테이블 이용을 생략해 여러 메모리 내용을 읽고 물리주소를 계산하던 주소변환 시간을 줄일 목적
 		- TLB 내용은 메인메모리의 일부 페이지 프레임에 저장된 가상메모리의 일부 페이지를 표시한 정보
 			- 각항의 내용은 페이지 테이블처럼 하나의 페이지 번호가 하나의 페이지 프레임 번호로 1:1 매핑
-![fourtyone](/img/ComputerStructure/Memory/fourtyone.png)
-![fourtytwo](/img/ComputerStructure/Memory/fourtytwo.png)
+
+![fourtyone](/img/ComputerStructure/Memory/fourtyone.PNG)
+![fourtytwo](/img/ComputerStructure/Memory/fourtytwo.PNG)
 
 - 가상주소를 물리주소로 변환
 	- CPU가 요청한 가상주소 발생 -> 먼저 TLB 검사
@@ -402,8 +409,9 @@
 		- 메인메모리에 빈 페이지 프레임이 있으면 새로운 페이지를 적재(load), 빈 공간 없으면 기존 페이지와 교체
 	- 페이지 테이블 갱신 후 최종 물리주소 변환 완료
 		- 페이지 부재는 메모리 보호 목적으로도 사용 -> 허락 받지 않은 프로그램이 접근하면 일부러 일으켜 차단
-![fourtythree](/img/ComputerStructure/Memory/fourtythree.png)
-![fourtyfour](/img/ComputerStructure/Memory/fourtyfour.png)
+
+![fourtythree](/img/ComputerStructure/Memory/fourtythree.PNG)
+![fourtyfour](/img/ComputerStructure/Memory/fourtyfour.PNG)
 
 - 가상주소 캐시
 	- 가상주소 캐시의 동작
@@ -416,7 +424,7 @@
 			- 실패면 TLB를 확인 -> 이하 과정은 앞의 방법과 동일
 
 ## 반도체 메모리
-![fourtyfive](/img/ComputerStructure/Memory/fourtyfive.png)
+![fourtyfive](/img/ComputerStructure/Memory/fourtyfive.PNG)
 
 - 메모리 셀(cell)
 	- 디지털 정보의 최소 단위인 1비트를 저장하는 소자
@@ -468,8 +476,9 @@
 		- ex. 음악 CD는 RAM 방식이라 곡을 지정하면 어떤 곡이든 나오는데 걸리는 시간이 일정
 		- ex. 음악 테이프는 SAM 방식이라 테이프를 감아야 하므로 곡마다 나오는데 걸리는 시간이 다름
 - 반도체 ROM의 종류
-![fourtysix](/img/ComputerStructure/Memory/fourtysix.png)
-![fourtyseven](/img/ComputerStructure/Memory/fourtyseven.png)
+
+![fourtysix](/img/ComputerStructure/Memory/fourtysix.PNG)
+![fourtyseven](/img/ComputerStructure/Memory/fourtyseven.PNG)
 
 
 - 플래시 메모리(flash memory)
@@ -487,8 +496,9 @@
 	- NOR 타입
 		- 대개 바이트인 메모리 워드 단위로 읽고 쓸 수 있음
 		- 과거 EPROM을 대체하여 빠른 속도가 요구되는 기계어 코드 수준의 응용설계에 주로 사용
-![fourtyeight](/img/ComputerStructure/Memory/fourtyeight.png)
-![fourtynine](/img/ComputerStructure/Memory/fourtynine.png)
+
+![fourtyeight](/img/ComputerStructure/Memory/fourtyeight.PNG)
+![fourtynine](/img/ComputerStructure/Memory/fourtynine.PNG)
 
 - 사이클 타임
 	- 메모리 용어에서 기억장치에서 연이은 액세스를 새로 시작하는데 걸리는 시간 간격
@@ -496,8 +506,9 @@
 	- DRAM -> 사이클 타임 = 액세스 타임 x2
 		- 리프레시 진행되는 동안 새로운 액세스를 시작할 수 없어 연속 액세스하려면 액세스 타임의 2배 정도 필요
 - DRAM 구조
-![fifty](/img/ComputerStructure/Memory/fifty.png)
-![fiftyone](/img/ComputerStructure/Memory/fiftyone.png)
+
+![fifty](/img/ComputerStructure/Memory/fifty.PNG)
+![fiftyone](/img/ComputerStructure/Memory/fiftyone.PNG)
 
 - DRAM 리프레시
 	- RAS가 가해진 모든 행에 걸린 셀의 내용이 한 번에 재충전되는 방식 등을 사용
@@ -513,8 +524,9 @@
 		- 공통의 버스에 연결되어 동시에 동작하는 칩들의 모임
 		- 주로 같은 칩 선택 신호에 연결되어 동시에 액세스가 가능한 DRAM 칩들의 집합
 		- 메모리 칩들은 모두 같은 메모리 주소버스와 데이터버스에 연결되지만 물리적으로 여러 랭크로 나눔
-![fiftytwo](/img/ComputerStructure/Memory/fiftytwo.png)
-![fiftythree](/img/ComputerStructure/Memory/fiftythree.png)
+
+![fiftytwo](/img/ComputerStructure/Memory/fiftytwo.PNG)
+![fiftythree](/img/ComputerStructure/Memory/fiftythree.PNG)
 
 - 램 모듈의 저장 구조(organization)
 	- 칩의 구조처럼 저장 주소의 개수와 데이터버스의 비트 수를 곱함 -> 주소 수 x 비트 수
@@ -524,9 +536,10 @@
 	- 512M x 8 x 16pcs로 표시된 64비트 램 모듈의 구성 -> 512M x 8 구조의 8비트 4Gib 칩 16개(pieces)
 		- 64비트를 위해 랭크 하나에 64/8 = 8개의 칩 필요
 		- 16개 칩은 16/8 = 2개의 랭크로 나누어짐
-![fiftyfour](/img/ComputerStructure/Memory/fiftyfour.png)
-![fiftyfive](/img/ComputerStructure/Memory/fiftyfive.png)
-![fiftysix](/img/ComputerStructure/Memory/fiftysix.png)
+
+![fiftyfour](/img/ComputerStructure/Memory/fiftyfour.PNG)
+![fiftyfive](/img/ComputerStructure/Memory/fiftyfive.PNG)
+![fiftysix](/img/ComputerStructure/Memory/fiftysix.PNG)
 
 - SDRAM(synchronous DRAM, 에스디램)
 	- 메모리 컨트롤러가 아닌 메모리 버스 클럭에 직접 동기(synchronous)되는 DRAM
@@ -534,7 +547,8 @@
 	- 같은 메모리 클럭 속도에서 SDRAM에 비해 2배의 데이터 전송률을 갖는 DRAM
 		- 클럭 펄스의 상승, 하강 시점에서 2번의 데이터 전송
 		- 클럭 속도가 물리적으로 증가하는 것은 아니지만 버스사이클 하나당 전송횟수를 늘려 대역폭을 증가
-![fiftyseven](/img/ComputerStructure/Memory/fiftyseven.png)
+
+![fiftyseven](/img/ComputerStructure/Memory/fiftyseven.PNG)
 
 - 반도체 칩의 클럭 승수(clock multiplier)
 	- 반도체 칩 내부의 동작 클럭이 외부 공급 클럭의 몇 배수인가를 표시 xn
@@ -544,14 +558,14 @@
 	- DDR 방식은 선인출 버퍼에 여러 비트를 미리 준비해 한 메모리버스 사이클 당 여러 번의 데이터 전송
 		- 선인출 버퍼의 입출력 비트 수는 사이클당 전송횟수
 
-![fiftynine](/img/ComputerStructure/Memory/fiftynine.png)
-![sixty](/img/ComputerStructure/Memory/sixty.png)
-![sixtyone](/img/ComputerStructure/Memory/sixtyone.png)
-![sixtytwo](/img/ComputerStructure/Memory/sixtytwo.png)
-![sixtythree](/img/ComputerStructure/Memory/sixtythree.png)
+![fiftynine](/img/ComputerStructure/Memory/fiftynine.PNG)
+![sixty](/img/ComputerStructure/Memory/sixty.PNG)
+![sixtyone](/img/ComputerStructure/Memory/sixtyone.PNG)
+![sixtytwo](/img/ComputerStructure/Memory/sixtytwo.PNG)
+![sixtythree](/img/ComputerStructure/Memory/sixtythree.PNG)
 
 ## 시스템버스의 대역폭
-![sixtyfour](/img/ComputerStructure/Memory/sixtyfour.png)
+![sixtyfour](/img/ComputerStructure/Memory/sixtyfour.PNG)
 
 - 데이터 전송속도
 	- 전문적인 용어는 데이터 전송률(data transfer rate)
@@ -562,7 +576,8 @@
 		- data transfer rate -> data rate -> bit rate
 		- 본래는 단위 시간당 전송되는 비트 수 이지만
 		- 비트율의 단위로 초당 비트 수(bit/s)와 초당 바이트 수(B/s)를 함께 사용
-![sixtyfive](/img/ComputerStructure/Memory/sixtyfive.png)
+
+![sixtyfive](/img/ComputerStructure/Memory/sixtyfive.PNG)
 
 - 대역폭의 2가지 정의
 	- 통신, 신호처리 분야에서 신호의 대역폭(bandwidth)
@@ -581,4 +596,5 @@
 			- 한 번의 버스 사이클 동안 여러 번의 데이터 전송을 실시해 마치 그런 효과를 갖는다고 할 수 있음
 		- 램 모듈 제조자들은 FSB의 클럭률을 제품에 표시 
 			- DDR3 1600MHz 램 모듈 -> 실제 물리적인 클럭속도 200MHz에서 한 번의 버스 사이클 동안 8번의 데이터 전송을 실시, 200MHz x 8 = 1600MHz 클럭률 효과
-![sixtysix](/img/ComputerStructure/Memory/sixtysix.png)
+			
+![sixtysix](/img/ComputerStructure/Memory/sixtysix.PNG)
