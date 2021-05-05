@@ -2,7 +2,7 @@
 
 ## Roadmap
 - [overview of network layer](#overview-of-network-layer)
-- [what's inside a router](#what's-inside-a-router)
+- [what is inside a router](#what-is-inside-a-router)
 - [IP Internet Protocol](#IP-Internet-Protocol)
 - [Generalized Forward and SDN](#Generalized-Forward-and-SDN)
 
@@ -27,7 +27,7 @@
 ![three](/img/Network/Networklayer/three.png)
 ![four](/img/Network/Networklayer/four.png)
 
-## what's inside a router
+## what is inside a router
 ![five](/img/Network/Networklayer/five.png)
 
 - Input port의 경우 header를 통해서 어떻게 보낼지 찾고 forwarding을 하게끔 처리를 함, 그에 맞게 datagram을 처리함
@@ -79,7 +79,7 @@
 ![nineteen](/img/Network/Networklayer/nineteen.png)
 ![twenty](/img/Network/Networklayer/twenty.png)
 
-## IP:Internet Protocol
+## IP Internet Protocol
 - Internet network layer는 아래와 같은 프로토콜을 활용하여 datagram packet을 파악하고 IP datagram은 아래와 같은 다양한 정보가 담겨있음
 
 ![twentyone](/img/Network/Networklayer/twentyone.png)
