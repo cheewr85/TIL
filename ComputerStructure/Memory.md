@@ -309,7 +309,7 @@
 		- 태그 필드 -> 캐시 라인에 들어갈 메인 메모리 블록 선택 
 		- 블록 오프셋 필드 -> 블록에 포함된 워드를 선택
 
-![thirtytwo](./img/ComputerStructure/Memory/thirtytwo.png)
+![thirtytwo](./ComputerStructure/Memory/thirtytwo.png)
 
 - 캐시 적중여부 검사
 	- 모든 캐시 라인의 1.태그를 조사해 메인메모리 주소의 태그 필드와 일치하는 것이 있는지 검사
