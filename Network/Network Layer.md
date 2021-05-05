@@ -3,7 +3,7 @@
 ## Roadmap
 - [overview of network layer](#overview-of-network-layer)
 - [what's inside a router](#what's-inside-a-router)
-- [IP:Internet Protocol](#IP-Internet-Protocol)
+- [IP Internet Protocol](#IP-Internet-Protocol)
 - [Generalized Forward and SDN](#Generalized-Forward-and-SDN)
 
 ## overview of network layer
