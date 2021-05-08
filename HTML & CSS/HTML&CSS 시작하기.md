@@ -2,7 +2,7 @@
 - HTML 태그(HTML 요소)
 - <시작태그> 내용 <종료 태그>
 
-![one](img/HTML&CSS/HTML&CSS 시작하기/one.png)
+![one](img/HTML&CSS/HTML&CSS시작하기/one.png)
 
 - HTML 파일을 쓸 때 가장 먼저 선언하는 것, 아래와 같이 쓰면 최신 버전인 HTML5를 사용할 수 있음
 ```html
