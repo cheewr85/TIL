@@ -105,4 +105,30 @@
 
 ![seventeen](/img/OS/Introduction/seventeen.PNG)
 
+- OS는 processes에 대한 access controll을 보호하고 시스템에 대한 내외부적인 공격을 아래와 같은 방식으로 방어함
 
+![eighteen](/img/OS/Introduction/eighteen.png)
+
+- OS는 또한 아래와 같이 가상화 즉, OS가 다른 OS를 구동할 수 있게 가상화 작업을 할 수 있음
+- 현재 구동하고 있는 OS뿐 아니라 가상으로 돌리는 OS역시 컴파일을 하기 때문에 속도가 느려짐
+
+![nineteen](/img/OS/Introduction/nineteen.png)
+
+- 분산 시스템, 네트워크를 통해서 서로 다른 것들이 묶여 있음, 아래와 같은 구조를 가지고 있고, OS를 통해서 network를 통한 systems 사이의 features를 제공함
+
+![twenty](/img/OS/Introduction/twenty.png)
+
+- 네트워크 구조는 크게 아래와 같이 Client-Server와 Peer-to-Peer 구조를 가지고 있음
+
+![twentyone](/img/OS/Introduction/twentyone.png)
+![twentytwo](/img/OS/Introduction/twentytwo.png)
+
+- 또다른 구조로 클라우드 컴퓨팅이 있음, 이 구조에서는 논리적인 가상화를 확장한 형태로 그 용도에 따라 다름
+
+![twentythree](/img/OS/Introduction/twentythree.png)
+
+- Real-Time Embedded Systems
+- 또 다른 구조로 실시간 내장형 시스템이 있음
+- 이 구조에서는 시간을 잘 지켜야 하는것이 중요함, 즉 실시간은 시간 제한 이내의 끝내야 함을 의미함, 시간을 지켜야함
+- 그리고 이러한 시간 제한을 맞춰도 결과가 올바르게 나와야함
+- 주로 비행기, 공장, 원자력 발전소 등 특별한 목적이 있는 경우 활용함
