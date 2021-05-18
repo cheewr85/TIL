@@ -72,3 +72,28 @@
 ![picture](/img/OS/OperatingSystem/twentythree.png)
 ![picture](/img/OS/OperatingSystem/twentyfour.png)
 
+- Monolithic Structure
+	- 기존의 UNIX OS가 가지고 있는 구조
+	- 아래와 같이 UNIX는 구조를 가지고 있음
+
+![picture](/img/OS/OperatingSystem/twentyfive.png)
+![picture](/img/OS/OperatingSystem/twentysix.png)
+![picture](/img/OS/OperatingSystem/twentyseven.png)
+
+- Microkernels
+	- 가장 기본적인 커널이 하는 기능만 넣고 나머진 유저모드로 뺀 것, 최소한만 남김
+
+![picture](/img/OS/OperatingSystem/twentyeight.png)
+
+- 현재 쓰는 OS들은 매우 유동적이고 loadable kernel modules을 사용함
+- 그래서 예전과는 다르게 하나의 model만을 사용하는 OS가 아니라 여러가지를 섞어서 사용함
+
+![picture](/img/OS/OperatingSystem/twentynine.png)
+![picture](/img/OS/OperatingSystem/thirty.png)
+
+- 이외의 iOS와 Android 역시 그들만의 OS 구조를 가지고 있음
+
+![picture](/img/OS/OperatingSystem/thirtyone.png)
+![picture](/img/OS/OperatingSystem/thirtytwo.png)
+![picture](/img/OS/OperatingSystem/thirtythree.png)
+
