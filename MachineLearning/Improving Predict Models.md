@@ -3,6 +3,8 @@
 ## Roadmap
 - [Cross Validation](#Cross-Validation)
 - [Hyperparameter optimization](#Hyperparameter-optimization)
+- [Feature Transformation](#Feature-Transformation)
+- [Feature Selection](#Feature-Selection)
 
 ## Cross Validation
 - update model, 모델을 개선하는 작업, loss를 낮추고 accuracy를 높이고 complexity를 낮추고, 일반화 시키기 위해서
@@ -108,3 +110,97 @@
 - loss에 대해서 알 수 있음
 
 ![one](/img/MachineLearning/Improving/twentythree.png)
+
+## Feature Transformation
+- simpler model's, Feature transformation과 Feature selection을 함
+- model complexity를 줄여서 accuracy를 줄일 것임
+- Feature transformation은 PCA와 multi dimensional scaling을 통해서 해 봤음, 주 목적은 visualization을 하는 것이지만, 부목적은 연산량 감소를 연산을 빠르게 하는 것이었음, 이는 딥러닝이 대체를 했음, 요즘은 하드웨어가 좋아져서 거의 활용은 안 함
+- 그래도 accuracy를 상승하는 목적으로는 중요하게 사용됨
+- 새로운 축을 생성해서 거기에 맞게 데이터를 재구성하는 pca를 활용할 것임
+- heartdataNum을 pca 처리를 함
+
+![one](/img/MachineLearning/Improving/twentyfour.png)
+
+- 이를 바탕으로 1~8까지의 components가 데이터의 90%를 나타낼 수 있음을 앎, 11개를 새로운 principal component로 8개로 줄임, 여기서 해당 column이 무엇을 의미하는지는 명확하게 모름, 그렇기 때문에 visualization을 진행할 것임, principal components와 predict간의 관계를 볼 것임
+- 여기서 Naive Bayes를 통해서 Model을 체크해 볼 것임, Loss와 함께
+- 하지만 Loss율이 달라지지 않고 똑같음을 알 수 있음
+
+![one](/img/MachineLearning/Improving/twentyfive.png)
+
+- 여기서 accuracy와 연산도 빨라진것이 의미있는것을 알지만 principal component의 물리적으로 무슨 의미가 있는지 알 수가 없음, 그러므로 이를 시각화해서 한 번 더 확인해야함
+- 여기서 이것이 correlation이 없다는 것을 직접 확인해야함
+- 각각의 관계가 원형으로 뭉쳐있는것으로 보아 관계성이 아예 없음을 의미함, 특정 관계성이 생성되면 직선의 관계로 나타나게 됨
+
+![one](/img/MachineLearning/Improving/twentysix.png)
+
+- 여기서 관계를 볼 때 heatmap과 factor analysis가 좀 더 유의미한 결과를 파악할 수 있음
+- biplot을 사용하면 principal component 1,2,3 각각이 어떠한 관계로 있는지 아래와 같이 그래프로 파악할 수 있음
+
+![one](/img/MachineLearning/Improving/twentyseven.png)
+
+- 여기서 옵션을 VarLabels에 vars를 추가함, 여기서 vars는 predictable variable의 각각의 요소를 뽑아서 저장해 둔 것임
+
+![one](/img/MachineLearning/Improving/twentyeight.png)
+
+- 이를 통해 각각의 component의 대해서 가깝고 길게 갈수록 영향을 받는 값으로 알 수 있음
+- 하지만 해석하기가 어려움 그래서 heatmap을 많이 씀, 이를 그래프가 아닌 각각 component에서 얼마만큼 영향을 미치는가 관계성을 수치화를 할 수 있음, abs가 아니면 네거티브하게도 영향을 미칠 수 있음
+
+![one](/img/MachineLearning/Improving/twentynine.png)
+
+- 여기서 pcs를 1~8로 설정하여 아래와 같이 모든 확률을 확인할 수 있음
+
+
+![one](/img/MachineLearning/Improving/thirty.png)
+
+- parallelcoords로 그 연관성을 알 수 있고 factor analysis 방식도 있음을 알고 넘어가면 됨
+
+![one](/img/MachineLearning/Improving/thirtyone.png)
+
+- 여기서 중요한 것은 correlation을 확인하기 위해서 heatmap을 활용하기 수월하다는 것임
+
+## Feature Selection
+- 있는 predictor variable에서 importance를 판단한 후 그 중요한 predict만 가지고 진행을 함
+- predictor variable이 그대로 나옴, 해석하고 판단하는데 많이 씀, Feature Transformation은 단순예측에 좋음
+- 있는 그대로의 predict를 사용함, 그 중 하나의 분류기를 고르고 거기서 predictor를 하나하나 입력을 하고 loss율을 낮추는데 필요한 것만 골라서 함
+- built-in은 즉 decision Tree에는 Importance를 체크하는 기능이 내장되어 있음
+
+![one](/img/MachineLearning/Improving/thirtytwo.png)
+
+- 그러면 이러한 built-in이 아닌 것에서는 sequential feature selection을 사용함
+- 이것은 어떠한 분류기에도 다 사용이 되고 일반화해서 accuracy를 높이는데도 다 활용이 됨
+- 쓸데없는 노이즈 데이터 역시 없애서 loss를 낮추고 accuracy를 높이기도함
+- 이를 위해서 error function을 직접 만들어야함
+
+![one](/img/MachineLearning/Improving/thirtythree.png)
+
+- 그 다음 sequential feature selection 함수를 사용해서 predictor 중 하나를 골라서 특정 분류기를 통해서 그것이 에러를 낮추고 accuracy를 높이는데 기여를 하는지 확인하고 기여를 하면 킵함, 만일 그렇지 않으면 버림, 순차적으로 함
+- 이렇게 순차적으로 해서 에러를 낮추고 accuracy를 높이는데 기여하는 것만 뽑아서 씀
+- 먼저 Naive Bayes에 대한 에러 함수를 먼저 만듬
+
+![one](/img/MachineLearning/Improving/thirtyfour.png)
+
+- 이를 나누기만 하면 알아서 sequentialfs에서 알아서 구분해서 골라냄
+- 그리고 이를 학습을 시키면 아래와 같이 뽑아낼 variable을 찾아서 logical array로 나타냄
+
+![one](/img/MachineLearning/Improving/thirtyfive.png)
+
+- 어떤것을 뽑았는지 아래와 같이 vars를 활용해서 알 수 있음
+
+![one](/img/MachineLearning/Improving/thirtysix.png)
+
+- 이를 아래와 같이 loss를 비교해서 확인할 수 있음
+- 어떠한 predict를 사용했는지 그리고 그에 따라 accuracy도 높아짐을 알 수 있음
+
+![one](/img/MachineLearning/Improving/thirtyseven.png)
+
+- 아래와 같이 SVM에도 동일하게 적용할 것임
+- svm은 아래와 같이 최적조건을 뽑아냄
+- 각각 다른 알고리즘을 적용한 것이므로 Navie Bayes랑 다르게 나온것이 당연함
+
+![one](/img/MachineLearning/Improving/thirtyeight.png)
+
+- SVM 역시 아래와 같이 loss가 낮아짐을 알 수 있음
+
+![one](/img/MachineLearning/Improving/thirtynine.png)
+
+- 모든 분류기에서 적용이 가능함 하지만 error function을 직접 다 만들어야함
