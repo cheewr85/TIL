@@ -5,6 +5,8 @@
 - [Hyperparameter optimization](#Hyperparameter-optimization)
 - [Feature Transformation](#Feature-Transformation)
 - [Feature Selection](#Feature-Selection)
+- [Dummy Variables](#Dummy-Variables)
+- [Ensemble Learning](#Ensemble-Learning)
 
 ## Cross Validation
 - update model, 모델을 개선하는 작업, loss를 낮추고 accuracy를 높이고 complexity를 낮추고, 일반화 시키기 위해서
@@ -204,3 +206,91 @@
 ![one](/img/MachineLearning/Improving/thirtynine.png)
 
 - 모든 분류기에서 적용이 가능함 하지만 error function을 직접 다 만들어야함
+
+## Dummy Variables
+- 대개 Engineering 영역에서는 주로 Numeric 형태로 쓰기 때문에 NumData를 쓰지만 그 이외의 영역에서는 Categorical data를 다루기도 함
+- Categorical data를 Numeric 형태로 바꿀 수 있음
+- 예를 들어 아래와 같이 Categorical data를 Numeric하게 생각하게 처리를 할 수 있음
+- 여기서 동일한 distance를 갖게 해야하는걸 고려해야함, 그냥 무작정 Categorical data를 순서대로 숫자로 부여해서는 안됨
+- 아래의 예시처럼 단순한 숫자부여가 아닌 array 형태로 나타내어서 distance를 동일하게 갖게끔 생성을 하는데 이를 Dummy Variable이라고 하고 이러면 데이터 손실없이 categorical data를 numeric하게 바꿀 수 있음, 이러면 모든 분류기를 활용가능 데이터에 대해서
+
+![one](/img/MachineLearning/Improving/fourty.png)
+![one](/img/MachineLearning/Improving/fourtyone.png)
+
+- dummyvar을 사용할 수 있지만, 여기선 cattable2mat.m 함수를 활용할 것임
+- 이 함수를 통해서 전체 데이터를 numeric하게 바꾸고 거기에 맞는 variable name을 생성해줌, 이는 matlab 내장함수가 아님, 해당 파일이 없으면 없는 함수로 뜸
+- dummyvar을 사용하면 아래와 같이 각각 categorical 만큼 생성함
+
+![one](/img/MachineLearning/Improving/fourtytwo.png)
+
+- 하지만 전체 데이터를 다 빼서 사용할 것임 cattable2mat 파일에 있는 함수 활용 해당 파일이 필요함, 모든 값을 바꿀 수 있음
+- 각각 Categorical 요소를 다 계산하면 더 많으므로 35개가 나옴, 이름도 뽑을 수 있음
+- 여기서 뽑은 이름은 해당 Variable에 있는 Categorical의 모든 데이터 Name을 의미함 즉, ChestPainType 4개의 Categorical이 다 있음
+
+![one](/img/MachineLearning/Improving/fourtythree.png)
+
+- 여기서 이제 dummy variable로 만들고 정리할 것을 바탕으로 앞서 배웠던 모델을 적용할 수 있음
+
+![one](/img/MachineLearning/Improving/fourtyfour.png)
+
+- 하지만 여기서 막연하게 kernel을 쓰면 categorical data에 의해서 에러가 생김, 그러므로 그 부분에 대해서 mvmn을 구분해서 사용해야함, 즉 구분을 해서 써야함
+- 해당 부분을 아래와 같이 나눠서 생성함, 그리고 이를 바로 적용함
+
+![one](/img/MachineLearning/Improving/fourtyfive.png)
+![one](/img/MachineLearning/Improving/fourtysix.png)
+
+- 여기서 Sequential Feature selection을 활용할 것임, 이를 활용하기 위해 dummy data 필요 무조건 numeric한 data만 쓰기 때문에, 무조건 콜백 function을 써야함, 하지만 아래서는 다른 방식을 쓸 것임(아는 정도만)
+- 값이 점점 낮아짐을 확인할 수 있음, 그리고 결과를 확인함
+
+![one](/img/MachineLearning/Improving/fourtyseven.png)
+
+- 그 다음 여기서 어떤게 선택됐는지 알 수 있음
+
+![one](/img/MachineLearning/Improving/fourtyeight.png)
+
+- Loss율이 매우 낮아짐을 알 수 있음
+- 여기서 dummyvariable로 활용해서 썼으므로 이미 numeric하므로 Navie Bayes는 그냥 그대로 쓰면 됨
+
+![one](/img/MachineLearning/Improving/fourtynine.png)
+
+- 이번엔 SVM Model을 선택했을 때의 상태를 확인하고 비교해볼 것임
+
+![one](/img/MachineLearning/Improving/fifty.png)
+
+- 동일한 방식으로 svm을 쓰면 됨 만일 하나가 아니면 multiclass로 해서 처리해야함
+- 여기서 역시 Loss는 더 떨어질 것임
+
+![one](/img/MachineLearning/Improving/fiftyone.png)
+
+- 즉 기계학습을 위해서 numeric data만을 써야하는 경우 dummy data로 만들어서 이를 활용할 수 있음
+
+## Ensemble Learning
+- Support Vector Machine에서 활용함
+- response class가 2개 이상일 때 fitcecoc가 svm에 Ensemble 버전임
+- svm은 binary만 할 수 있기 때문에 여기서 여러개를 처리하기 위해서 multiclass svm을 쓰는 것인데 이게 ensemble 방식임
+- 구조상 decision tree와 가장 잘 맞음, bootstraping 때문에(중복 추출을 허용한 리샘플링)
+- 아래와 같이 중복 추출을 해서 뽑을 수 있음, 해당 케이스에 대해서
+- 데이터가 다르므로 각각 예측이 다름, bootstraping으로 인해서
+- 여기서 추출한 결과값에서 다수결로 많은 결과에 대해서 추측을 해서 결과를 내림
+- 이를 Bagging이라고 함(bootstrap을 통한 리샘플링)
+- knn에서는 subspace 방식으로 사용을 함, 썩 Ensemble과 맞지는 않음
+- prune을 기본적으로 하지 않으면 과적합이 일어남, 그러므로 여기서 Ensemble을 활용함
+- 이것이 Loss율을 많이 떨어뜨림
+
+![one](/img/MachineLearning/Improving/fiftytwo.png)
+
+- 이번에도 all data를 쓸 것임, 이를 위해 categorical을 numeric으로 바꾸어야함
+
+![one](/img/MachineLearning/Improving/fiftythree.png)
+
+- 아래와 같이 일반 트리와 Ensemble을 비교해볼 것임, Prune을 사용하지 않으면 Ensemble을 해야함, Prune 자체를 하면 계속 확인하면서 해야함
+- 아래와 같이 점점 떨어짐을 알 수 있음
+- 즉 Tree를 몇 개를 할 것이냐를 생각하면됨, 과적합은 고려할 필요 없음, 어차피 다수결로 고르므로
+
+![one](/img/MachineLearning/Improving/fiftyfour.png)
+![one](/img/MachineLearning/Improving/fiftyfive.png)
+
+- 아래와 같이 KNN에서도 활용할 수 있음, 여기서 ensemble 사용시 기본값으로 knn이므로 그냥 쓰면 되지만 옵션값을 활용하기 위해서는 Multiclass SVM처럼 template을 만들어줘야함
+- 오히려 Loss가 치솟음을 알 수 있음, 어떠한 LearningCycle을 쓰더라도
+
+![one](/img/MachineLearning/Improving/fiftysix.png)

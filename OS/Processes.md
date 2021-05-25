@@ -54,3 +54,61 @@
 
 ![picture](/img/OS/Processes/fourteen.png)
 
+- Shared Memory의 경우, 공유된 메모리 영역을 활용하여서 같이 사용을 함
+- User Process에 의해서 실행됨, 여기서 Synchronize를 통해서 공유된 자원에서 작업을 미리 하고 있는 경우 건드리지 못하게 설정해둠
+- IPC의 경우 공유된 자원없이 사용하는것을 의미함, 이를 위해서 communication link가 필요하고 send/receive를 통해서 메시지를 교환을 함
+- communication link의 경우 2가지로 채용을 함
+	- Direct Communication
+		- 링크가 자동으로 생성되고, communicating processes가 정확히 한쌍으로 링크가 이어져 있음
+		- 오직 하나의 link만 존재함, unidirectional 할 수도 있으나, 주로 bi-directional
+	- Indirect Communication
+		- mailbox를 통해서 메시지를 주고 받음
+		- mailbox는 고유한 id가 있고 process는 이 공유된 mailbox만을 가지고 communication을 함
+
+![picture](/img/OS/Processes/fifteen.png)
+![picture](/img/OS/Processes/sixteen.png)
+
+- Synchronization
+	- message passing은 blocking 혹은 non-blocking 둘 중 하나임
+
+![picture](/img/OS/Processes/seventeen.png)
+
+- 이러한 IPC 기술은 운영체제에서 다양하게 활용됨
+- 먼저 POSIX에서 shared memory를 생성한뒤 segement를 활용하여 object의 사이즈를 정한뒤 shared memory 기법을 활용하여 IPC 기술을 활용함
+
+![picture](/img/OS/Processes/eighteen.png)
+
+- Mach에서는 message based로 소통을 함, system call 역시 messages임
+- 각각의 task를 Kernel과 Notify로 생성되어 가짐, 그러면 IPC에서 메시지를 통한 통신을 함
+
+![picture](/img/OS/Processes/nineteen.png)
+
+- Window의 경우 Message-passing을 advanced local procedure call을 통해서 함
+- 아래와 같은 로직으로 조금은 다르게 돌아감
+
+![picture](/img/OS/Processes/twenty.png)
+![picture](/img/OS/Processes/twentyone.png)
+
+- Pipes
+	- 두 개의 process가 도관처럼 통신하는 것을 말함
+	- 단방향인지, 양방향인지, half만 하는지 full-duplex를 하는지
+	- 어떠한 관계를 형성하고 있는지, network를 사용하는지 등의 문제를 다룸
+- Ordinary pipes
+	- 외부에서 형성된 process는 접근할 수 없음, 일반적으로 parent-child관계를 가짐
+- Named pipes
+	- parent-child 관계 없이 접근할 수 있음
+
+![picture](/img/OS/Processes/twentytwo.png)
+![picture](/img/OS/Processes/twentythree.png)
+
+- Client-Server Systems에서는 Socket과 Remote Procedure Calls를 함
+- Socket의 경우 endpoint communication을 위해서 정의되어 있음
+- IP Address와 port를 연결시키는 역할을 함
+
+![picture](/img/OS/Processes/twentyfour.png)
+
+- Remote Procedure Calls에서는 networked system에서의 processes사이의 procedure calls을 abstract해 줌
+
+![picture](/img/OS/Processes/twentyfive.png)
+![picture](/img/OS/Processes/twentysix.png)
+
