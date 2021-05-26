@@ -4,6 +4,7 @@
 - [Introduction](#Introduction)
 - [Error detection](#Error-detection)
 - [Multiple access protocol](#Multiple-access-protocol)
+- [LANs](#LANs)
 
 ## Introduction
 - Link layer에서는 hosts와 routers에 대해서 링크로 연결되는 것들로 nodes라고 부름
@@ -105,3 +106,105 @@
 
 ![one](/img/Network/Linklayer/twelve.png)
 ![one](/img/Network/Linklayer/thirteen.png)
+
+- Pure(unslotted) ALOHA
+	- slot을 기다리지 않고 그냥 보냄, 동기화되어 있지 않음
+	- frame을 바로바로 보냄
+	- 이 때문에 충돌이 일어날 확률과 성능이 떨어지는 상황이 발생할 수 있음
+	- 그러므로 slotted Aloha보다 효율이 더 떨어짐
+
+![one](/img/Network/Linklayer/fourteen.png)
+
+- CSMA(Carrier Sense Multiple Transmit)
+	- 보내기 전에 listen함, 즉 확인을 함
+	- 만일 채널이 비어있다면 frame 전체를 보내고
+	- 채널이 사용중이면 보내지 않음, 마치 사람과 대화할때 중간에 끼어들지 않는것과 같음
+	- 그럼에도 충돌은 일어날 수 있음, propagation delay로 인해서, 각각의 전송하는 상태를 확인을 못하여서
+	- 그러면 그만큼의 시간이 낭비가 됨
+
+![one](/img/Network/Linklayer/fifteen.png)
+![one](/img/Network/Linklayer/sixteen.png)
+![one](/img/Network/Linklayer/seventeen.png)
+![one](/img/Network/Linklayer/eighteen.png)
+
+- CSMA/CD(Collision Detection)
+	- 그러므로 위와 같이 충돌이 일어나는 상황에서 충돌을 인치하고 시간을 낭비하는 것을 방지하기 위해서 충돌이 일어나면 바로 중단을 시킴
+	- 유선 LAN에서는 적용하기 수월하지만 무선 LAN에서는 적용하기 어려움
+
+![one](/img/Network/Linklayer/nineteen.png)
+
+- 이더넷에서도 역시 활용하고 효율은 아래와 같음, 이는 ALOHA보다는 더 나은 효율을 보여줌
+
+![one](/img/Network/Linklayer/twenty.png)
+
+- Taking turns MAC Protocols
+	- channel partitioning, random access보다 더 나은 효과를 보여줌
+	- polling
+		- master-slave관계가 노드들끼리 성립이 됨
+		- 여기서 master에서 poll을 slave에게 보내고 poll을 받은 slave만 data를 전송함
+		- 여기서 slave의 device가 단순한 기능만 있을 때 사용할 수 있음
+		- 단 master가 망가지면 작동이 되지않고 master가 poll을 주고 건네면서 지연시간이 발생을 함
+
+![one](/img/Network/Linklayer/twentyone.png)
+
+- Token passing
+	- token을 연결된 노드끼리 건네주면서 데이터를 보내야 할 경우 데이터를 보냄
+	- token message를 활용함
+	- 하지만 보낼것이 없어도 token message를 받아서 보내기 때문에 지연시간이 발생하기도 함, 그리고 특정 노드에서 고장이 나 token을 제대로 보내지 않으면 망가짐
+
+![one](/img/Network/Linklayer/twentytwo.png)
+
+- Summary
+
+![one](/img/Network/Linklayer/twentythree.png)
+
+## LANs
+- MAC address and ARP
+	- MAC address는 IP-Address보다 하위계층으로 물리적으로 기기들의 interface를 식별함
+	- 즉 물리적으로 연결된 address를 의미함, 48 bit MAC address를 활용하고 주로 NIC ROM에서 나타남, 바뀌지 않는 주소들임
+	- LAN, physical, Ethernet address라고도 부름
+
+![one](/img/Network/Linklayer/twentyfour.png)
+
+- LAN address
+	- IEEE가 관리를 함, IP Address가 우편번호라면 MAC Address는 주민등록번호로 볼 수 있음, interface adapter를 식별할 수 있음
+	- LAN card를 뽑아서 다른 곳에 꽂아서 사용할 수 있음, 즉 고유한 Address를 가지고 있지만, 이를 옮길 수가 있음
+
+- ARP(Address Resolution Protocol)
+	- ARP table
+		- 각각 IP node가 LAN에서 table을 가지고 있음
+		- IP/MAC address는 LAN node에 맵핑되어 있음
+		- TTL : 시간이 지나면 address mapping이 사라짐
+
+![one](/img/Network/Linklayer/twentyfive.png)
+
+- 같은 local, LAN에 있을 경우 ARP는 아래와 같이 진행이 됨
+
+![one](/img/Network/Linklayer/twentysix.png)
+
+- 만일 다른 LAN 상에 존재할 경우, 중간에 매개체를 통해서 전달을 해야함
+
+![one](/img/Network/Linklayer/twentyseven.png)
+![one](/img/Network/Linklayer/twentyeight.png)
+![one](/img/Network/Linklayer/twentynine.png)
+![one](/img/Network/Linklayer/thirty.png)
+![one](/img/Network/Linklayer/thirtyone.png)
+
+- Ethernet
+	- 현재까지도 유선 기술중에서 가장 많이 사용하는 기술임
+	- 물리적인 형태는 원래는 bus 형태를 많이 사용했지만, 요즈음에는 star 형태로 많이 구성을 함
+
+![one](/img/Network/Linklayer/thirtytwo.png)
+
+- Ethernet frame은 아래와 같이 구성되어 있음
+
+![one](/img/Network/Linklayer/thirtythree.png)
+![one](/img/Network/Linklayer/thirtyfour.png)
+
+- Ethernet에서 경우 connectionless 즉, 굳이 handshaking, 통신을 통해서 알릴 필요가 없음
+- 그리고 reliable한 것은 아니지만 어차피 NIC 칩이 존재하기 때문에 큰 문제는 없음
+
+- Ethernet switch
+	- Ethernet frame을 저장하고 보내는 역할을 함, 즉 link-layer 역할만 수행을 함
+	- 그러므로 IP Address도 없음, Ethernet protocol에서 바로 보냄
+	- 그러므로 상위 계층에서는 존재를 알지 못함
