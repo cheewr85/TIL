@@ -3,7 +3,7 @@
 ## Roadmap
 - [Introduction](#Introduction)
 - [Error detection](#Error-detection)
-
+- [Multiple access protocol](#Multiple-access-protocol)
 
 ## Introduction
 - Link layer에서는 hosts와 routers에 대해서 링크로 연결되는 것들로 nodes라고 부름
@@ -45,3 +45,63 @@
 ![one](/img/Network/Linklayer/six.png)
 ![one](/img/Network/Linklayer/seven.png)
 
+## Multiple access protocol
+- link는 point-to-point, broadcast로 나뉘어짐
+- 여기서 Multiple access links, protocols은 주로 broadcast에서 많이 이루어짐
+
+![one](/img/Network/Linklayer/eight.png)
+
+- 하나의 공유된 broadcast channel을 가지고 있음
+- 2개 그 이상의 노드들이 동시에 전송을 할 경우 간섭이 생김, 만일 여기서 동시에 하나 이상의 신호를 보내면 충돌이 일어남
+- 이를 조절하고 해결하기 위해서 multiple access protocol을 활용함
+- 분산 알고리즘을 통해서 공유된 채널에 대해서 node들이 어떻게 전송을 할 지 정해줌
+- 해당 channel 역시 그 channel 자체로 통신을 해야함, 즉 무선채널로 통신하는데 유선채널에 대한 access를 요구하고 확인할 수 없음
+- 이상적인 상태로는 아래와 같음
+
+![one](/img/Network/Linklayer/nine.png)
+
+- MAC protocols
+	- channel partitioning
+		- channel을 작은 pieces로 쪼개서 나눔
+		- time slot, frequency, code를 통해서 나눔
+	- random access
+		- channel이 쪼개져있지 않음, 랜덤하게 접속함, 충돌이 일어남
+		- 이 충돌에서 recover를 함
+	- taking turns
+		- token을 통해 처리, 즉 순서를 전해서 진행을 함
+
+- Channel partitioing TDMA
+	- time division multiple access
+		- rounds를 통해 channel에 접속함
+		- 각 round를 시간을 통해서 노드들을 나눠서 쪼갬
+		- 사용하지 않은 slot은 비어 있음
+
+![one](/img/Network/Linklayer/ten.png)
+
+- Channel partitioning FDMA
+	- frequency division multiple access
+		- channel spectrum이 frequency bands에 맞게 나뉘어짐
+		- 각각 station이 frequency band에 할당됨, 주파수를 쪼개 각각 대역을 나눈 뒤 노드에 할당함
+		- 사용되지 않는 시간에는 비어있음
+	- 추가적으로 CDMA, 즉 code를 통해서 나누는 경우도 있었음, 주로 3G 등 사용시
+
+![one](/img/Network/Linklayer/eleven.png)
+
+- Random access protocols
+	- 원래는 Wifi에 주로 사용하기 위해서 만듬
+	- 노드가 packet을 보낼 대 full channel data rate R을 씀, 다른 노드에 상태를 고려하지 않고 일단 랜덤하게 보냄
+	- 2개 이상의 노드를 보낼 때 충돌이 일어남
+	- 그러므로 충돌을 탐지하고, 충돌로부터 recover하기 위한 protocol의 사용이 필요함
+	- slotted ALOHA, ALOHA, CSMA, CSMA/CD, CSMA/CA 등이 있음
+
+- Slotted ALOHA
+	- 모든 frame 사이즈가 동일하고 동일한 slot으로 시간이 나뉘어짐
+	- slot이 시작할 때 노드가 보내지고 노드는 보내질때 시간이 동기화됨
+	- 충돌이 발생시 모든 노드들이 충돌을 감지함을 가정하고 작동함
+	- 노드가 새로운 frame에서 다음 slot으로 보낼 때
+		- 충돌이 없다면 새로운 frame의 slot에 보낼 수 있음
+		- 충돌이 발생하면, p의 확률로 성공할 때까지 재전송을 함, 고려를 하지 않고 계속 바로바로 보내면 충돌만 계속 일어나므로
+	- 아래와 같이 장단점과, 해당 효율을 계산할 수 있음
+
+![one](/img/Network/Linklayer/twelve.png)
+![one](/img/Network/Linklayer/thirteen.png)
