@@ -60,3 +60,38 @@
 
 ![picture](/img/OS/Synchronization/nine.png)
 
+- Semaphore는 waiting queue와 연관되어 있음
+- 2개의 data item을 가짐
+	- Value(of type integer)
+	- Pointer to next record in the list(process를 저장함)
+- 2개의 기능을 함
+	- block : process를 waiting queue에 접근한 것을 위치시킴
+	- wakeup : waiting queue에 있는 process 중 하나를 없애고 ready queue에 위치시킴
+- signam(mutex) ... wait(mutex) / wait(mutex) ... wait(mutex) / Omitting of wait(mutex) and/or signal(mutex)
+- 위와 같은 오류와 부정확한 처리를 할 수 있음
+
+- Monitors
+	- process synchronization을 하는데 있어서 편하고 효과적인 매커니즘임
+	- 동기화를 위해서 만드는 것
+	- 오직 하나의 프로세스만이 monitor에서 한번에 실행가능함
+
+![picture](/img/OS/Synchronization/eleven.png)
+![picture](/img/OS/Synchronization/ten.png)
+
+- Liveness
+	- Process는 mutex lock이나 semaphore 같은 synchronization tool을 얻기 위해 wait만 계속해서 함
+	- Waiting을 계속 하는 것은 앞서 본 progress와 bounded-waiting 기준을 위반한것임 
+	- Liveness는 시스템이 process가 progress를 만들 때 확실히 만족해야할 조건들임
+	- Indefinite waiting은 liveness 실패의 예시임
+- Deadlock
+	- 2개 이상의 process들이 하나의 waiting processes로 인해서 유발된 event로 인해서 무기한으로 waiting 하는 상태임
+
+![picture](/img/OS/Synchronization/twelve.png)
+
+- 다른 형태의 deadlock도 있음
+	- Starvation
+		- 계속해서 blocking을 함 
+		- process가 suspended된 semaphore queue로부터 제거되지 않는 상태임
+	- Priority Inversion
+		- lower-priority process가 higher-priority process에 의해서 lock이 걸린 스케줄링 문제
+		- 우선순위 상속 protocol을 통해서 해결할 수 있음
