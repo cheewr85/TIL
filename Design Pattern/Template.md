@@ -167,3 +167,55 @@ public class Main {
 
 ### 안드로이드 활용
 - AsyncTask 즉 안드로이드에서 비동기 처리를 할 때 Template Method 패턴을 사용해서 쓰레드 처리를 관리하는 부분이 활용되는데 자세하게 기술하지 않는 이유는 비동기 처리를 AsyncTask로 하는 방법은 Coroutine, RxJava등 더 효율적으로 사용하기 때문에 상세하게 기술을 하진 않음
+```java
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    // 버튼을 클릭하면 파일 다운로드 경로를 파라미터로 AsyncTask 실행
+    public void OnClick(View view) {
+        switch (view.getId()) {
+            case R.id.button:
+                try {
+                    new DownloadFilesTask().execute(new URL("파일 다운로드 경로1"));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+    }
+
+    private class DownloadFilesTask extends AsyncTask {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Long doInBackground(URL... urls) {
+                // 전달된 URL 사용 작업
+
+            return total;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... progress) {
+            // 파일 다운로드 퍼센티지 표시 작업
+        }
+
+        @Override
+        protected void onPostExecute(Long result) {
+            // doInBackground 에서 받아온 total 값 사용 장소
+        }
+    }
+}
+
+```
+
+- AsyncTask를 상속받은 클래스가 해당 작업을 구체화 시키고 있음
+
+- 어떻게 보면 위와 같이 안드로이드 프레임워크 사용에 있어서 이런 템플릿 패턴이 어느정도 기저에 깔려있다고 봐도 됨
