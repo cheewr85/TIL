@@ -1,0 +1,192 @@
+### Training Options
+- Training Options을 계속 체크하면서 Network를 Train하면서 그 결과를 계속 체크할 것임
+- 먼저 sgdm에 대해서 확인할 것임, 아래와 같이 설정을 해서 학습을 하면 Mini-batch가 NaN이 나옴을 알 수 있음
+
+![one](/img/DeepLearning/Options/one.png)
+
+- 여기서 한 번 InitialLearnRate를 건드려서 체크해 볼 것임, 그러면 loss가 떨어지고 testAcc이 올라간 것을 볼 수 있음
+
+![one](/img/DeepLearning/Options/two.png)
+
+- 0.001을 InitialLearnRate로 하면 계속 NaN이 나오고 0.0001이 나오면 Acc가 일정 수준 계속해서 나옴을 알수 있음, 하지만 계속 하다보면 0.0001을 해도 Acc이 0.84~0.93 즉 10% 정도 차이가 남 이는 학습이 충분히 진행이 되지 않음을 의미함
+- 이런식으로 0.001과 0.0001의 차이가 나는 것은 MaxEpochs와 InitialLearnRate의 유의미한 의미가 있음을 말함
+- 여기서 0.0001인 경우에 MaxEpochs를 늘리면 아래와 같이 나옴
+
+![one](/img/DeepLearning/Options/three.png)
+
+- 이를 계속해서 실행하다보면 90% 초반에서 중반이 계속 유지됨을 알 수 있음, 이를 통해서 MaxEpoch와 InitialLearnRate가 이러한 Acc와 Loss에 영향을 줌을 알 수 있음
+- 여기서 sgdm, adam과 같은 알고리즘은 InitialLearnRate에 관련이 있음
+- 딥러닝으로 하는 것은 Input과 Output을 Layer를 짜서, Network를 만들어서 문제와 답을 알고 있는 것을 서로 매칭, 연결 시켜주는 것임, 이러한 풀이과정을 만드는 것임
+- 모르는 다른 Input이 들어와도 새로운 Output을 예측하는 것임
+- 이러한 과정은 네트워크에 필터, weight와 값이 있고 튜닝, 학습을 시키면서 체크를 함 이러한 학습되는 과정은 입력이 들어왔을 때 출력을 알고 있고 가운데 풀이과정을 학습시켜야함
+
+![one](/img/DeepLearning/Options/four.png)
+
+- 여기서 Learnable Parameter를 계속 적당한 값으로 바꾸어가면서 Input과 Output을 열심히 매칭시킴, 그러면 Learnable Parameter들이 아래와 같이 계속 튜닝이 됨
+
+![one](/img/DeepLearning/Options/five.png)
+
+- 이런 과정을 거쳐서 하나의 Input을 넣었을 때 그 Output을 매칭하게끔 Parameter를 학습을 시키면 됨, 실제 Parameter는 무수히 많고 이를 계속 튜닝(학습)시켜야함
+- 그 과정이 입력과 정답을 알고 있으므로 그 가운데 값, 매칭시키는 가운데 값을 역으로 튜닝시킴, 그 값은 결국엔 수학적으로 이루어지므로 최적값으로 결과와 가깝게 나오게끔 Loss Function을 활용함
+
+![one](/img/DeepLearning/Options/six.png)
+![one](/img/DeepLearning/Options/seven.png)
+
+- 파라미터를 막 튜닝해서 첫번째 사진처럼 계속 조절을 하다가 두번째 사진처럼 결과가 나오게끔 튜닝하는 것임
+- 최대한 가깝게 튜닝을 하는 것임, 두번째 사진처럼 하다가 결국에는 Loss 값 error의 차이를 더한 Total Error를 최소화하는 방향으로 튜닝이 되면 가장 학습이 잘됐다고 볼 수 있음
+
+![one](/img/DeepLearning/Options/eight.png)
+![one](/img/DeepLearning/Options/nine.png)
+
+- 이런 Error를 Loss Function으로 계산을 함
+- 이를 수학식으로 나타내지만 만약 모든 Parameter에 대해서 Loss를 가지고 전체 데이터 셋에 대해서는 구할 수가 없음, 훨씬 많은 Parameter에 대한 전체 데이터에 대한 Loss값, 즉, 모든걸 대변하는 Error 값은 한 번에 구할 수 없음
+- 그러므로 아래와 같이 Loss Function에 맵을 그린 다음 하나하나 점점 Loss값이 낮아지게끔 해서 계산을 함, 이러면 해가 없을수도 있고 수학적 에러로 발산을 할 수 있음
+- 발산하는 경우는 NaN이 되는 경우임
+
+![one](/img/DeepLearning/Options/ten.png)
+
+- 그래서 위처럼 모든 데이터셋 모든 계산을 다 할 수가 없기 때문에 이때 데이터를 쪼개는데 이를 Mini-Batch라고 함
+
+![one](/img/DeepLearning/Options/eleven.png)
+
+- 이 Mini-batch는 데이터를 몇 개의 Mini 사이즈로 쪼개는 것임, 여기서 이 각각 Mini-Batch, Batch를 하나씩 넣어주고 위에처럼 MiniBatch 3개를 전체데이터를 대변한다고 가정하고 파라미터를 튜닝을 함
+- 그런 다음 그 파라미터에 대해서 Loss Function을 구함, 첫번째 Mini-Batch에 파라미터를 튜닝하고 Loss 최소화 값을 찾는것임, 시작점은 아무점에서 함(랜덤으로), Training Progress를 보면 급격하게 수렴하는것을 볼 수 있음, 처음엔 들쭉날쭉 하다가 낮아지는 방향으로(Loss 값이)
+
+![one](/img/DeepLearning/Options/twelve.png)
+
+- mini-batch에서 최소값이 나왔다고 하더라도 다른 값으로 확 바뀌게 하지 않는선에서 함, 하지만 그렇게 할수도 있긴함, InitialLearnRate를 위에서 했듯이 0.001로 한 경우
+- 그런 경우 발산을 해버리는 것임, 파라미터가 갑자기 너무 높아져서
+- 그래서 mini-batch에서의 낮아지는 방향으로 조금씩 나아가는 것임, 아래처럼(첫번째는 랜덤임), 기울기가 낮은 방향으로 Loss가 작아지게
+
+![one](/img/DeepLearning/Options/thirteen.png)
+
+- 걸음을 좁게하면 그렇게 될 것임 즉 InitialLearnRate를 너무 크게 잡으면 안된다는 것임, 물론 Batch 사이즈가 변경이 될 수록 즉 서로 다른 Batch에서 나온 것이 조금씩 다르긴 함
+
+![one](/img/DeepLearning/Options/fourteen.png)
+
+- Loss가 극단적으로 바뀌지 않아도 조금씩 바뀌긴 할 것임
+- 그래서 결국 Loss Function 에서의 최적점을 찾을 것임
+
+![one](/img/DeepLearning/Options/fifteen.png)
+
+- 거기서 이제 Input을 넣으면 그 Input이 어떤 파라미터를 지나서 실제 값과 차이를 갖는 그 에러 값 Loss를 최소화하게끔 가운데 파라미터를 계속 튜닝하는 것임
+
+![one](/img/DeepLearning/Options/sixteen.png)
+
+- 그래서 옵션값으로 넣는 것은 파라미터를 튜닝할 때 어떤식으로 튜닝할 건지에 대해서 결정하는 것임 InitialLearnRate나 Mini-batch나
+- 결국 결과값과 그 파라미터를 넣었을 때 결과값과 Prediction의 차이를 가지고 다시 파라미터를 튜닝을 함 이를 backpropagation이라고 함
+
+![one](/img/DeepLearning/Options/seventeen.png)
+
+- 이는 문제가 주어지면 결과를 내는게 아니라 랜덤하게 시작해서 파라미터를 지나 진짜값과 차이를 보고 파라미터를 튜닝하고 그 다음에 다음 데이터 셋에서 다시 이 과정을 반복하는 것임
+- 아래와 같이 다양하게 걸을 수 있는데 여기서 규칙은 무조건 Loss가 작아지는 내리막으로 가는 것 이를 gradient descent 즉, stochastic gradient descent라고 함, sgd라고 함
+
+![one](/img/DeepLearning/Options/eighteen.png)
+
+- 이는 앞서 options에서 설정한 sgdm에서 sgd를 의미함, 여기서 이 폭을 크게 나갈건지 말것인지에 대해서 정하여서 학습을 하는 것임
+- 수학식은 굳이 생각할 필요없음, 하지만 직접 layers를 설계해서 넣을려면 이 식을 만들고 계산을 해야함
+- 이는 Reality(GT, Ground Truth)와 Prediction 사이의 Loss를 보면서 예측한 값과 그 차이를 보는것이 Loss임
+
+![one](/img/DeepLearning/Options/nineteen.png)
+
+- 결국 batch 값을 가지고 조금씩 나아가면서 가장 낮은 값으로 가는 것임 랜덤하게 시작을 했지만 얼마나 공격적으로 나아갈 지 혹은 살살갈 지 알 수 있음
+
+![one](/img/DeepLearning/Options/twenty.png)
+![one](/img/DeepLearning/Options/twentyone.png)
+
+- 점점 작은 보폭으로 간다면 이상적으로 최적점으로 갈 수 있으나 시간이 많이 걸리게 됨, 단 보폭을 크게 하면 그 최적점을 찾는데 주변을 맴돌거나 결과적으로 못 찾을 수도 있음
+- 그래서 처음에는 크게 나아갔다가 못 찾으면 만일 최적점을 못 찾으면 그 보폭을 작게할 수 있고 혹은 보폭을 크게 해도 방향전환을 적게 할 수도 있음, 그 보폭을 Learning Rate로 설정하는 것임
+- 이를 momentum을 통해서 적용할 수 있음, 적당히 그 찾는거 전환을 조절
+
+![one](/img/DeepLearning/Options/twentytwo.png)
+![one](/img/DeepLearning/Options/twentythree.png)
+
+- 그래서 점점 최적점으로 낮아지는데 그 방향전환을 적당히 꺾을 수 있게 관성을 주는 것을 sgdm 즉, momentum이 알고리즘에서 sgd + m이 되어 sgdm이 되는 것임 stochastic gradient descent이면서 momentum하게
+- 그 momentum을 직접 결정, 조정할 수 있음
+- 그리고 여기서 Epochs 즉, 위에서 mini-batch로 나눠서 활용하는 방식으로 전체 데이터 셋을 나누는 것을 몇 번 설정할지에 대한 것을 MaxEpochs를 통해서 결정하여 처리함, 이렇게 한 번 다 사용하는 것을 하나의 Epochs를 썼다고 함
+- 그리고 InitialLearnRate 역시 중간에 값을 변경할 수 있고 처리할 수 있음
+- 이 학습 과정을 본다면 아래와 같음
+
+![one](/img/DeepLearning/Options/twentyfour.png)
+
+- 여기서 Random이어서 처음엔 Acc이 엄청 낮고 급격하게 높아짐, 여기서 Learning Rate를 더 낮게 설정하면 좀 더 Acc이 올라가는 비율이 완만하게 증가함, 여기서 Learning Rate가 낮아도 Epochs를 적게 사용하면 이 완만하게 증가하는 것 때문에 결과가 채 다 끝나지 않을수도 있음, 이땐 Epochs를 더 해줘야함
+- 여기서 Learning Rate에 대해서 스케줄링을 하여서 조절할 수 있음(Learning Rate는 첫번째 사진같이 Aggressive하게 Cautions 하게 갈 수 있음)
+
+![one](/img/DeepLearning/Options/twentyfive.png)
+![one](/img/DeepLearning/Options/twentysix.png)
+
+- 보폭에 따라 낮은 값으로 가는것은 마찬가지임
+- 여기서 Initial Learn Rate에 대해서 Epochs를 5번 사용했다면 이 Acc이 최고점인지 알 수 없음
+- 아래와 같이 Epochs를 50번으로 늘려면 5번 했을때와 비교했을 때 변동은 계속 존재하더라도 점점 수렴하며 높아지는 모습임을 볼 수 있음, 점점 좋아짐
+
+![one](/img/DeepLearning/Options/twentyseven.png)
+
+- 점점 좋아지므로 이 Epochs를 더 높여야 할 수 있음, 이를 100까지도 진행해 볼 수 있음, 아래를 보면 50번을 넘어가면 점점 아예 수렴함을 볼 수 있음, 이를 바탕으로 최소 50번 이상은 해야함을 알 수 있음
+
+![one](/img/DeepLearning/Options/twentyeight.png)
+
+- 여기서 만약 Learn Rate를 올리면 100번을 해도 값이 수렴하지 않음을 알 수 있음, 이는 최적점 근처에서 계속 수렴하지 못하고 맴도는 상황이라고 이해하면 됨, 이럴 땐 Learn Rate를 낮춰야함
+- 만약 여기서 Learn Rate를 더 낮춘다면 아래와 같이 Acc가 0.0001보다 더 완만하게 느리게 상승됨을 알 수 있음
+
+![one](/img/DeepLearning/Options/thirty.png)
+
+- 여기서 MiniBatch 사이즈를 즉 전체 데이터 셋을 그 만큼의 사이즈로 나눠서 연산할 수 있음 3000개를 200개로 나눈다면 15개의 Batch로 연산, 이렇게 Parameter를 업데이트 하는데 그럼 15개의 Batch만큼 15번 업데이트 하는 것임
+
+![one](/img/DeepLearning/Options/twentynine.png)
+
+- 그럼 MaxEpochs는 100이므로 전체 데이터셋을 쓰는 것이 15번 업데이트 하는 것이므로 15 x 100 = 1500번 계산되는 것임, 아래와 같이 보면 한 100번 정도 되야 수렴이 됨을 알 수 있음
+
+![one](/img/DeepLearning/Options/thirtyone.png)
+
+- 너무 수렴만 하면 overfiting이 될 수 있으므로 유의해야함
+- iteration의 개수는 batch의 개수와 동일함 그래서 위와 같이 100(MaxEpochs) x 15(Batch) = 1500이 됨
+- 그리고 위에서 Learn Rate를 바꾸면 에러가 발생함, 즉 보폭값을 낮추면 낮출수록 학습시간이 오래걸림을 알 수 있음, 여기서 그러면 학습시간을 빠르게 하면서 개선할 수 있는 방법이 있는데 gradient clipping을 활용할 수 있음
+- 즉 하강값이 급격하게 위에서는 0.001 같은 경우 이런식으로 들쭉날쭉한 경우 gradient clipping 하강 상승값이 너무 크면 갑자기 뛰면 이를 아예 날려버리고 픽스해서 설정함
+- 아래와 같이 쓸 수 있음, GradientThreshold 값을 정해줌, 강제로 gradient의 들쭉날쭉 하는 값을 교정해버림
+
+![one](/img/DeepLearning/Options/thirtytwo.png)
+
+- 이를 설정하고 돌리면 기울기가 크게 상승, 크게 하강한 경우 강제로 설정값을 바꿔버리는 것임, 계산을 하면 원래는 NaN이 되는 것이 아래와 같이 나옴
+
+![one](/img/DeepLearning/Options/thirtythree.png)
+
+- 아직 수렴을 안 했다는 것은 GradientThreshold이 값을 너무 크게 설정한 것이므로 다시 조정해주면 됨
+- 이러면 학습시간과 결과를 동시에 잡을 수 있음, 1로 설정하니 어느정도 수렴이 됨을 알 수 있음
+
+![one](/img/DeepLearning/Options/thirtyfour.png)
+
+- 마지막으로 알고리즘을 본다면 파라미터의 개수가 굉장히 많고 어떤 파라미터에 대해서 gradient가 다 다르게 적용할 것임, 그래서 이를 알고리즘으로 적용하는 것임
+- step, stride, Learning Rate 다 동일한 뜻임
+- 급격하게 떨어지는 경우는 small step을 그리고 천천히 변하는 경우는 larger step을 사용함
+
+![one](/img/DeepLearning/Options/thirtyfive.png)
+
+- 그래서 이런 상황에 맞게 다르게 적용할 수 있는데 sgdm의 경우 momentum을 가지고 이런 step을 움직임
+- RMSProp 같은 경우에는 과거의 history만을 가지고 gradient를 learning rate를 결정을 함
+
+![one](/img/DeepLearning/Options/thirtysix.png)
+
+- 이 두 가지를 모두 고려하는 것을 Adam이라고 함, momentum과 history를 다 사용함
+
+![one](/img/DeepLearning/Options/thirtyseven.png)
+
+- 결론적으론 RMSProp보다 sgdm을 더 많이 사용하긴 함, RMSProp은 과거의 영향을 많이 받아서 만약 그 경향성이 변동성이 매우 크면 똑같이 계속 크게 됨 history를 반영하므로, 너무 큰 변동성을 그대로 반영을 해버림
+- 학습을 하면서 계속 Options을 건드리면서 해야함, 실제로는 매우 연산이 오래걸림
+- Validation Data Set의 경우 Overfiting의 경우를 경계해야 하므로 이를 신경을 써야함
+- 여기서 Loss도 낮고 Mini-BatchAcc가 높은데 즉, training data에 대해선 잘 나오는데 testAcc가 낮은 경우가 있음, 이러면 과적합임, 즉, training data를 너무 과하게 학습해서 training data에 대해서만 결과가 좋고 test data에 대해서는 일반적인 특징이 아닌 너무 과하게 학습을 해서 test에 대해서는 score가 낮게 나오는 것임
+- 이를 위해서 Validation Data Set을 사용해야함
+- 만약 일반적인 데이터를 통으로 사용한다면 아래와 같이 3개를 받아야함, 즉 data를 나눌 때 애초에 val data를 추가해서 받으라는 것
+
+![one](/img/DeepLearning/Options/thirtyeight.png)
+
+- Validation Data는 array 방식이든, cell 방식이든 어떤 방식이든 상관이 없음
+- 여기서 그렇게 데이터를 만들고 옵션에다가 추가하면 됨 Validation Data와 Validation을 몇 번 할건지에 대해서 얼마나 자주 할 건지
+
+![one](/img/DeepLearning/Options/thirtynine.png)
+
+- 이를 실행하면 점선 그래프가 나오는데 이는 Validation data에 대한 accuracy 값임, training data 보다는 좀 낮고 그럼
+- 아래와 같이 결과는 동일하게 나옴을 알 수 있음
+
+![one](/img/DeepLearning/Options/fourty.png)
+
+- 수렴을 안하면 Epochs를 더 올려주면 됨
