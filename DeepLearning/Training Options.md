@@ -190,3 +190,125 @@
 ![one](/img/DeepLearning/Options/fourty.png)
 
 - 수렴을 안하면 Epochs를 더 올려주면 됨
+
+## Training Options 추가
+- 데이터를 로드하고 아래와 같이 해당 데이터에 대해서 볼 수 있음
+
+![one](/img/DeepLearning/Options/fourtyone.png)
+![one](/img/DeepLearning/Options/fourtytwo.png)
+![one](/img/DeepLearning/Options/fourtythree.png)
+
+- 위를 통해 패션잡화로 데이터가 이루어져 있고 그에 맞게 카테고리가 정해져 있음을 알 수 있음
+- 이 카테고리 역시 find를 통해 인덱스 혹은 logical array로 뽑을 수 있음
+
+![one](/img/DeepLearning/Options/fourtyfour.png)
+
+- 그리고 데이터가 grayscale과 해상도가 떨어짐을 알 수 있음
+- size함수를 통해 28x28x1임을 알 수 있음
+- 데이터 자체만을 본다면 simple layer를 통해서 구분이 쉽게 가능함을 알 수 있음
+- 시간 관계상 평가때 ValData를 안 한 것이지만 ValData는 무조건 있어야함 과적합을 볼 수 있고 이를 통해서 Training Options을 재수정할 수 있으므로
+- 현재 쓰고 있는 데이터는 데이터가 복잡하지 않으므로 심플한 layer를 사용할 것임
+- 여기서 validation data의 경우 test data는 절대 건드리면 안되므로 training 데이터를 활용하여 data를 구분할 것임
+- pt1, pt2를 통해서 training, test data의 인덱스를 나눔, 아래와 같이 나눌 수 있음
+
+![one](/img/DeepLearning/Options/fourtyfive.png)
+
+- 하지만 굳이 test는 안써도 됨 `~training`이 test이므로 그래서 아래와 같이 씀
+
+![one](/img/DeepLearning/Options/fourtysix.png)
+
+- 여기서 또 다른 방식으로 training 함수를 쓰지 않고 cvpartition에서 이미 구분이 되어 있으므로 pt.training, pt.test로 그대로 사용해서 할 수 있음
+- 대신 인덱스 값은 랜덤으로 계속 변할 수 있음
+- 그 다음 간단하게 layer를 쓸 것임, 이전에 학습한 layer와 동일함, 단 여기서 디테일한 부분은 조금 다름
+- 이전에 쓰던 것의 필터는 3x3인데 현재 쓰고 있는 데이터는 28x28인데 이 값에 대해서도 한 번쯤은 더 생각해봐야함, 일단 현재 데이터 셋에서는 적당한데 여기서 4x4 더 크게 가져가면 stride 값을 너무 크게 가져가게 됨, sliding 하는데 있어서 폭이 크거나 너무 과함
+
+![one](/img/DeepLearning/Options/fourtyseven.png)
+
+- 그 다음 기본적으로 알고 있는 옵션을 가지고 그대로 써주면 됨, Validation data는 항상 봐야함, 그런 데이터가 아닌 이상 거의 무조건 씀, 그리고 학습을 시키고 Validation 판단을 하면 됨
+
+![one](/img/DeepLearning/Options/fourtyeight.png)
+![one](/img/DeepLearning/Options/fourtynine.png)
+
+- 일단 과적합이 되지 않고 Validation이 적절함을 알 수 있음, 그리고 어느정도 Acc이 Validation에서 평탄화 된 것을 알 수 있지만 이것 말고 Loss를 좀 더 눈여겨 봐야함, Loss는 점점 간격이 벌어지는 것을 위에서 알 수 있음
+- 여기서 Acc는 평탄화가 되어 있는데 Loss를 보면 떨어질만한 여지가 있음 Val 기준으로, 충분히 사용을 했음에도 Val의 그래프가 Plateau가 Loss는 개선의 여지가 충분히 있음
+- 그리고 민감도 측면에서 Loss가 좀 더 높음, 그 이유는 확실하게 알고 있어야함
+- 일단 위의 그래프 상에선 개선의 여지 InitialLearnRate를 더 높일 수 있음
+- 여기서 Acc은 0.73 정도 나옴
+
+![one](/img/DeepLearning/Options/fifty.png)
+
+- 여기서 학습률을 0.001로 높이면 아래와 같이 나옴을 알 수 있음
+
+![one](/img/DeepLearning/Options/fiftyone.png)
+![one](/img/DeepLearning/Options/fiftytwo.png)
+
+- 여기서 학습률을 높이니깐 Plateau가 눈에 띄지 않음, 즉 개선의 여지가 존재함 여기서  InitialLearnRate를 더 조절을 해서 정확도를 높일 여지가 있음, 정확도 역시 좋아짐을 알 수 있음
+- InitialLearnRate는 10의 배수 형태로 조절을 함 여기서 0.01로 높일 수 있음, 하지만 여기서는 살짝 이상한 부분이 감지됨, 그래도 정확도는 조금 더 올라가긴 함
+
+![one](/img/DeepLearning/Options/fiftythree.png)
+![one](/img/DeepLearning/Options/fiftyfour.png)
+
+- 하지만 Acc 그래프에서 간격이 너무 많이 벌어짐, 그리고 Loss에서 Plateo가 이미 지나간 것임을 볼 수 있음, Acc에서 어느정도 수렴하는 것처럼 보이다가 Val 그래프와 간격이 벌어지면서 과적합이 일어나는 것을 보임
+- 과적합이 일어나더라도 Acc이 좋으면 상관이 없긴함 하지만 과적합이 발생하면 Loss 값을 봐야함, Loss 민감도가 더 높기 때문에 가만 보면 30번 미만에서 아주 작은 Loss를 찍다가 그 이후에 Loss가 올라가는 것을 보임
+- 이것은 이 부분에서 과적합이 발생하여 Val Loss가 증가하면서 Acc가 떨어지는것임을 알 수 있음
+- 이를 보면 LearnRate가 크니 빠르게 수렴은 하는것을 볼 수 있음, 그렇기 때문에 민감도는 Loss가 더 높으므로 Accuracy보다도 Loss가 떨어지는 것을 먼저 보는것이 맞음, Acc비교보다 Loss를 보는게 나음
+- MaxEpochs를 0.01에서 100번을 하면 아래와 같이 나옴
+
+![one](/img/DeepLearning/Options/fiftyfive.png)
+
+- 즉 위에서 말했듯이 0.01에서 50번을 할 경우 민감도가 높아서 정확도가 떨어지는 부분이었는데 100번을 할 경우 그 Loss가 높아지고 정확도가 떨어짐을 알 수가 있음
+- 그래서 이 경우 MaxEpochs의 경우 20 ~ 30정도 선으로 맞추는 것이 좋음, 아래와 같이 0.01에서 27 정도가 적당함을 알 수 있음
+
+![one](/img/DeepLearning/Options/fiftysix.png)
+
+- 앞서 100번을 기준으로 왜 Loss 값이 민감도가 높고 높게 나오냐면 Acc의 경우 제대로 데이터를 맞출 경우 그 케이스가 반영이 됨 하지만 Loss는 Function에 의해서 구해지고 Loss는 score 값으로 같이 뽑히는 것이 있는데 아래와 같이 confidence값 즉 예측한 것을 어느정도 확신을 갖고 말할 수 있는지를 말함
+
+![one](/img/DeepLearning/Options/fiftyseven.png)
+
+- 여기서 scores에 대해서 Acc의 경우 예측만 맞으면 그것이 반영이 되서 Acc를 계산하지만 Loss의 경우 정확히 맞췄어도 위에서 본 scores값에 따라서 그 score 값이 낮다고 한다면 Loss가 늘어나는 것임, 하지만 Acc에서 맞추는것은 동일하지만 scores에 대해서 이게 맞다고 확신하는 자신감 score가 상대적으로 낮아지기 때문에 이게 Loss에 반영이 되서 Loss가 항상 Acc보다 민감한 것임
+- 학습률이 너무 높으면 주변을 맴도는 값이 튀어버리는 현상이 일어남, 아래와 같이 NaN, undefined로 나오거나 아니면 값이 맴돌면서 안 나오는 경우가 있음
+
+![one](/img/DeepLearning/Options/fiftyeight.png)
+
+- 그래서 이럴 때는 InitialLeranRate를 낮추는 것이 맞음, 비슷하게 나오면 10의 배수로 계속 낮추면서 최대의 고정 적정 학습률을 찾는 것이 좋음
+- 그 다음 MaxEpochs의 경우 위에서 100번을 했을 때의 case에서 20 ~ 30이 최적 값임을 알 기 때문에 그 때 끊어줘야 함을 알 수 있음, 그 이후 Loss가 증가하므로, 그리고 아래 표시한대로 차이가 벌어지기 시작하면 과적합임
+
+![one](/img/DeepLearning/Options/fiftynine.png)
+
+- 과적합이 난다고 무조건 잘못됐다고 할 순 없음, Acc의 영향을 안 끼치는 경우가 있기 때문임, 그래도 조심을 해야하는 것은 맞음, 어느정도의 차이가 있는것은 당연함
+- valData는 과적합을 모니터링 하기 위해서 활용함, 여기서 나타나는 어느정도의 차이는 과적합이 시작함을 나타냄 10% 이내는 어느정도 인정함
+- training의 flow chart는 아래와 같이 구성되어 있음
+
+![one](/img/DeepLearning/Options/sixty.png)
+
+- 위에서 설명했다시피 learn Rate를 조절해서 튀는 값 NaN을 조절하고 그 다음 loss가 줄어드는 상황에서 Epochs를 늘려서 학습을 더 시키고 이 값을 수렴하게함, 여기서 스케줄링으로 조절 할 수도 있음 → underfit한 상태인지 체크
+- 여기서 과적합을 체크할 때 위의 과정을 다 거친후 과적합에 대해서 training data에 대해서 조절하거나 regularlization을 할 수 있음
+- 여기서 아키텍처를 설계할 때 pretrained를 보고 모방하면서 해나가고 구글링하면서 비교대조를 하면서 해야함
+- 여기서 과적합을 방지하기 위해서 dropout layer를 fullyConnected나 convolutional layer를 넣으면 됨
+- 여기서 어느정도 수렴을 하는데 있어서 underfit 상태를 돌파하거나 병렬로 연결해서 다시 구성을 해서 처리할 수 있음
+- 또 다른 옵션을 아래와 같이 테스트 해볼 수 있음, 과적합이 빨리 일어남을 알 수 있음
+
+![one](/img/DeepLearning/Options/sixtyone.png)
+
+- 아래와 같이 LearnRate에 대해서 조절을 해 줄 수 있음 - documentation 참조
+- 여기서 과적합을 아래와 같이 어느정도 잡아줌을 알 수 있고 정확도도 올라감을 알 수 있음
+
+![one](/img/DeepLearning/Options/sixtytwo.png)
+![one](/img/DeepLearning/Options/sixtythree.png)
+
+- 여기서 과적합을 더 잡기 위해서 Regularization을 건드릴 수 있음
+
+![one](/img/DeepLearning/Options/sixtyfour.png)
+![one](/img/DeepLearning/Options/sixtyfive.png)
+
+- 여기서 이에 그치지 않고 layer을 더 깊게 짤 수도 있음, 아래와 같이 추가 레이어를 만들어 넣을 수 있음 단 주의할 점은 발전적인 방향으로 나가기 위해서는 위에서 filter개수에 대해서 20개 고정이 아니라 더 늘려주는 것이 좋음
+
+![one](/img/DeepLearning/Options/sixtysix.png)
+
+- 근데 큰 정확도의 차이는 나지 않음, 대략적으로 층만 쌓았기 때문임
+- 여기서 좀 더 정교하게 디테일한 값을 아래와 같이 조절을 할 수 있음, filterSize 위주로 조절을 할 수 있음
+
+![one](/img/DeepLearning/Options/sixtyseven.png)
+
+- 여기서 오히려 정확도는 좀 더 올라감, 옵션을 건드리지 않았다는 가정하에
+- 이런식으로 옵션을 계속 건드릴 수 있음, 과적합 방지 추가적으로 GradientThreshold 역시 만들 수 있음
